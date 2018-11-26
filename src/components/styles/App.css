@@ -1,0 +1,37 @@
+body {
+    background-color: #007272;
+}
+
+html, body {
+    margin: 0px;
+    height: 100%;
+    font-family: 'Acme', sans-serif;
+}
+
+.background {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: -50;
+}
+
+.background-bow {
+    position: absolute;
+    top: -450px;
+    right: 0px;
+    background-color: #a4e1d2;
+    border-top-right-radius: 100%;
+    height: 1000px;
+    width: 125%;
+    z-index: -50;
+}
+
+.background-block {
+    position: absolute;
+    top: 549px;
+    background-color: #a4e1d2;
+    height: 100%;
+    width: 100%;
+    z-index: -50;
+}

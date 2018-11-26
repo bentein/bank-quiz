@@ -1,0 +1,54 @@
+.start-screen-wrapper {
+    padding: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.start-screen-header {
+    font-size: 7em;
+    color: #ffffff;
+    margin-top: 100px;
+}
+
+.name-input {
+    width: 90%;
+    font-size: 6em;
+    padding: 15px;
+    align-self: center;
+    text-align: center;
+    border-radius: 25px;
+    margin-bottom: 125px;
+    border: none;
+    background: #ffffff;
+    font-family: 'Acme', sans-serif;
+}
+
+.easy-button, .medium-button, .hard-button {
+    font-size: 4em;
+    width: 75%;
+    padding: 50px;
+    margin: 30px;
+    align-self: center;
+    border-radius: 50px;
+    border: none;
+    background: none;
+    font-family: 'Acme', sans-serif;
+}
+
+.difficulty-paragraph {
+    font-size: 4em;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.easy-button {
+    background-color: rgb(232,255,229);
+}
+.medium-button {
+    background-color: rgb(255,254,229);
+}
+.hard-button {
+    background-color: rgb(249,225,223);
+}

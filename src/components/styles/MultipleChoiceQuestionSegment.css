@@ -1,0 +1,29 @@
+.question-segment-wrapper {
+    position: relative;
+    top: 150px;
+    margin: 0px 50px;
+    font-size: 4em;
+}
+
+.question-header {
+    text-align: center;
+}
+
+.question-explanation {
+    margin: 64px 50px;
+}
+
+.question-answer-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.question-answer {
+    flex-basis: 80%;
+    font-size: 0.75em;
+    margin-bottom: 30px;
+    height: 200px;
+    border-radius: 25px;
+}
