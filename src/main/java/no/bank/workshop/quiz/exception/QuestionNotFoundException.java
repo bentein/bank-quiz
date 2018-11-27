@@ -1,4 +1,4 @@
-package no.bank.workshop.exception;
+package no.bank.workshop.quiz.exception;
 
 public class QuestionNotFoundException extends RuntimeException {
 }

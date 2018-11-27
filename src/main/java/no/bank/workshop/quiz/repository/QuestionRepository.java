@@ -1,7 +1,7 @@
-package no.bank.workshop.repository;
+package no.bank.workshop.quiz.repository;
 
-import no.bank.workshop.domain.QuestionDifficulty;
-import no.bank.workshop.domain.QuizQuestion;
+import no.bank.workshop.quiz.domain.QuestionDifficulty;
+import no.bank.workshop.quiz.domain.QuizQuestion;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

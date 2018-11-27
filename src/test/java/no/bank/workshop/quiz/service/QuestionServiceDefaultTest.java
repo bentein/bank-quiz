@@ -1,20 +1,17 @@
-package no.bank.workshop.service;
+package no.bank.workshop.quiz.service;
 
-import no.bank.workshop.domain.QuestionDifficulty;
-import no.bank.workshop.domain.QuizAnswer;
-import no.bank.workshop.domain.QuizQuestion;
-import no.bank.workshop.exception.QuestionNotFoundException;
-import no.bank.workshop.repository.QuestionRepository;
-import org.junit.After;
+import no.bank.workshop.quiz.domain.QuestionDifficulty;
+import no.bank.workshop.quiz.domain.QuizAnswer;
+import no.bank.workshop.quiz.domain.QuizQuestion;
+import no.bank.workshop.quiz.exception.QuestionNotFoundException;
+import no.bank.workshop.quiz.repository.QuestionRepository;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;

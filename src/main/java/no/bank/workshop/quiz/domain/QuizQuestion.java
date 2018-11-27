@@ -1,4 +1,4 @@
-package no.bank.workshop.domain;
+package no.bank.workshop.quiz.domain;
 
 import lombok.*;
 

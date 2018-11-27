@@ -1,7 +1,7 @@
-package no.bank.workshop.service;
+package no.bank.workshop.quiz.service;
 
-import no.bank.workshop.domain.QuestionDifficulty;
-import no.bank.workshop.domain.QuizQuestion;
+import no.bank.workshop.quiz.domain.QuestionDifficulty;
+import no.bank.workshop.quiz.domain.QuizQuestion;
 
 import java.util.List;
 
