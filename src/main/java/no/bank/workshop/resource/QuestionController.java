@@ -3,6 +3,7 @@ package no.bank.workshop.resource;
 import no.bank.workshop.domain.QuestionDifficulty;
 import no.bank.workshop.domain.QuizQuestion;
 import no.bank.workshop.service.QuestionService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +24,13 @@ public class QuestionController {
     }
 
     @GetMapping(value = "/{questionId}")
-    public QuizQuestion getQuestion(@PathVariable String questionId) {
+    public QuizQuestion getQuestion(@PathVariable int questionId) {
         return questionService.getQuestion(questionId);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveQuestion(@RequestBody QuizQuestion question) {
+        questionService.saveQuestion(question);
     }
 }

@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface QuestionService {
     List<QuizQuestion> getAllQuestions(QuestionDifficulty difficulty);
-    QuizQuestion getQuestion(String id);
+    QuizQuestion getQuestion(int id);
+    void saveQuestion(QuizQuestion question);
 }
