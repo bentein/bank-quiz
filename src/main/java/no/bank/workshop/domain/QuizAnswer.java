@@ -1,8 +1,8 @@
 package no.bank.workshop.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -30,6 +30,10 @@ public class QuizAnswer {
     private QuizQuestion question;
 
     @Type(type="numeric_boolean")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private boolean isCorrect;
+
+    @JsonIgnore
+    public boolean getIsCorrect() {
+        return isCorrect;
+    }
 }
