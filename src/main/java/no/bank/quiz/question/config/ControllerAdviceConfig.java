@@ -1,7 +1,7 @@
-package no.bank.workshop.quiz.config;
+package no.bank.quiz.question.config;
 
-import no.bank.workshop.quiz.domain.ErrorMessage;
-import no.bank.workshop.quiz.exception.QuestionNotFoundException;
+import no.bank.quiz.question.domain.ErrorMessage;
+import no.bank.quiz.question.exception.QuestionNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

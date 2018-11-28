@@ -1,9 +1,9 @@
-package no.bank.workshop.quiz.service;
+package no.bank.quiz.question.service;
 
-import no.bank.workshop.quiz.domain.QuestionDifficulty;
-import no.bank.workshop.quiz.domain.QuizQuestion;
-import no.bank.workshop.quiz.exception.QuestionNotFoundException;
-import no.bank.workshop.quiz.repository.QuestionRepository;
+import no.bank.quiz.question.domain.QuestionDifficulty;
+import no.bank.quiz.question.exception.QuestionNotFoundException;
+import no.bank.quiz.question.repository.QuestionRepository;
+import no.bank.quiz.question.domain.QuizQuestion;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

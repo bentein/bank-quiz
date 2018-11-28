@@ -1,4 +1,4 @@
-package no.bank.workshop.quiz.domain;
+package no.bank.quiz.question.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;

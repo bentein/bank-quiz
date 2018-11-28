@@ -1,8 +1,8 @@
-package no.bank.workshop.quiz.resource;
+package no.bank.quiz.question.resource;
 
-import no.bank.workshop.quiz.domain.QuestionDifficulty;
-import no.bank.workshop.quiz.domain.QuizQuestion;
-import no.bank.workshop.quiz.service.QuestionService;
+import no.bank.quiz.question.domain.QuestionDifficulty;
+import no.bank.quiz.question.domain.QuizQuestion;
+import no.bank.quiz.question.service.QuestionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
