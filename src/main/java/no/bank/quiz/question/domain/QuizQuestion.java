@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="question")
+@Table(name = "question")
 public class QuizQuestion {
 
     @Builder

@@ -3,6 +3,7 @@ package no.bank.quiz.question.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name="answer")
+@Table(name = "answer")
 public class QuizAnswer {
 
     @Builder
@@ -27,9 +28,10 @@ public class QuizAnswer {
     @ManyToOne(optional = false)
     @JoinColumn(name = "question_id")
     @JsonIgnore
+    @ToString.Exclude
     private QuizQuestion question;
 
-    @Type(type="numeric_boolean")
+    @Type(type = "numeric_boolean")
     private boolean isCorrect;
 
     @JsonIgnore

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/questions")
+@RequestMapping(value = "/question")
 public class QuestionController {
 
     private QuestionService questionService;
@@ -18,8 +18,8 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-    @GetMapping
-    public List<QuizQuestion> getAllQuestions(@RequestParam QuestionDifficulty difficulty) {
+    @GetMapping(value = "/{difficulty}")
+    public List<QuizQuestion> getAllQuestions(@PathVariable QuestionDifficulty difficulty) {
         return questionService.getAllQuestions(difficulty);
     }
 
@@ -32,5 +32,10 @@ public class QuestionController {
     @ResponseStatus(HttpStatus.CREATED)
     public void saveQuestion(@RequestBody QuizQuestion question) {
         questionService.saveQuestion(question);
+    }
+
+    @GetMapping("/difficulties")
+    public QuestionDifficulty[] getAllDifficulties() {
+        return QuestionDifficulty.values();
     }
 }
