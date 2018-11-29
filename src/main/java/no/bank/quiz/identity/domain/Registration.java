@@ -1,9 +1,9 @@
 package no.bank.quiz.identity.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -15,6 +15,7 @@ import java.util.TimeZone;
 @Builder
 @Entity
 @Table(name = "registration")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Registration {
 
     @Id
@@ -31,7 +32,7 @@ public class Registration {
 
     @OneToMany(
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+            fetch = FetchType.LAZY)
     @JoinColumn(name = "registration_id")
     private List<QuizResponse> responses;
 

@@ -5,6 +5,8 @@ import no.bank.quiz.identity.exception.RegistrationNotFoundException;
 import no.bank.quiz.identity.repository.RegistrationRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class RegistrationServiceDefault implements RegistrationService {
     private RegistrationRepository registrationRepository;
@@ -20,7 +22,10 @@ public class RegistrationServiceDefault implements RegistrationService {
     }
 
     @Override
-    public Registration getUserRegistration(Integer id) {
-        return registrationRepository.findById(id).orElseThrow(RegistrationNotFoundException::new);
+    @Transactional
+    public Registration getUserRegistration(Integer registrationId) {
+        Registration registration = registrationRepository.findById(registrationId).orElseThrow(RegistrationNotFoundException::new).loadResponses();
+        registration.getResponses().size();
+        return registration;
     }
 }

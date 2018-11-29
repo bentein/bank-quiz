@@ -5,6 +5,8 @@ import no.bank.quiz.identity.exception.IdentityNotFoundException;
 import no.bank.quiz.identity.repository.IdentityRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class IdentityServiceDefault implements IdentityService {
 
@@ -20,6 +22,7 @@ public class IdentityServiceDefault implements IdentityService {
     }
 
     @Override
+    @Transactional
     public Identity getIdentity(Integer identityId) {
         return identityRepository.findById(identityId).orElseThrow(IdentityNotFoundException::new);
     }

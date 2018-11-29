@@ -17,7 +17,7 @@ public class Identity {
 
     @OneToOne(
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+            fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
     private ContactInfo contactInfo;
 
@@ -26,4 +26,5 @@ public class Identity {
             fetch = FetchType.EAGER)
     @JoinColumn(name = "identity_id")
     private Set<Registration> registrations;
+
 }
