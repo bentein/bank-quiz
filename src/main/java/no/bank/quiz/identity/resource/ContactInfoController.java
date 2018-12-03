@@ -22,4 +22,10 @@ public class ContactInfoController {
     public void registerContactInfo(@RequestBody ContactInfo contactInfo) {
         contactInfoService.updateContactInfo(contactInfo);
     }
+
+    @DeleteMapping("/identityId")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void deleteContactInfo(@PathVariable Integer identityId) {
+        contactInfoService.deleteContactInfo(identityId);
+    }
 }

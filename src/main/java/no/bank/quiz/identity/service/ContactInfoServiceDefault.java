@@ -17,4 +17,9 @@ public class ContactInfoServiceDefault implements ContactInfoService {
     public void updateContactInfo(ContactInfo contactInfo) {
         contactInfoRepository.save(contactInfo);
     }
+
+    @Override
+    public void deleteContactInfo(Integer identityId) {
+        contactInfoRepository.deleteById(identityId);
+    }
 }
