@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/question")
+@RequestMapping(value = "/questions")
 public class QuestionController {
 
     private QuestionService questionService;
@@ -18,8 +18,8 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-    @GetMapping(value = "/{difficulty}")
-    public List<QuizQuestion> getAllQuestions(@PathVariable QuestionDifficulty difficulty) {
+    @GetMapping
+    public List<QuizQuestion> getAllQuestions(@RequestParam QuestionDifficulty difficulty) {
         return questionService.getAllQuestions(difficulty);
     }
 
