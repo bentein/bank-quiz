@@ -1,6 +1,6 @@
 {
   "name": "bank_code_quiz_client",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Quiz client for use in a certain Norwegian bank",
   "main": "index.js",
   "scripts": {

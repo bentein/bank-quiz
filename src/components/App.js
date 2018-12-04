@@ -16,14 +16,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app-wrapper">
         <div className="background">
           <div className="background-bow"></div>
           <div className="background-block"></div>
         </div>
-        <div>
-          <StartScreen></StartScreen>
-        </div>
+        <StartScreen></StartScreen>
       </div>
     );
   }
