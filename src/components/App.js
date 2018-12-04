@@ -4,7 +4,8 @@ import './styles/App.css';
 
 import Timer from "./Timer";
 import QuestionSegment from "./QuestionSegment";
-import StartScreen from "./StartSegment";
+import StartSegment from "./StartSegment";
+import ScoreSegment from "./ScoreSegment";
 
 class App extends React.Component {
   constructor(props) {
@@ -27,9 +28,10 @@ class App extends React.Component {
   }
 
   getActiveScreen() {
-  if (this.state.activity === "start") return <StartScreen stateSetter={this.setState.bind(this)}></StartScreen>;
-    if (this.state.activity === "question") return [<Timer key="timer" maxTime={300} stateSetter={this.setState.bind(this)}></Timer>,
-        <QuestionSegment key="questions" questions={this.state.questions} stateSetter={this.setState.bind(this)}></QuestionSegment>]
+    if (this.state.activity === "start") return <StartSegment stateSetter={(args) => this.setState(args)}></StartSegment>;
+    else if (this.state.activity === "question") return [<Timer key="timer" maxTime={300} stateSetter={(args) => this.setState(args)}></Timer>,
+        <QuestionSegment key="questions" questions={this.state.questions} stateSetter={(args) => this.setState(args)}></QuestionSegment>]
+    else if (this.state.activity === "score") return <ScoreSegment stateSetter={(args) => this.setState(args)}></ScoreSegment>
   }
 
   render() {

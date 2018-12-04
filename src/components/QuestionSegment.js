@@ -20,7 +20,7 @@ class QuestionSegment extends React.Component {
         let newIndex = this.state.index + 1;
         if (newIndex >= this.state.questions.length) {
             this.setAppState({
-                activity: "start"
+                activity: "score"
             });
         }
         this.setState({
