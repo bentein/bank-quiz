@@ -10,23 +10,14 @@ class StartSegment extends React.Component {
     this.state = {}
   }
 
-  render() {
-    return(
-      <div className="start-screen-wrapper">
-        <h1 className="start-screen-header">Code Quiz</h1>
-        <input className="name-input" type="text"></input>
-        <p className="difficulty-paragraph">Choose your difficulty:</p>
-        <button className="easy-button" value="EASY" onClick={(e) => this.startQuiz(e)}>EASY</button>
-        <button className="medium-button" value="MEDIUM" onClick={(e) => this.startQuiz(e)}>MEDIUM</button>
-        <button className="hard-button" value="HARD" onClick={(e) => this.startQuiz(e)}>HARD</button>
-      </div>
-    );
-  }
-
   startQuiz(event) {
+    let storage = window.localStorage;
+
     let name = document.querySelector(".name-input").value;
     let difficulty = event.target.value;
     let registrationId = this.getRegistration(name, difficulty);
+
+    storage.setItem("name", name);
     
     this.setAppState({
         activity : "question",
@@ -44,19 +35,43 @@ class StartSegment extends React.Component {
     
     registrations.push(registrationId);
     storage.setItem("registrations", JSON.stringify(registrations));
-    storage.setItem("registrationId", registrationId);
 
     return registrationId;
   }
 
   doRegistrationRequest(identity, name, difficulty) {
+    let storage = window.localStorage;
+
     let registrationRequest = {
       identityId: identity,
       name: name,
       difficulty: difficulty
     }
+
     console.log(registrationRequest);
-    return 1;
+
+    let registrationId = 1;
+    storage.setItem("registrationId", registrationId);
+
+    return registrationId;
+  }
+
+  render() {
+    let storage = window.localStorage;
+
+    let name = storage.getItem("name") || "";
+    let contactInfoSubmitted = storage.getItem("contactinfo") || false;
+
+    return(
+      <div className="start-screen-wrapper">
+        <h1 className="start-screen-header">Code Quiz</h1>
+        <input className="name-input" type="text" defaultValue={name}></input>
+        <p className="difficulty-paragraph">Choose your difficulty:</p>
+        <button className="easy-button" value="EASY" onClick={(e) => this.startQuiz(e)}>EASY</button>
+        <button className="medium-button" value="MEDIUM" onClick={(e) => this.startQuiz(e)}>MEDIUM</button>
+        <button className="hard-button" value="HARD" onClick={(e) => this.startQuiz(e)}>HARD</button>
+      </div>
+    );
   }
 
   getQuestions(difficulty) {

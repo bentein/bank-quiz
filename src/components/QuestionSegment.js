@@ -20,7 +20,8 @@ class QuestionSegment extends React.Component {
         let newIndex = this.state.index + 1;
         if (newIndex >= this.state.questions.length) {
             this.setAppState({
-                activity: "score"
+                activity: "score",
+                score: this.getScore()
             });
         }
         this.setState({
@@ -42,6 +43,13 @@ class QuestionSegment extends React.Component {
         }
 
         console.log(responseObject);
+    }
+
+    getScore() {
+        let storage = window.localStorage;
+        let registrationId = storage.getItem("registrationId");
+        
+        return Math.trunc(Math.random() * 100);
     }
 
     render() {

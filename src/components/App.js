@@ -31,7 +31,7 @@ class App extends React.Component {
     if (this.state.activity === "start") return <StartSegment stateSetter={(args) => this.setState(args)}></StartSegment>;
     else if (this.state.activity === "question") return [<Timer key="timer" maxTime={300} stateSetter={(args) => this.setState(args)}></Timer>,
         <QuestionSegment key="questions" questions={this.state.questions} stateSetter={(args) => this.setState(args)}></QuestionSegment>]
-    else if (this.state.activity === "score") return <ScoreSegment stateSetter={(args) => this.setState(args)}></ScoreSegment>
+    else if (this.state.activity === "score") return <ScoreSegment score={this.state.score} stateSetter={(args) => this.setState(args)}></ScoreSegment>
   }
 
   render() {

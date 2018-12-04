@@ -27,10 +27,19 @@ class Timer extends React.Component {
         });
         if (Math.ceil((this.state.endTime - this.state.time) / 1000) <= 0) {
             clearInterval(interval);
+            
+            let score = this.getScore();
             this.setAppState({
                 activity:"start"
             })
         }
+    }
+
+    getScore() {
+        let storage = window.localStorage;
+        let registrationId = storage.getItem("registrationId");
+        
+        return Math.trunc(Math.random() * 100);
     }
 
     componentWillUnmount() {
