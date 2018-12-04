@@ -7,7 +7,8 @@ class Timer extends React.Component {
         super(props);
 
         let startTime = + new Date();
-        
+        this.setAppState = props.stateSetter;
+
         this.state = {
             time: startTime,
             endTime: startTime + props.maxTime*1000,
@@ -17,7 +18,7 @@ class Timer extends React.Component {
     }
 
     startTimer() {
-        let interval = setInterval(() => this.doCountdown(interval), 200);
+        this.interval = setInterval(() => this.doCountdown(this.interval), 200);
     }
 
     doCountdown(interval) {
@@ -26,14 +27,20 @@ class Timer extends React.Component {
         });
         if (Math.ceil((this.state.endTime - this.state.time) / 1000) <= 0) {
             clearInterval(interval);
-            console.log("Timer reached 0");
+            this.setAppState({
+                activity:"start"
+            })
         }
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     render() {
         return(
             <div className="timer-wrapper">
-                <span className="timer-label">Gjenstående: </span><span className="timer">{Math.ceil((this.state.endTime - this.state.time) / 1000)} s</span>
+                <span className="timer-label">Remaining: </span><span className="timer">{Math.ceil((this.state.endTime - this.state.time) / 1000 - 1)}s</span>
             </div>
         );
     }

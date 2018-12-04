@@ -5,30 +5,45 @@ import './styles/MultipleChoiceQuestionSegment.css';
 class MultipleChoiceQuestionSegment extends React.Component {
     constructor(props) {
         super(props);
-
-        let questions = props.questions;
         
+        this.setAppState = props.stateSetter;
         this.state = {
-            number: 0,
-            explanation: questions[0].explanation,
-            alternatives: questions[0].alternatives
+            index: 0,
+            questions: props.questions
         }
+        
+    }
 
+    doAnswer(event) {
+        let newIndex = this.state.index + 1;
+        if (newIndex >= this.state.questions.length) {
+            this.setAppState({
+                activity: "start"
+            });
+        }
+        this.setState({
+            index: newIndex
+        });
     }
 
     render() {
         let answers = [];
 
-        for (let i in this.state.alternatives) {
-            let alternative = this.state.alternatives[i];
-            answers.push(<button key={i} className="question-answer" value={alternative.value}>{alternative.text}</button>)
+        let index = this.state.index;
+        let question = this.state.questions[index];
+
+        for (let i in question.answers) {
+            let alternative = question.answers[i];
+            answers.push(<button key={i} className="question-answer" value={alternative.id} onClick={this.doAnswer.bind(this)}>{alternative.description}</button>)
         }
 
         return(
             <div className="question-segment-wrapper">
-                <h1 className="question-header">Question #{this.state.number + 1}</h1>
+                <div className="question-number-wrapper">
+                    <span className="question-number-label">Question #{this.state.index + 1}</span>
+                </div>
                 <div className="question-segment">
-                    <p className="question-explanation">{this.state.explanation}</p>
+                    <p className="question-explanation">{question.description}</p>
                     <div className="question-answer-wrapper">{answers}</div>
                 </div>
             </div>

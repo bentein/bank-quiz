@@ -11,7 +11,14 @@ class App extends React.Component {
     super(props);
     
     this.state = {
+      activity:"start"
     }
+  }
+
+  getActiveScreen() {
+  if (this.state.activity === "start") return <StartScreen stateSetter={this.setState.bind(this)}></StartScreen>;
+    if (this.state.activity === "question") return [<Timer key="timer" maxTime={300} stateSetter={this.setState.bind(this)}></Timer>,
+        <QuestionSegment key="questions" questions={this.state.questions} stateSetter={this.setState.bind(this)}></QuestionSegment>]
   }
 
   render() {
@@ -21,10 +28,11 @@ class App extends React.Component {
           <div className="background-bow"></div>
           <div className="background-block"></div>
         </div>
-        <StartScreen></StartScreen>
+        {this.getActiveScreen()}
       </div>
     );
   }
+
 }
 
 export default App;
