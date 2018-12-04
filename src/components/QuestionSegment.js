@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import './styles/MultipleChoiceQuestionSegment.css';
+import './styles/QuestionSegment.css';
 
-class MultipleChoiceQuestionSegment extends React.Component {
+class QuestionSegment extends React.Component {
     constructor(props) {
         super(props);
         
@@ -15,6 +15,8 @@ class MultipleChoiceQuestionSegment extends React.Component {
     }
 
     doAnswer(event) {
+        this.doResponse(event);
+        
         let newIndex = this.state.index + 1;
         if (newIndex >= this.state.questions.length) {
             this.setAppState({
@@ -26,6 +28,22 @@ class MultipleChoiceQuestionSegment extends React.Component {
         });
     }
 
+    doResponse(event) {
+        let storage = window.localStorage;
+
+        let answerId = event.target.value;
+        let questionId = this.state.questions[this.state.index].id;
+        let registrationId = storage.getItem("registrationId");
+
+        let responseObject = {
+            registrationId: registrationId,
+            questionId: questionId,
+            answerId: answerId
+        }
+
+        console.log(responseObject);
+    }
+
     render() {
         let answers = [];
 
@@ -34,7 +52,7 @@ class MultipleChoiceQuestionSegment extends React.Component {
 
         for (let i in question.answers) {
             let alternative = question.answers[i];
-            answers.push(<button key={i} className="question-answer" value={alternative.id} onClick={this.doAnswer.bind(this)}>{alternative.description}</button>)
+            answers.push(<button key={i} className="question-answer" value={alternative.id} onClick={(e) => this.doAnswer(e)}>{alternative.description}</button>)
         }
 
         return(
@@ -52,4 +70,4 @@ class MultipleChoiceQuestionSegment extends React.Component {
 
 }
 
-export default MultipleChoiceQuestionSegment;
+export default QuestionSegment;
