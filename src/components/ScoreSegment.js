@@ -67,11 +67,11 @@ class ScoreSegment extends React.Component {
           <input className="score-segment-input phone-input" placeholder="phone"></input>
         </div>
         <div className="score-segment-checkbox-wrapper">
-          <label htmlFor="internship-checkbox" className="score-segment-checkbox-paragraph">Contact me about internships:</label><input type="checkbox" id="internship-checkbox" className="score-segment-checkbox-checkbox"></input>
+          <label htmlFor="internship-checkbox" className="score-segment-checkbox-paragraph">I want to be contacted about internship opportunities in DNB:</label><input type="checkbox" id="internship-checkbox" className="score-segment-checkbox-checkbox"></input>
         </div>
         <div className="score-segment-button-wrapper">
-          <button className="score-segment-button" onClick={() => this.doSubmit()}>Submit</button>
           <button className="score-segment-button" onClick={() => this.doRetry()}>Retry</button>
+          <button className="score-segment-button" onClick={() => this.doSubmit()}>Submit</button>
         </div>
       </div>
     );
