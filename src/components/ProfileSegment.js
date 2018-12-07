@@ -31,6 +31,10 @@ class ProfileSegment extends React.Component {
       return (
         <React.Fragment>
           <p className="profile-segment-delete-contact-info-paragraph">You have not provided any contact information, and will not be participating in the contest. </p>
+          <p className="profile-segment-delete-contact-info-paragraph">You can press the button below to enter your contact information if you change your mind. </p>
+          <div className="profile-segment-button-wrapper">
+            <button className="profile-segment-button profile-segment-contact-info-button" onClick={(e) => this.doContact(e)}>Provide contact info</button>
+          </div>
         </React.Fragment>
       )
     }
@@ -41,7 +45,17 @@ class ProfileSegment extends React.Component {
     if (confirmation) {
       let storage = window.localStorage;
       storage.setItem("contactinfo", false);
+      this.setState({
+        contactInfo: false
+      });
     }
+  }
+
+  doContact() {
+    this.setAppState({
+      activity : "contact",
+      prevActivity: "profile"
+    });
   }
 
   returnToStart() {

@@ -56,6 +56,11 @@
     background: rgb(202,239,230);
 }
 
+.score-segment-contact-info-button {
+    width: 80%;
+    padding: 50px;
+}
+
 .score-segment-checkbox-wrapper {
     display: flex;
     flex-direction: row;

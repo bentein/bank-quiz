@@ -16,7 +16,7 @@ class App extends React.Component {
     this.getUserIdentity();
     
     this.state = {
-      activity:"contact"
+      activity:"start"
     }
   }
 
@@ -35,7 +35,7 @@ class App extends React.Component {
         <QuestionSegment key="questions" questions={this.state.questions} stateSetter={(args) => this.setState(args)}></QuestionSegment>]
     else if (this.state.activity === "score") return <ScoreSegment score={this.state.score} stateSetter={(args) => this.setState(args)}></ScoreSegment>
     else if (this.state.activity === "profile") return <ProfileSegment stateSetter={(args) => this.setState(args)}></ProfileSegment>
-    else if (this.state.activity === "contact") return <ContactInfoSegment stateSetter={(args) => this.setState(args)}></ContactInfoSegment>
+    else if (this.state.activity === "contact") return <ContactInfoSegment prevActivity={this.state.prevActivity} stateSetter={(args) => this.setState(args)}></ContactInfoSegment>
   }
 
   render() {

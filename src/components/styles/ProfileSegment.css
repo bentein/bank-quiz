@@ -33,6 +33,16 @@
     font-family: 'Text Me One', sans-serif;
 }
 
+.profile-segment-contact-info-button {
+    width: 80%;
+    padding: 50px;
+    background: rgb(222,245,239);
+}
+
+.profile-segment-contact-info-button:active {
+    background: rgb(202,239,230);
+}
+
 .profile-segment-delete-contact-info-button {
     width: 40%;
     background: rgb(255,229,232);

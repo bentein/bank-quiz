@@ -8,7 +8,8 @@ class ContactInfoSegment extends React.Component {
 
     this.setAppState = props.stateSetter;
     this.state = {
-      score: props.score
+      score: props.score,
+      prevActivity: props.prevActivity
     }
   }
 
@@ -35,16 +36,16 @@ class ContactInfoSegment extends React.Component {
       storage.setItem("contactinfo", true);
 
       this.setAppState({
-        activity: "start"
+        activity: this.state.prevActivity || "start"
       });
     } else {
       this.markWrongInput(contactInfoRequest);
     }
   }
 
-  doRetry() {
+  doCancel() {
     this.setAppState({
-      activity: "start"
+      activity: this.state.prevActivity || "start"
     });
   }
 
@@ -72,7 +73,7 @@ class ContactInfoSegment extends React.Component {
           <input type="checkbox" id="internship-checkbox" className="contact-info-segment-checkbox-checkbox"></input>
         </div>
         <div className="contact-info-segment-button-wrapper">
-          <button className="contact-info-segment-button" onClick={() => this.doRetry()}>Cancel</button>
+          <button className="contact-info-segment-button" onClick={() => this.doCancel()}>Cancel</button>
           <button className="contact-info-segment-button" onClick={() => this.doSubmit()}>Submit</button>
         </div>
       </div>
