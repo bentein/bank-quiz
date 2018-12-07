@@ -9,6 +9,10 @@ html, body, #root {
     color: #ffffff;
 }
 
+button:focus {
+    outline: 0;
+}
+
 .app-wrapper {
     height: 100%;
     display: flex;

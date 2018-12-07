@@ -56,6 +56,12 @@ class StartSegment extends React.Component {
     return registrationId;
   }
 
+  openProfile() {
+    this.setAppState({
+      activity : "profile"
+    });
+  }
+
   render() {
     let storage = window.localStorage;
 
@@ -63,13 +69,14 @@ class StartSegment extends React.Component {
     let contactInfoSubmitted = storage.getItem("contactinfo") || false;
 
     return(
-      <div className="start-screen-wrapper">
-        <h1 className="start-screen-header">Code Quiz</h1>
-        <input className="name-input" type="text" defaultValue={name}></input>
+      <div className="start-segment-wrapper">
+        <h1 className="start-segment-header">Code Quiz</h1>
+        <input className="name-input" type="text" defaultValue={name} placeholder="nickname"></input>
         <p className="difficulty-paragraph">Choose your difficulty:</p>
-        <button className="easy-button" value="EASY" onClick={(e) => this.startQuiz(e)}>EASY</button>
-        <button className="medium-button" value="MEDIUM" onClick={(e) => this.startQuiz(e)}>MEDIUM</button>
-        <button className="hard-button" value="HARD" onClick={(e) => this.startQuiz(e)}>HARD</button>
+        <button className="start-segment-button easy-button" value="EASY" onClick={(e) => this.startQuiz(e)}>EASY</button>
+        <button className="start-segment-button medium-button" value="MEDIUM" onClick={(e) => this.startQuiz(e)}>MEDIUM</button>
+        <button className="start-segment-button hard-button" value="HARD" onClick={(e) => this.startQuiz(e)}>HARD</button>
+        <button className="start-segment-button profile-button" value="HARD" onClick={(e) => this.openProfile(e)}>My profile</button>
       </div>
     );
   }

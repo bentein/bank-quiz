@@ -6,6 +6,7 @@ import Timer from "./Timer";
 import QuestionSegment from "./QuestionSegment";
 import StartSegment from "./StartSegment";
 import ScoreSegment from "./ScoreSegment";
+import ProfileSegment from "./ProfileSegment";
 
 class App extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class App extends React.Component {
     else if (this.state.activity === "question") return [<Timer key="timer" maxTime={300} stateSetter={(args) => this.setState(args)}></Timer>,
         <QuestionSegment key="questions" questions={this.state.questions} stateSetter={(args) => this.setState(args)}></QuestionSegment>]
     else if (this.state.activity === "score") return <ScoreSegment score={this.state.score} stateSetter={(args) => this.setState(args)}></ScoreSegment>
+    else if (this.state.activity === "profile") return <ProfileSegment stateSetter={(args) => this.setState(args)}></ProfileSegment>
   }
 
   render() {

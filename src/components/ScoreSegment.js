@@ -67,7 +67,7 @@ class ScoreSegment extends React.Component {
           <input className="score-segment-input phone-input" placeholder="phone"></input>
         </div>
         <div className="score-segment-checkbox-wrapper">
-          <label htmlFor="internship-checkbox" className="score-segment-checkbox-paragraph">I want to be contacted about internship opportunities in DNB:</label><input type="checkbox" id="internship-checkbox" className="score-segment-checkbox-checkbox"></input>
+          <label htmlFor="internship-checkbox" className="score-segment-checkbox-paragraph">I want to be contacted about internship opportunities in DNB</label><input type="checkbox" id="internship-checkbox" className="score-segment-checkbox-checkbox"></input>
         </div>
         <div className="score-segment-button-wrapper">
           <button className="score-segment-button" onClick={() => this.doRetry()}>Retry</button>
@@ -92,7 +92,7 @@ class ScoreSegment extends React.Component {
   render() {
     let storage = window.localStorage;
 
-    let contactInfoSubmitted = storage.getItem("contactinfo");
+    let contactInfoSubmitted = JSON.parse(storage.getItem("contactinfo"));
     let segment = [];
     
     if (contactInfoSubmitted) {

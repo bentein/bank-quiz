@@ -55,3 +55,7 @@
     background: rgb(222,245,239);
     font-family: 'Text Me One', sans-serif;
 }
+
+.question-answer:active {
+    background: rgb(202,239,230);
+}
