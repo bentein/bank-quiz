@@ -7,6 +7,7 @@ import QuestionSegment from "./QuestionSegment";
 import StartSegment from "./StartSegment";
 import ScoreSegment from "./ScoreSegment";
 import ProfileSegment from "./ProfileSegment";
+import ContactInfoSegment from "./ContactInfoSegment";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class App extends React.Component {
     this.getUserIdentity();
     
     this.state = {
-      activity:"start"
+      activity:"contact"
     }
   }
 
@@ -34,6 +35,7 @@ class App extends React.Component {
         <QuestionSegment key="questions" questions={this.state.questions} stateSetter={(args) => this.setState(args)}></QuestionSegment>]
     else if (this.state.activity === "score") return <ScoreSegment score={this.state.score} stateSetter={(args) => this.setState(args)}></ScoreSegment>
     else if (this.state.activity === "profile") return <ProfileSegment stateSetter={(args) => this.setState(args)}></ProfileSegment>
+    else if (this.state.activity === "contact") return <ContactInfoSegment stateSetter={(args) => this.setState(args)}></ContactInfoSegment>
   }
 
   render() {

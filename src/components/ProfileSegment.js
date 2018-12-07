@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './styles/ProfileSegment.css';
 
-class StartSegment extends React.Component {
+class ProfileSegment extends React.Component {
   constructor(props) {
     super(props);
 
@@ -64,4 +64,4 @@ class StartSegment extends React.Component {
   }
 }
 
-export default StartSegment;
+export default ProfileSegment;

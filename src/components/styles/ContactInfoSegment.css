@@ -1,0 +1,73 @@
+.contact-info-segment-wrapper {
+    padding: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-info-segment-header {
+    font-size: 7em;
+    margin: 15px;
+}
+
+.contact-info-segment-paragraph {
+    font-size: 4em;
+    margin: 15px;
+}
+
+.contact-info-segment-input-wrapper {
+    margin: 35px 0;
+}
+
+.contact-info-segment-input {
+    width: 90%;
+    font-size: 4em;
+    padding: 15px;
+    margin: 15px;
+    align-self: center;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid #007272;
+    background: #ffffff;
+    font-family: 'Text Me One', sans-serif;
+}
+
+.contact-info-segment-button-wrapper {
+    margin: 35px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contact-info-segment-button {
+    font-size: 4em;
+    width: 40%;
+    padding: 30px;
+    margin: 20px;
+    align-self: center;
+    border-radius: 50px;
+    border: 1px solid #007272;
+    background: rgb(222,245,239);
+    font-family: 'Text Me One', sans-serif;
+}
+
+.contact-info-segment-button:active {
+    background: rgb(202,239,230);
+}
+
+.contact-info-segment-checkbox-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-info-segment-checkbox-paragraph {
+    font-size: 3em;
+    margin: 15px;
+}
+
+.contact-info-segment-checkbox-checkbox {
+    zoom: 5;
+}
