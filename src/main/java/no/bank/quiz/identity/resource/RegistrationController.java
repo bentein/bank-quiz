@@ -18,7 +18,6 @@ public class RegistrationController {
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
     public Integer registerAttempt(@RequestBody Registration registration) {
-        System.out.println(registration);
         return registrationService.registerUser(registration);
     }
 

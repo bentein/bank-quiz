@@ -23,7 +23,7 @@ public class ContactInfoController {
         contactInfoService.updateContactInfo(contactInfo);
     }
 
-    @DeleteMapping("/identityId")
+    @DeleteMapping("/{identityId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteContactInfo(@PathVariable Integer identityId) {
         contactInfoService.deleteContactInfo(identityId);

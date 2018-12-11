@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.TimeZone;
 
 @Data
@@ -30,6 +31,10 @@ public class Registration {
     @Enumerated(EnumType.STRING)
     private QuizDifficulty difficulty;
 
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private QuizScore score;
+
     @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
@@ -47,6 +52,10 @@ public class Registration {
     public Registration loadResponses() {
         this.loadResponses = true;
         return this;
+    }
+
+    public Integer getScore() {
+        return Optional.ofNullable(score).orElse(QuizScore.builder().score(0).build()).getScore();
     }
 
     public List<QuizResponse> getResponses() {
