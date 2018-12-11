@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './styles/QuestionSegment.css';
 
+import Activity from "../classes/Activity";
+
 class QuestionSegment extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +22,7 @@ class QuestionSegment extends React.Component {
         let newIndex = this.state.index + 1;
         if (newIndex >= this.state.questions.length) {
             this.setAppState({
-                activity: "score",
+                activity: Activity.SCORE,
                 score: this.getScore()
             });
         }

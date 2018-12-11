@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './styles/ScoreSegment.css';
 
+import Activity from "../classes/Activity";
+
 class ScoreSegment extends React.Component {
   constructor(props) {
     super(props);
@@ -14,14 +16,14 @@ class ScoreSegment extends React.Component {
 
   doRetry() {
     this.setAppState({
-      activity: "start"
+      activity: Activity.START
     });
   }
 
   doContact() {
     this.setAppState({
-      activity: "contact",
-      prevActivity: "score"
+      activity: Activity.CONTACT,
+      prevActivity: Activity.SCORE
     });
   }
 

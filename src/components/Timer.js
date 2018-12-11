@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './styles/Timer.css';
 
+import Activity from "../classes/Activity";
+
 class Timer extends React.Component {
     constructor(props) {
         super(props);
@@ -30,7 +32,8 @@ class Timer extends React.Component {
             
             let score = this.getScore();
             this.setAppState({
-                activity:"start"
+                activity: Activity.SCORE,
+                score: score
             })
         }
     }

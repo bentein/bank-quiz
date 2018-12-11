@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './styles/StartSegment.css';
 
+import Activity from "../classes/Activity";
+
 class StartSegment extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +22,7 @@ class StartSegment extends React.Component {
     storage.setItem("name", name);
     
     this.setAppState({
-        activity : "question",
+        activity : Activity.QUESTION,
         questions: this.getQuestions(difficulty),
         registration: registrationId
     });
@@ -58,7 +60,7 @@ class StartSegment extends React.Component {
 
   openProfile() {
     this.setAppState({
-      activity : "profile"
+      activity : Activity.PROFILE
     });
   }
 
@@ -66,7 +68,6 @@ class StartSegment extends React.Component {
     let storage = window.localStorage;
 
     let name = storage.getItem("name") || "";
-    let contactInfoSubmitted = storage.getItem("contactinfo") || false;
 
     return(
       <div className="start-segment-wrapper">

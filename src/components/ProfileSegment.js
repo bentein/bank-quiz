@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './styles/ProfileSegment.css';
 
+import Activity from "../classes/Activity";
+
 class ProfileSegment extends React.Component {
   constructor(props) {
     super(props);
@@ -53,14 +55,14 @@ class ProfileSegment extends React.Component {
 
   doContact() {
     this.setAppState({
-      activity : "contact",
-      prevActivity: "profile"
+      activity : Activity.CONTACT,
+      prevActivity: Activity.PROFILE
     });
   }
 
   returnToStart() {
     this.setAppState({
-      activity : "start"
+      activity : Activity.START
     });
   }
 

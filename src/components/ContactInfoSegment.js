@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './styles/ContactInfoSegment.css';
 
+import Activity from "../classes/Activity";
+
 class ContactInfoSegment extends React.Component {
   constructor(props) {
     super(props);
@@ -35,9 +37,8 @@ class ContactInfoSegment extends React.Component {
     if (this.validContactInfo(contactInfoRequest)) {
       storage.setItem("contactinfo", true);
 
-      this.setAppState({
-        activity: this.state.prevActivity || "start"
-      });
+      this.doCancel();
+      
     } else {
       this.markWrongInput(contactInfoRequest);
     }
@@ -45,7 +46,7 @@ class ContactInfoSegment extends React.Component {
 
   doCancel() {
     this.setAppState({
-      activity: this.state.prevActivity || "start"
+      activity: this.state.prevActivity || Activity.START
     });
   }
 
