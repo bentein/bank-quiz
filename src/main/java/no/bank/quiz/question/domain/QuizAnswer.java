@@ -1,9 +1,7 @@
 package no.bank.quiz.question.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -12,6 +10,8 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "answer")
+@NoArgsConstructor
+@AllArgsConstructor
 public class QuizAnswer {
 
     @Builder

@@ -1,8 +1,6 @@
 package no.bank.quiz.question.domain;
 
-import lombok.Builder;
-import lombok.ToString;
-import lombok.Value;
+import lombok.*;
 
 import java.io.Serializable;
 

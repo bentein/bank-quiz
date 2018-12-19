@@ -8,6 +8,8 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "question")
+@NoArgsConstructor
+@AllArgsConstructor
 public class QuizQuestion {
 
     @Builder
