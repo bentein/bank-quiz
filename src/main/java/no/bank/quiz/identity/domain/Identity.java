@@ -1,7 +1,9 @@
 package no.bank.quiz.identity.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,6 +12,8 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "identity")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Identity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,10 +3,7 @@ package no.bank.quiz.identity.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -16,6 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "response")
 @JsonPropertyOrder({"registrationId", "questionId", "answerId"})
+@AllArgsConstructor
 public class QuizResponse {
 
     public QuizResponse() {

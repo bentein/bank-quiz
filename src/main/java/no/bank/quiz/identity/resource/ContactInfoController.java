@@ -1,6 +1,5 @@
 package no.bank.quiz.identity.resource;
 
-import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.prometheus.PrometheusMeterRegistry;
 import no.bank.quiz.identity.domain.ContactInfo;
@@ -18,15 +17,14 @@ public class ContactInfoController {
     @Autowired
     private PrometheusMeterRegistry registry;
 
+    @Autowired
     private ContactInfoService contactInfoService;
 
-    private Counter totalHits;
     private Counter postHits;
     private Counter deleteHits;
 
     @PostConstruct
     public void init() {
-        totalHits = registry.counter("all_requests_contact_info");
         postHits = registry.counter("post_requests_contact_info");
         deleteHits = registry.counter("delete_requests_contact_info");
     }
@@ -34,7 +32,6 @@ public class ContactInfoController {
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
     public void registerContactInfo(@RequestBody ContactInfo contactInfo) {
-        totalHits.increment();
         postHits.increment();
         contactInfoService.updateContactInfo(contactInfo);
     }
@@ -42,7 +39,6 @@ public class ContactInfoController {
     @DeleteMapping("/{identityId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteContactInfo(@PathVariable Integer identityId) {
-        totalHits.increment();
         deleteHits.increment();
         contactInfoService.deleteContactInfo(identityId);
     }

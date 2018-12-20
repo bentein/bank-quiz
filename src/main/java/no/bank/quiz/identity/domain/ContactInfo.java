@@ -2,8 +2,10 @@ package no.bank.quiz.identity.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -13,6 +15,8 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "contact_info")
+@NoArgsConstructor
+@AllArgsConstructor
 public class ContactInfo {
 
     @Id

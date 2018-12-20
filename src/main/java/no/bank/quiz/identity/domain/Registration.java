@@ -17,6 +17,8 @@ import java.util.TimeZone;
 @Entity
 @Table(name = "registration")
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@NoArgsConstructor
+@AllArgsConstructor
 public class Registration {
 
     @Id
