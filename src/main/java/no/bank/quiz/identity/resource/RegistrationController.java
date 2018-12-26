@@ -1,6 +1,5 @@
 package no.bank.quiz.identity.resource;
 
-import no.bank.quiz.identity.annotation.Counted;
 import no.bank.quiz.identity.domain.Registration;
 import no.bank.quiz.identity.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ public class RegistrationController {
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
-    @Counted(value = "post_requests_registration")
     public Integer registerAttempt(@RequestBody Registration registration) {
         return registrationService.registerUser(registration);
     }
