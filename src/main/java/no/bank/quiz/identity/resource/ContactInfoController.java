@@ -1,6 +1,5 @@
 package no.bank.quiz.identity.resource;
 
-import io.micrometer.prometheus.PrometheusMeterRegistry;
 import no.bank.quiz.identity.domain.ContactInfo;
 import no.bank.quiz.identity.service.ContactInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/contactinfo")
 public class ContactInfoController {
-
-    @Autowired
-    private PrometheusMeterRegistry registry;
 
     @Autowired
     private ContactInfoService contactInfoService;
