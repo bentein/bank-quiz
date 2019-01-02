@@ -1,7 +1,8 @@
 package no.bank.quiz.identity.service;
 
 import no.bank.quiz.identity.domain.Identity;
-import no.bank.quiz.identity.exception.IdentityNotFoundException;
+import no.bank.quiz.identity.exception.ErrorCode;
+import no.bank.quiz.identity.exception.ResourceNotFoundException;
 import no.bank.quiz.identity.repository.IdentityRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,6 @@ public class IdentityServiceDefault implements IdentityService {
     @Override
     @Transactional
     public Identity getIdentity(Integer identityId) {
-        return identityRepository.findById(identityId).orElseThrow(IdentityNotFoundException::new);
+        return identityRepository.findById(identityId).orElseThrow(() -> new ResourceNotFoundException(ErrorCode.IDENTITY_NOT_FOUND));
     }
 }

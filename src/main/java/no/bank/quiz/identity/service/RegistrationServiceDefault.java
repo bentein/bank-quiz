@@ -1,7 +1,8 @@
 package no.bank.quiz.identity.service;
 
 import no.bank.quiz.identity.domain.Registration;
-import no.bank.quiz.identity.exception.RegistrationNotFoundException;
+import no.bank.quiz.identity.exception.ErrorCode;
+import no.bank.quiz.identity.exception.ResourceNotFoundException;
 import no.bank.quiz.identity.repository.RegistrationRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,8 @@ public class RegistrationServiceDefault implements RegistrationService {
     @Override
     @Transactional
     public Registration getUserRegistration(Integer registrationId) {
-        Registration registration = registrationRepository.findById(registrationId).orElseThrow(RegistrationNotFoundException::new).loadResponses();
+        Registration registration = registrationRepository.findById(registrationId)
+                .orElseThrow(() -> new ResourceNotFoundException(ErrorCode.REGISTRATION_NOT_FOUND)).loadResponses();
         registration.getResponses().size();
         return registration;
     }
