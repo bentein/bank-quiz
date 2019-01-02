@@ -1,0 +1,73 @@
+.start-segment-wrapper {
+    padding: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.start-segment-header {
+    font-size: 7em;
+    margin-top: 30px;
+}
+
+.name-input {
+    width: 90%;
+    font-size: 6em;
+    padding: 15px;
+    align-self: center;
+    text-align: center;
+    border-radius: 25px;
+    margin-bottom: 125px;
+    border: 1px solid #007272;
+    background: #ffffff;
+    font-family: 'Text Me One', sans-serif;
+}
+
+.difficulty-paragraph {
+    font-size: 4em;
+    margin: 15px;
+}
+
+.start-segment-button {
+    font-size: 4em;
+    width: 75%;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 50px;
+    align-self: center;
+    border: 1px solid #007272;
+    font-family: 'Text Me One', sans-serif;
+}
+
+.easy-button {
+    background-color: rgb(232,255,229);
+}
+.easy-button:active {
+    background-color: rgb(209,255,204);
+}
+
+.medium-button {
+    background-color: rgb(255,252,229);
+}
+.medium-button:active {
+    background-color: rgb(255,249,204);
+}
+
+.hard-button {
+    background-color: rgb(255,229,232);
+}
+.hard-button:active {
+    background-color: rgb(255,204,209);
+}
+
+.profile-button {
+    background-color: rgb(222,245,239);
+    font-size: 3.5em;
+    width: 50%;
+    padding: 40px;
+    margin: 50px;
+}
+.profile-button:active {
+    background: rgb(202,239,230);
+}

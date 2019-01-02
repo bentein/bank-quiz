@@ -1,0 +1,62 @@
+.profile-segment-wrapper {
+    padding: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-segment-header {
+    font-size: 7em;
+    margin-top: 30px;
+}
+
+.profile-segment-delete-contact-info-paragraph {
+    font-size: 4em;
+    margin: 15px;
+}
+
+.profile-segment-button-wrapper {
+    margin: 35px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.profile-segment-button {
+    font-size: 4em;
+    padding: 30px;
+    margin: 20px;
+    align-self: center;
+    border-radius: 50px;
+    border: 1px solid #007272;
+    font-family: 'Text Me One', sans-serif;
+}
+
+.profile-segment-contact-info-button {
+    width: 80%;
+    padding: 50px;
+    background: rgb(222,245,239);
+}
+
+.profile-segment-contact-info-button:active {
+    background: rgb(202,239,230);
+}
+
+.profile-segment-delete-contact-info-button {
+    width: 40%;
+    background: rgb(255,229,232);
+}
+
+.profile-segment-delete-contact-info-button:active {
+    background: rgb(255,204,209);
+}
+
+.profile-segment-return-button {
+    width: 40%;
+    background: rgb(222,245,239);
+}
+
+.profile-segment-return-button:active {
+    background: rgb(202,239,230);
+}
