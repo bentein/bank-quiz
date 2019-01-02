@@ -1,9 +1,10 @@
 package no.bank.quiz.question.service;
 
 import no.bank.quiz.question.domain.QuestionDifficulty;
-import no.bank.quiz.question.exception.QuestionNotFoundException;
+import no.bank.quiz.question.exception.ErrorCode;
 import no.bank.quiz.question.repository.QuestionRepository;
 import no.bank.quiz.question.domain.QuizQuestion;
+import no.bank.quiz.util.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,7 +25,8 @@ public class QuestionServiceDefault implements QuestionService {
 
     @Override
     public QuizQuestion getQuestion(int questionId) {
-        return questionRepository.findById(questionId).orElseThrow(QuestionNotFoundException::new);
+        return questionRepository.findById(questionId)
+                .orElseThrow(() -> new ResourceNotFoundException(ErrorCode.QUESTION_NOT_FOUND.name()));
     }
 
     @Override

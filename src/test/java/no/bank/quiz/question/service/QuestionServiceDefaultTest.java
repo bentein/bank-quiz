@@ -1,10 +1,10 @@
 package no.bank.quiz.question.service;
 
-import no.bank.quiz.question.exception.QuestionNotFoundException;
 import no.bank.quiz.question.repository.QuestionRepository;
 import no.bank.quiz.question.domain.QuestionDifficulty;
 import no.bank.quiz.question.domain.QuizAnswer;
 import no.bank.quiz.question.domain.QuizQuestion;
+import no.bank.quiz.util.exception.ResourceNotFoundException;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -65,7 +65,7 @@ public class QuestionServiceDefaultTest {
         assertEquals(easyQuestion.getAnswers().size(), result.getAnswers().size());
     }
 
-    @Test(expected = QuestionNotFoundException.class)
+    @Test(expected = ResourceNotFoundException.class)
     public void givenInvalidId_getQuestionWithId_returnQuestion() {
         Integer id = -1;
 
