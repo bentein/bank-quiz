@@ -5,6 +5,7 @@ import no.bank.quiz.question.exception.ErrorCode;
 import no.bank.quiz.question.repository.QuestionRepository;
 import no.bank.quiz.question.domain.QuizQuestion;
 import no.bank.quiz.util.exception.ResourceNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,11 +13,8 @@ import java.util.List;
 @Service
 public class QuestionServiceDefault implements QuestionService {
 
+    @Autowired
     private QuestionRepository questionRepository;
-
-    public QuestionServiceDefault(QuestionRepository questionRepository) {
-        this.questionRepository = questionRepository;
-    }
 
     @Override
     public List<QuizQuestion> getAllQuestions(QuestionDifficulty difficulty) {

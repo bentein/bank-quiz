@@ -5,6 +5,7 @@ import no.bank.quiz.score.repository.AnswerRepository;
 import no.bank.quiz.score.repository.RegistrationRepository;
 import no.bank.quiz.score.repository.ResponseRepository;
 import no.bank.quiz.score.repository.ScoreRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,17 +16,17 @@ import java.util.stream.Collectors;
 @Service
 public class ScoreServiceDefault implements ScoreService {
 
+    @Autowired
     private ScoreRepository scoreRepository;
-    private ResponseRepository responseRepository;
-    private AnswerRepository answerRepository;
-    private RegistrationRepository registrationRepository;
 
-    public ScoreServiceDefault(ScoreRepository scoreRepository, ResponseRepository responseRepository, AnswerRepository answerRepository, RegistrationRepository registrationRepository) {
-        this.scoreRepository = scoreRepository;
-        this.responseRepository = responseRepository;
-        this.answerRepository = answerRepository;
-        this.registrationRepository = registrationRepository;
-    }
+    @Autowired
+    private ResponseRepository responseRepository;
+
+    @Autowired
+    private AnswerRepository answerRepository;
+
+    @Autowired
+    private RegistrationRepository registrationRepository;
 
     @Override
     public Integer calculateScore(Integer registrationId) {

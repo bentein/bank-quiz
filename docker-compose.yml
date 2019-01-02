@@ -1,0 +1,54 @@
+version: '3'
+services:
+
+  nginx:
+    image: "ewindal/quiz-nginx:0.1.0"
+    depends_on:
+      - identity-service
+      - question-service
+      - response-service
+      - score-service
+    ports:
+      - "80:8080"
+
+  database:
+    image: "ewindal/quiz-mysql:0.1.0"
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+
+  identity-service:
+    image: "ewindal/identity-service:0.1.0"
+    depends_on:
+      - database
+    ports:
+      - "40001:40001"
+  
+  question-service:
+    image: "ewindal/question-service:0.1.0"
+    depends_on:
+      - database
+    ports:
+      - "40002:40002"
+
+  response-service:
+    image: "ewindal/response-service:0.1.0"
+    depends_on:
+      - database
+    ports:
+      - "40003:40003"
+  
+  score-service:
+    image: "ewindal/score-service:0.1.0"
+    depends_on:
+      - database
+    ports:
+      - "40004:40004"
+  
+  prometheus:
+    image: "quiz-prometheus"
+    depends_on:
+      - identity-service
+    ports:
+      - "9090:9090"

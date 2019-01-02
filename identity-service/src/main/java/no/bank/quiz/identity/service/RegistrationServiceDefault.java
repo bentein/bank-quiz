@@ -4,17 +4,16 @@ import no.bank.quiz.identity.domain.Registration;
 import no.bank.quiz.identity.exception.ErrorCode;
 import no.bank.quiz.identity.repository.RegistrationRepository;
 import no.bank.quiz.util.exception.ResourceNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
 @Service
 public class RegistrationServiceDefault implements RegistrationService {
-    private RegistrationRepository registrationRepository;
 
-    public RegistrationServiceDefault(RegistrationRepository registrationRepository) {
-        this.registrationRepository = registrationRepository;
-    }
+    @Autowired
+    private RegistrationRepository registrationRepository;
 
     @Override
     public Integer registerUser(Registration registration) {

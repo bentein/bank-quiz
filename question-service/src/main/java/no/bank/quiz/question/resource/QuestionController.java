@@ -3,6 +3,7 @@ package no.bank.quiz.question.resource;
 import no.bank.quiz.question.domain.QuestionDifficulty;
 import no.bank.quiz.question.domain.QuizQuestion;
 import no.bank.quiz.question.service.QuestionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +13,8 @@ import java.util.List;
 @RequestMapping(value = "/questions")
 public class QuestionController {
 
+    @Autowired
     private QuestionService questionService;
-
-    public QuestionController(QuestionService questionService) {
-        this.questionService = questionService;
-    }
 
     @GetMapping
     public List<QuizQuestion> getAllQuestions(@RequestParam QuestionDifficulty difficulty) {

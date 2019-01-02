@@ -4,6 +4,7 @@ import no.bank.quiz.identity.domain.Identity;
 import no.bank.quiz.identity.exception.ErrorCode;
 import no.bank.quiz.identity.repository.IdentityRepository;
 import no.bank.quiz.util.exception.ResourceNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -11,11 +12,8 @@ import javax.transaction.Transactional;
 @Service
 public class IdentityServiceDefault implements IdentityService {
 
+    @Autowired
     private IdentityRepository identityRepository;
-
-    public IdentityServiceDefault(IdentityRepository identityRepository) {
-        this.identityRepository = identityRepository;
-    }
 
     @Override
     public Integer createIdentity() {

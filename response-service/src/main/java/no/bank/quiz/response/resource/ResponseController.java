@@ -2,6 +2,7 @@ package no.bank.quiz.response.resource;
 
 import no.bank.quiz.response.domain.QuizResponse;
 import no.bank.quiz.response.service.ResponseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,11 +10,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/response")
 public class ResponseController {
 
+    @Autowired
     private ResponseService responseService;
-
-    public ResponseController(ResponseService responseService) {
-        this.responseService = responseService;
-    }
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
