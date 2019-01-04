@@ -53,6 +53,7 @@ dependencies {
     compile("mysql:mysql-connector-java")
 
     compile("no.bank.quiz:quiz-util:0.1-SNAPSHOT")
+    compile("no.bank.quiz:quiz-security:0.1-SNAPSHOT")
 
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok:1.18.4')
