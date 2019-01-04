@@ -2,53 +2,76 @@ version: '3'
 services:
 
   nginx:
-    image: "ewindal/quiz-nginx:0.1.0"
+    image: "bentein/quiz-nginx:0.1"
     depends_on:
       - identity-service
       - question-service
       - response-service
       - score-service
+      - quiz-auth
     ports:
       - "80:8080"
 
   database:
-    image: "ewindal/quiz-mysql:0.1.0"
+    image: "bentein/quiz-mysql:0.1"
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=pass
 
   identity-service:
-    image: "ewindal/identity-service:0.1.0"
+    image: "bentein/identity-service:0.1"
     depends_on:
       - database
     ports:
-      - "40001:40001"
+      - "40001:8080"
+    environment:
+      - DATASOURCE_USER=root
+      - DATASOURCE_PASS=pass
+      - SIGNING_KEY=key
   
   question-service:
-    image: "ewindal/question-service:0.1.0"
+    image: "bentein/question-service:0.1"
     depends_on:
       - database
     ports:
-      - "40002:40002"
+      - "40002:8080"
+    environment:
+      - DATASOURCE_USER=root
+      - DATASOURCE_PASS=pass
+      - SIGNING_KEY=key
 
   response-service:
-    image: "ewindal/response-service:0.1.0"
+    image: "bentein/response-service:0.1"
     depends_on:
       - database
     ports:
-      - "40003:40003"
+      - "40003:8080"
+    environment:
+      - DATASOURCE_USER=root
+      - DATASOURCE_PASS=pass
+      - SIGNING_KEY=key
   
   score-service:
-    image: "ewindal/score-service:0.1.0"
+    image: "bentein/score-service:0.1"
     depends_on:
       - database
     ports:
-      - "40004:40004"
-  
-  prometheus:
-    image: "quiz-prometheus"
+      - "40004:8080"
+    environment:
+      - DATASOURCE_USER=root
+      - DATASOURCE_PASS=pass
+      - SIGNING_KEY=key
+
+  quiz-auth:
+    image: "bentein/quiz-auth:0.1"
     depends_on:
-      - identity-service
+      - database
     ports:
-      - "9090:9090"
+      - "40000:8080"
+    environment:
+      - DATASOURCE_USER=root
+      - DATASOURCE_PASS=pass
+      - CLIENT_ID=client
+      - CLIENT_SECRET=secret
+      - SIGNING_KEY=key

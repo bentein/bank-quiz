@@ -5,6 +5,7 @@ import no.bank.quiz.question.domain.QuizQuestion;
 import no.bank.quiz.question.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class QuestionController {
     }
 
     @PostMapping
+    @Secured("ROLE_USER")
     @ResponseStatus(HttpStatus.CREATED)
     public void saveQuestion(@RequestBody QuizQuestion question) {
         questionService.saveQuestion(question);

@@ -22,8 +22,8 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.palantir.docker'
 
 bootJar {
-    baseName = 'response-service'
-    version =  '0.1.0'
+    baseName = 'bentein/quiz-auth:0.1'
+    version =  '0.1'
 }
 
 task unpack(type: Copy) {
@@ -32,7 +32,7 @@ task unpack(type: Copy) {
     into("build/dependency")
 }
 docker {
-    name "${project.group}/${bootJar.baseName}"
+    name "${bootJar.baseName}"
     copySpec.from(tasks.unpack.outputs).into("dependency")
     buildArgs(['DEPENDENCY': "dependency"])
 }
