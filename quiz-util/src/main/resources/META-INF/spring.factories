@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  no.bank.quiz.util.config.BaseControllerAdviceConfig
