@@ -52,6 +52,9 @@ dependencies {
     compile("org.springframework.metrics:spring-metrics:latest.release")
     compile("mysql:mysql-connector-java")
 
+    compile("io.micrometer:micrometer-core")
+    compile("io.micrometer:micrometer-registry-prometheus")
+
     compile("no.bank.quiz:quiz-util:0.1-SNAPSHOT")
     compile("no.bank.quiz:quiz-security:0.1-SNAPSHOT")
 

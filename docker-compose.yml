@@ -25,10 +25,8 @@ services:
       - database
     ports:
       - "40001:8080"
-    environment:
-      - DATASOURCE_USER=root
-      - DATASOURCE_PASS=pass
-      - SIGNING_KEY=key
+    env_file:
+      - common.env
   
   question-service:
     image: "bentein/question-service:0.1"
@@ -36,10 +34,8 @@ services:
       - database
     ports:
       - "40002:8080"
-    environment:
-      - DATASOURCE_USER=root
-      - DATASOURCE_PASS=pass
-      - SIGNING_KEY=key
+    env_file:
+      - common.env
 
   response-service:
     image: "bentein/response-service:0.1"
@@ -47,10 +43,8 @@ services:
       - database
     ports:
       - "40003:8080"
-    environment:
-      - DATASOURCE_USER=root
-      - DATASOURCE_PASS=pass
-      - SIGNING_KEY=key
+    env_file:
+      - common.env
   
   score-service:
     image: "bentein/score-service:0.1"
@@ -58,10 +52,8 @@ services:
       - database
     ports:
       - "40004:8080"
-    environment:
-      - DATASOURCE_USER=root
-      - DATASOURCE_PASS=pass
-      - SIGNING_KEY=key
+    env_file:
+      - common.env
 
   quiz-auth:
     image: "bentein/quiz-auth:0.1"
@@ -69,9 +61,22 @@ services:
       - database
     ports:
       - "40000:8080"
-    environment:
-      - DATASOURCE_USER=root
-      - DATASOURCE_PASS=pass
-      - CLIENT_ID=client
-      - CLIENT_SECRET=secret
-      - SIGNING_KEY=key
+    env_file:
+      - common.env
+      - authorization.env
+  
+  prometheus:
+    image: "bentein/quiz-prometheus:0.1"
+    depends_on:
+      - identity-service
+      - question-service
+      - response-service
+      - score-service
+      - quiz-auth
+    ports:
+      - "9090:9090"
+  
+  grafana:
+    image: "bentein/quiz-grafana:0.1"
+    ports:
+      - "3000:3000"
