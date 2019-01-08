@@ -18,33 +18,56 @@ class ContactInfoSegment extends React.Component {
   doSubmit() {
     let storage = window.localStorage;
 
-    let identityId = storage.getItem("identity");
+    let identityId = JSON.parse(storage.getItem("identity"));
     let fullName = document.querySelector(".full-name-input").value;
     let email = document.querySelector(".email-input").value;
-    let phone = document.querySelector(".phone-input").value || null;
+    let mobile = document.querySelector(".phone-input").value || null;
     let contact = document.querySelector(".contact-info-segment-checkbox-checkbox").checked;
 
     let contactInfoRequest = {
       identityId: identityId,
       fullName: fullName,
       email: email,
-      phone: phone,
+      mobile: mobile,
       contact: contact
     }
 
-    console.log(contactInfoRequest);
-
     if (this.validContactInfo(contactInfoRequest)) {
-      storage.setItem("contactinfo", true);
+      this.doSubmitRequest(contactInfoRequest);
 
-      this.doCancel();
-      
     } else {
       this.markWrongInput(contactInfoRequest);
     }
   }
 
-  doCancel() {
+  doSubmitRequest(contactInfoRequest) {
+    let storage = window.localStorage;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/contactinfo", true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = (e) => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 201) {
+          console.log("Successfully sent contact info to server");
+          storage.setItem("contactinfo", true);
+          
+          this.setAppState({
+            activity: this.state.prevActivity || Activity.START
+          });
+      
+        } else {
+          console.error(xhr);
+        }
+      }
+    };
+    xhr.onerror = (e) => {
+      console.error(xhr.statusText);
+    };
+    xhr.send(JSON.stringify(contactInfoRequest));
+  }
+
+  doRetry() {
     this.setAppState({
       activity: this.state.prevActivity || Activity.START
     });
@@ -72,6 +95,10 @@ class ContactInfoSegment extends React.Component {
         <div className="contact-info-segment-checkbox-wrapper">
           <label htmlFor="internship-checkbox" className="contact-info-segment-checkbox-paragraph">I want to be contacted about internship opportunities in DNB</label>
           <input type="checkbox" id="internship-checkbox" className="contact-info-segment-checkbox-checkbox"></input>
+        </div>
+        <div className="contact-info-segment-checkbox-wrapper">
+          <label htmlFor="tos-checkbox" className="contact-info-segment-checkbox-paragraph">I agree to having my contact info stored until the competition's end</label>
+          <input type="checkbox" id="tos-checkbox" className="contact-info-segment-checkbox-checkbox"></input>
         </div>
         <div className="contact-info-segment-button-wrapper">
           <button className="contact-info-segment-button" onClick={() => this.doCancel()}>Cancel</button>

@@ -26,9 +26,30 @@ class App extends React.Component {
     let storage = window.localStorage;
     let id = storage.getItem("identity");
     if (id === null) {
-      id = 1;
+      this.doGenerateUserIdentity();
     }
-    storage.setItem("identity", id);
+  }
+
+  doGenerateUserIdentity() {
+    let storage = window.localStorage;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/identity", true);
+    xhr.onload = (e) => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 201) {
+          console.log("Received user identity: " + xhr.responseText);
+          storage.setItem("identity", xhr.responseText);
+        } else {
+          console.error(xhr);
+        }
+      }
+    };
+    xhr.onerror = (e) => {
+      console.error(xhr.statusText);
+    };
+    xhr.send(null);
+
   }
 
   getActiveScreen() {
@@ -46,10 +67,6 @@ class App extends React.Component {
     return (
       <div className="app-wrapper">
         {this.getActiveScreen()}
-        <div className="background">
-          <div className="background-bow"></div>
-          <div className="background-block"></div>
-        </div>
       </div>
     );
   }

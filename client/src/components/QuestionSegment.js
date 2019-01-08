@@ -17,26 +17,26 @@ class QuestionSegment extends React.Component {
     }
 
     doAnswer(event) {
-        this.doResponse(event);
         
         let newIndex = this.state.index + 1;
         if (newIndex >= this.state.questions.length) {
-            this.setAppState({
-                activity: Activity.SCORE,
-                score: this.getScore()
+            this.doResponse(event, true);
+
+        } else {
+            this.doResponse(event, false);
+
+            this.setState({
+                index: newIndex
             });
         }
-        this.setState({
-            index: newIndex
-        });
     }
 
-    doResponse(event) {
+    doResponse(event, finish) {
         let storage = window.localStorage;
 
-        let answerId = event.target.value;
+        let answerId = JSON.parse(event.target.value);
         let questionId = this.state.questions[this.state.index].id;
-        let registrationId = storage.getItem("registrationId");
+        let registrationId = JSON.parse(storage.getItem("registrationId"));
 
         let responseObject = {
             registrationId: registrationId,
@@ -44,14 +44,53 @@ class QuestionSegment extends React.Component {
             answerId: answerId
         }
 
-        console.log(responseObject);
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "/response", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = (e) => {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 201) {
+                    console.log("Successfully sent response to server");
+                    if (finish) {
+                        this.getScoreAndFinish();
+                    }
+
+                } else {
+                    console.error(xhr);
+                }
+            }
+        };
+        xhr.onerror = (e) => {
+            console.error(xhr.statusText);
+        };
+        xhr.send(JSON.stringify(responseObject));
     }
 
-    getScore() {
+    getScoreAndFinish() {
         let storage = window.localStorage;
         let registrationId = storage.getItem("registrationId");
         
-        return Math.trunc(Math.random() * 100);
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", `http://localhost/score/${registrationId}`, true);
+        xhr.onload = (e) => {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    let score = xhr.responseText;
+                    console.log("Successfully received score: " + score);
+                    this.setAppState({
+                        activity: Activity.SCORE,
+                        score: score
+                    });
+
+                } else {
+                    console.error(xhr);
+                }
+            }
+        };
+        xhr.onerror = (e) => {
+            console.error(xhr.statusText);
+        };
+        xhr.send();
     }
 
     render() {

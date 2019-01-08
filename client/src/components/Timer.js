@@ -30,12 +30,35 @@ class Timer extends React.Component {
         if (Math.ceil((this.state.endTime - this.state.time) / 1000) <= 0) {
             clearInterval(interval);
             
-            let score = this.getScore();
-            this.setAppState({
-                activity: Activity.SCORE,
-                score: score
-            })
+            this.getScoreAndFinish();
         }
+    }
+
+    getScoreAndFinish() {
+        let storage = window.localStorage;
+        let registrationId = storage.getItem("registrationId");
+        
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", `http://localhost/score/${registrationId}`, true);
+        xhr.onload = (e) => {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    let score = xhr.responseText;
+                    console.log("Successfully received score: " + score);
+                    this.setAppState({
+                        activity: Activity.SCORE,
+                        score: score
+                    });
+
+                } else {
+                    console.error(xhr);
+                }
+            }
+        };
+        xhr.onerror = (e) => {
+            console.error(xhr.statusText);
+        };
+        xhr.send();
     }
 
     getScore() {

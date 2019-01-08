@@ -43,13 +43,34 @@ class ProfileSegment extends React.Component {
   }
 
   deleteContactInfo() {
+    let storage = window.localStorage;
+    let identity = storage.getItem("identity");
     let confirmation = window.confirm("Are you sure you want to delete your contact information?");
+    
     if (confirmation) {
-      let storage = window.localStorage;
-      storage.setItem("contactinfo", false);
-      this.setState({
-        contactInfo: false
-      });
+      let xhr = new XMLHttpRequest();
+        xhr.open("DELETE", `/contactinfo/${identity}`, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = (e) => {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 204) {
+                    console.log("Successfully deleted contact info");
+                    let storage = window.localStorage;
+                    storage.setItem("contactinfo", false);      
+
+                    this.setState({
+                      contactInfo: false
+                    });
+
+                } else {
+                    console.error(xhr);
+                }
+            }
+        };
+        xhr.onerror = (e) => {
+            console.error(xhr.statusText);
+        };
+        xhr.send();
     }
   }
 

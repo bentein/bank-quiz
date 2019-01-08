@@ -14,6 +14,58 @@ class ScoreSegment extends React.Component {
     }
   }
 
+  doSubmit() {
+    let storage = window.localStorage;
+
+    let identityId = JSON.parse(storage.getItem("identity"));
+    let fullName = document.querySelector(".full-name-input").value;
+    let email = document.querySelector(".email-input").value;
+    let mobile = document.querySelector(".phone-input").value || null;
+    let contact = document.querySelector(".score-segment-checkbox-checkbox").checked;
+
+    let contactInfoRequest = {
+      identityId: identityId,
+      fullName: fullName,
+      email: email,
+      mobile: mobile,
+      contact: contact
+    }
+
+    if (this.validContactInfo(contactInfoRequest)) {
+      this.doSubmitRequest(contactInfoRequest);
+
+    } else {
+      this.markWrongInput(contactInfoRequest);
+    }
+  }
+
+  doSubmitRequest(contactInfoRequest) {
+    let storage = window.localStorage;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/contactinfo", true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = (e) => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 201) {
+          console.log("Successfully sent contact info to server");
+          storage.setItem("contactinfo", true);
+          
+          this.setAppState({
+            activity: "start"
+          });
+      
+        } else {
+          console.error(xhr);
+        }
+      }
+    };
+    xhr.onerror = (e) => {
+      console.error(xhr.statusText);
+    };
+    xhr.send(JSON.stringify(contactInfoRequest));
+  }
+
   doRetry() {
     this.setAppState({
       activity: Activity.START
