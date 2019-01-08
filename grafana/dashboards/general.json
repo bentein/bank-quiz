@@ -358,9 +358,9 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 0,
-        "y": 4
+        "w": 4,
+        "x": 16,
+        "y": 0
       },
       "id": 6,
       "interval": null,
@@ -440,9 +440,9 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 6,
-        "y": 4
+        "w": 4,
+        "x": 20,
+        "y": 0
       },
       "id": 8,
       "interval": null,
@@ -483,7 +483,7 @@
         {
           "expr": "1000 * \nprocess_start_time_seconds{instance=\"identity-service:8080\"}",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -511,10 +511,10 @@
       "dashes": false,
       "fill": 1,
       "gridPos": {
-        "h": 9,
-        "w": 24,
+        "h": 7,
+        "w": 12,
         "x": 0,
-        "y": 8
+        "y": 4
       },
       "id": 10,
       "legend": {
@@ -610,6 +610,66 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "cards": {
+        "cardPadding": null,
+        "cardRound": null
+      },
+      "color": {
+        "cardColor": "#b4ff00",
+        "colorScale": "sqrt",
+        "colorScheme": "interpolateOranges",
+        "exponent": 0.5,
+        "mode": "spectrum"
+      },
+      "dataFormat": "timeseries",
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 4
+      },
+      "heatmap": {},
+      "highlightCards": true,
+      "id": 18,
+      "legend": {
+        "show": false
+      },
+      "links": [],
+      "targets": [
+        {
+          "expr": "sum(increase(http_server_requests_seconds_count{uri!=\"/actuator/prometheus\"}[10m])) by (le)",
+          "format": "heatmap",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Panel Title",
+      "tooltip": {
+        "show": true,
+        "showHistogram": false
+      },
+      "type": "heatmap",
+      "xAxis": {
+        "show": true
+      },
+      "xBucketNumber": null,
+      "xBucketSize": null,
+      "yAxis": {
+        "decimals": null,
+        "format": "short",
+        "logBase": 1,
+        "max": null,
+        "min": null,
+        "show": true,
+        "splitFactor": null
+      },
+      "yBucketBound": "auto",
+      "yBucketNumber": null,
+      "yBucketSize": null
     }
   ],
   "refresh": "5s",
@@ -620,7 +680,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {

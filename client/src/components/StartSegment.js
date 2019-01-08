@@ -16,9 +16,19 @@ class StartSegment extends React.Component {
     let storage = window.localStorage;
 
     let name = document.querySelector(".name-input").value;
-    storage.setItem("name", name);
-    let difficulty = event.target.value;
-    this.doRegistration(name, difficulty);
+    if (name.length < 3) {
+      this.markWrongInput();
+    } 
+    else {
+      storage.setItem("name", name);
+      let difficulty = event.target.value;
+      this.doRegistration(name, difficulty);
+    }
+  }
+
+  markWrongInput() {
+    let input = document.querySelector(".name-input");
+    input.style['box-shadow'] = "0px 0px 0px 5px red";
   }
 
   doRegistration(name, difficulty) {

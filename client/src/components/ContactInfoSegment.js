@@ -67,7 +67,7 @@ class ContactInfoSegment extends React.Component {
     xhr.send(JSON.stringify(contactInfoRequest));
   }
 
-  doRetry() {
+  doCancel() {
     this.setAppState({
       activity: this.state.prevActivity || Activity.START
     });
@@ -79,6 +79,11 @@ class ContactInfoSegment extends React.Component {
 
   markWrongInput(request) {
 
+  }
+
+  toggleSubmit() {
+    let submit = document.querySelector(".contact-info-segment-submit");
+    submit.disabled = !submit.disabled;
   }
 
   render() {
@@ -98,11 +103,11 @@ class ContactInfoSegment extends React.Component {
         </div>
         <div className="contact-info-segment-checkbox-wrapper">
           <label htmlFor="tos-checkbox" className="contact-info-segment-checkbox-paragraph">I agree to having my contact info stored until the competition's end</label>
-          <input type="checkbox" id="tos-checkbox" className="contact-info-segment-checkbox-checkbox"></input>
+          <input type="checkbox" id="tos-checkbox" className="contact-info-segment-checkbox-checkbox" onClick={() => this.toggleSubmit()}></input>
         </div>
         <div className="contact-info-segment-button-wrapper">
-          <button className="contact-info-segment-button" onClick={() => this.doCancel()}>Cancel</button>
-          <button className="contact-info-segment-button" onClick={() => this.doSubmit()}>Submit</button>
+          <button className="contact-info-segment-button contact-info-segment-cancel" onClick={() => this.doCancel()}>Cancel</button>
+          <button className="contact-info-segment-button contact-info-segment-submit" onClick={() => this.doSubmit()} disabled>Submit</button>
         </div>
       </div>
     );
