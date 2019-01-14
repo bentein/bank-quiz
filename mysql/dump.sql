@@ -32,7 +32,7 @@ CREATE TABLE `answer` (
   PRIMARY KEY (`id`),
   KEY `id_idx` (`question_id`),
   CONSTRAINT `id` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=163 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=281 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `answer` (
 
 LOCK TABLES `answer` WRITE;
 /*!40000 ALTER TABLE `answer` DISABLE KEYS */;
-INSERT INTO `answer` VALUES (1,1,'answer1',0),(2,1,'answer2',0),(3,1,'answer3',1),(4,1,'answer4',0),(69,24,'answer1',0),(70,24,'answer2',0),(71,24,'answer3',1),(72,24,'answer4',0),(125,40,'Send query to REST API endpoint',0),(126,40,'Search DOM using CSS selector',1),(127,40,'Create database query',0),(128,40,'Create <select> element in DOM',0),(129,41,'<li>',0),(130,41,'<ul>',1),(131,41,'<p>',0),(132,41,'<ol>',0),(133,42,'First in, first out',1),(134,42,'Last in, first out',0),(135,42,'Randomly',0),(136,42,'Based on the object\'s hash',0),(137,43,'Compile code',0),(138,43,'Start a program',0),(139,43,'Run the main() method',0),(140,43,'Initialize an object',1),(141,44,'true',0),(142,44,'false',1),(143,45,'12',0),(144,45,'39',0),(145,45,'57',1),(146,45,'NaN',0),(147,46,'HTML',0),(148,46,'Java',1),(149,46,'CSS',0),(150,46,'Javascript',0),(151,47,'.js',1),(152,47,'.script',0),(153,47,'.py',0),(154,47,'none',0),(155,48,'Java',0),(156,48,'C++',0),(157,48,'python',0),(158,48,'ECMAScript',1),(159,49,'Compiling code',0),(160,49,'Writing web applications',0),(161,49,'Version control',1),(162,49,'Monitoring web servers',0);
+INSERT INTO `answer` VALUES (1,1,'answer1',0),(2,1,'answer2',0),(3,1,'answer3',1),(4,1,'answer4',0),(69,24,'answer1',0),(70,24,'answer2',0),(71,24,'answer3',1),(72,24,'answer4',0),(125,40,'Send query to REST API endpoint',0),(126,40,'Search DOM using CSS selector',1),(127,40,'Create database query',0),(128,40,'Create <select> element in DOM',0),(129,41,'<li>',0),(130,41,'<ul>',1),(131,41,'<p>',0),(132,41,'<ol>',0),(133,42,'First in, first out',1),(134,42,'Last in, first out',0),(135,42,'Randomly',0),(136,42,'Based on the object\'s hash',0),(137,43,'Compile code',0),(138,43,'Start a program',0),(139,43,'Run the main() method',0),(140,43,'Initialize an object',1),(141,44,'true',0),(142,44,'false',1),(143,45,'12',0),(144,45,'39',0),(145,45,'57',1),(146,45,'NaN',0),(147,46,'HTML',0),(148,46,'Java',1),(149,46,'CSS',0),(150,46,'Javascript',0),(151,47,'.js',1),(152,47,'.script',0),(153,47,'.py',0),(154,47,'none',0),(155,48,'Java',0),(156,48,'C++',0),(157,48,'python',0),(158,48,'ECMAScript',1),(159,49,'Compiling code',0),(160,49,'Writing web applications',0),(161,49,'Version control',1),(162,49,'Monitoring web servers',0),(163,50,'<li>',0),(164,50,'<ul>',0),(165,50,'<p>',0),(166,50,'<ol>',1),(167,51,'<li>',1),(168,51,'<ul>',0),(169,51,'<p>',0),(170,51,'<ol>',0),(171,52,'First in, first out',0),(172,52,'Last in, first out',1),(173,52,'Randomly',0),(174,52,'Based on the object\'s hash',0),(175,53,'0',1),(176,53,'1',0),(177,53,'Depends on implementation',0),(178,53,'Arrays have no explicit start index',0),(179,54,'true',0),(180,54,'1',0),(181,54,'null',1),(182,54,'\"string\"',0),(183,55,'When the condition is checked',1),(184,55,'Nothing',0),(185,56,'2,147,483,647',0),(186,56,'4,294,967,295',1),(187,56,'65,535',0),(188,56,'There\'s no upper bound',0),(189,57,'2,147,483,647',1),(190,57,'4,294,967,295',0),(191,57,'65,535',0),(192,57,'There\'s no upper bound',0),(193,58,'String',0),(194,58,'int',1),(195,58,'ArrayList',0),(196,58,'Boolean',0),(197,59,'java.lang.Object',1),(198,59,'java.lang.Class',0),(199,59,'java',0),(200,59,'There is no universal base class',0),(201,60,'array.get(2)',0),(202,60,'array.get(1)',0),(203,60,'array[1]',1),(204,60,'array[2]',0),(205,61,'Styling HTML elements',1),(206,61,'Coding algorithms',0),(207,61,'Catching javascript errors',0),(208,61,'Writing pretty javascript',0),(209,62,'for',0),(210,62,'while',0),(211,62,'do-while',0),(212,62,'if-else',1),(213,63,'A basic data type in Java that is not an object',1),(214,63,'Strings, integers and chars',0),(215,63,'An object with no methods',0),(216,63,'Integer, float and double',0),(217,64,'<javascript>',0),(218,64,'<script>',1),(219,64,'<scripting>',0),(220,64,'<js>',0),(221,65,'Testing inequality',1),(222,65,'Testing equality',0),(223,65,'Assignment',0),(224,65,'String concatenation',0),(225,66,'Testing inequality',0),(226,66,'Testing equality',0),(227,66,'Assignment',1),(228,66,'String concatenation',0),(229,67,'Comparison operators',0),(230,67,'Logical operators',1),(231,67,'Assigment operators',0),(232,67,'Arithmetic operators',0),(233,68,'<!-- comment -->',0),(234,68,'//comment',1),(235,68,'#comment',0),(236,68,'comment',0),(237,69,'onchange',0),(238,69,'onmouseover',0),(239,69,'onmouseclick',0),(240,69,'onclick',1),(241,70,'\"a\" + \"b\"',1),(242,70,'\"a\", \"b\"',0),(243,70,'\"a\" * \"b\"',0),(244,70,'\"a\".concatenate(\"b\")',0),(245,71,'<h1>',1),(246,71,'<h6>',0),(247,71,'<h7>',0),(248,71,'<heading>',0),(249,72,'Just a Simple Object Notation',0),(250,72,'Java Simplistic Object Notation',0),(251,72,'JavaScript Object Notation',1),(252,72,'Java Source Opening Network',0),(253,73,'object',0),(254,73,'array',0),(255,73,'string',0),(256,73,'undefined',1),(257,74,'last()',0),(258,74,'get()',0),(259,74,'pop()',1),(260,74,'None of the above',0),(261,75,'toValue()',0),(262,75,'toString()',1),(263,75,'toText()',0),(264,75,'asString()',0),(265,76,'void',1),(266,76,'null',0),(267,76,'undefined',0),(268,76,'Blank type',0),(269,77,'for (a in aray) {}',1),(270,77,'for (int i = 0; i > -1; i++) {}',0),(271,77,'for (a:array) {}',0),(272,77,'while (true) {}',0),(273,78,'console.log(\"a\")',0),(274,78,'print(\"a\")',0),(275,78,'cout << \"a\"',0),(276,78,'System.out.println(\"a\")',1),(277,79,'array.put(elem)',0),(278,79,'array[0] = elem',1),(279,79,'array.push(elem)',0),(280,79,'None of the above',0);
 /*!40000 ALTER TABLE `answer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `contact_info` (
   `mobile` varchar(11) DEFAULT NULL,
   `contact` smallint(1) NOT NULL,
   PRIMARY KEY (`identity_id`),
-  CONSTRAINT `contact_identity_id` FOREIGN KEY (`identity_id`) REFERENCES `identity` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `contact_identity_id` FOREIGN KEY (`identity_id`) REFERENCES `identity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -69,7 +69,6 @@ CREATE TABLE `contact_info` (
 
 LOCK TABLES `contact_info` WRITE;
 /*!40000 ALTER TABLE `contact_info` DISABLE KEYS */;
-INSERT INTO `contact_info` VALUES (1,'Sarah Ansnes','sarah@gmail.com',NULL,1),(3,'Bentein Vathne Thomassen','benteinvathnethomassen@gmail.com','+4795008504',1),(19,'Bentein ','benteinvt@gmail.com',NULL,1),(25,'Bentein Thomassen','benteinvt@gmail.com',NULL,1),(27,'Bentein','benteinvt@gmail.com',NULL,1),(28,'Tester','aslkdjasdklj',NULL,1),(29,'Bentein','bentein@gmail.com',NULL,0),(30,'asdas','dasdasd',NULL,1),(31,'Bentein','bentein@gmail.com',NULL,1),(32,'Bentein','bentein@gmail.com','95008504',0),(34,'Bentein','bentein@dnb.no','95008504',1);
 /*!40000 ALTER TABLE `contact_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,7 +82,7 @@ DROP TABLE IF EXISTS `identity`;
 CREATE TABLE `identity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +91,6 @@ CREATE TABLE `identity` (
 
 LOCK TABLES `identity` WRITE;
 /*!40000 ALTER TABLE `identity` DISABLE KEYS */;
-INSERT INTO `identity` VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15),(16),(17),(18),(19),(20),(21),(22),(23),(24),(25),(26),(27),(28),(29),(30),(31),(32),(33),(34),(35),(36);
 /*!40000 ALTER TABLE `identity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +106,7 @@ CREATE TABLE `question` (
   `description` varchar(200) NOT NULL,
   `difficulty` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +115,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
-INSERT INTO `question` VALUES (1,'test question','MEDIUM'),(24,'test','HARD'),(40,'What is the purpose of the querySelector() method in javascript?','EASY'),(41,'Which HTML tag is used to wrap an unsorted list?','EASY'),(42,'In what order are objects removed from a queue?','EASY'),(43,'What does a constructor do?','EASY'),(44,'What is the value of !true?','EASY'),(45,'What is the result of 3+2+\"7\" in javascript?','EASY'),(46,'Which of the following is not a core technology of the web?','EASY'),(47,'What is the file extension for javascript files?','EASY'),(48,'Which of the following is javascript based on?','EASY'),(49,'Which of the following best describes the function of git?','EASY');
+INSERT INTO `question` VALUES (1,'test question','MEDIUM'),(24,'test','HARD'),(40,'What is the purpose of the querySelector() method in javascript?','EASY'),(41,'Which HTML tag is used to wrap an unsorted list?','EASY'),(42,'In what order are objects removed from a queue?','EASY'),(43,'What does a constructor do?','EASY'),(44,'What is the value of !true?','EASY'),(45,'What is the result of 3+2+\"7\" in javascript?','EASY'),(46,'Which of the following is not a core technology of the web?','EASY'),(47,'What is the file extension for javascript files?','EASY'),(48,'Which of the following is javascript based on?','EASY'),(49,'Which of the following best describes the function of git?','EASY'),(50,'Which HTML tag is used to wrap a sorted list?','EASY'),(51,'Which HTML tag is used to create a list item?','EASY'),(52,'In what order are objects removed from a stack?','EASY'),(53,'At what index does an array start in Java?','EASY'),(54,'Which of the following is considered false by javascript?','EASY'),(55,'What distinguishes while and a do-while loops from each other?','EASY'),(56,'What\'s the upper bound of an unsigned int?','EASY'),(57,'What\'s the upper bound of a signed int?','EASY'),(58,'Which of the following does not inherit java.lang.Object?','EASY'),(59,'What is the base class of all classes in Java?','EASY'),(60,'Which of the following gets the 2nd element from a Java array?','EASY'),(61,'What is CSS used for?','EASY'),(62,'Which of the following is not a looping structure in Java?','EASY'),(63,'What is a primitive type?','EASY'),(64,'Which HTML element should contain javascript code?','EASY'),(65,'What is the != operator used for?','EASY'),(66,'What is the = operator used for?','EASY'),(67,'What group of operators are &&, || and ! part of?','EASY'),(68,'Which of the following is a javascript comment?','EASY'),(69,'Which event occurs when an HTML element is clicked?','EASY'),(70,'Which of the following concatenates two javascript strings?','EASY'),(71,'Which of the following is the largest HTML heading?','EASY'),(72,'What does JSON stand for?','EASY'),(73,'Which of the following is an invalid JSON data type?','EASY'),(74,'Which method removes and returns the last element of a js array?','EASY'),(75,'Which method returns a string representation of a Java object?','EASY'),(76,'Which keyword signifies a java method with no return value?','EASY'),(77,'Which is not a valid Java loop?','EASY'),(78,'Which of the following prints to the Java console?','EASY'),(79,'Which of the following puts an element in a Java array?','EASY');
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +135,7 @@ CREATE TABLE `registration` (
   PRIMARY KEY (`id`),
   KEY `registration_identity_id_idx` (`identity_id`),
   CONSTRAINT `registration_identity_id` FOREIGN KEY (`identity_id`) REFERENCES `identity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +144,6 @@ CREATE TABLE `registration` (
 
 LOCK TABLES `registration` WRITE;
 /*!40000 ALTER TABLE `registration` DISABLE KEYS */;
-INSERT INTO `registration` VALUES (7,1,'Sarah','MEDIUM',1543419355181),(8,3,'Kule Bentein','MEDIUM',1543422272691),(9,3,'Kule Bentein','MEDIUM',1543422370750),(10,3,'Kule Bentein','MEDIUM',1543422371496),(11,3,'Kule Bentein','MEDIUM',1543422372240),(12,3,'Kule Bentein','MEDIUM',1543477333939),(13,19,'Bentein','EASY',1544000651182),(14,19,'Bentein','EASY',1544000657907),(15,19,'Bentein','EASY',1544000659047),(16,19,'Bentein','EASY',1544000702269),(17,19,'Bentein','EASY',1544000738332),(18,19,'Bentein','MEDIUM',1544000746341),(19,19,'Bentein','HARD',1544000750220),(20,19,'Bentein','EASY',1544000918516),(21,19,'Bentein','EASY',1544000966291),(22,19,'Bentein','HARD',1544000975693),(23,19,'Bentein','HARD',1544001124683),(24,19,'Bentein','EASY',1544001155659),(25,19,'Bentein','EASY',1544001226141),(26,19,'Bentein','HARD',1544001230654),(27,19,'Bentein','HARD',1544001239011),(28,19,'Bentein','MEDIUM',1544001378011),(29,19,'Bentein','HARD',1544001383755),(30,19,'Bentein','EASY',1544001599583),(31,19,'Bentein','EASY',1544001614840),(32,25,'Bentein','EASY',1544001698370),(33,25,'Bentein','HARD',1544001795928),(34,25,'Bentein','EASY',1544001839118),(35,25,'Bentein','EASY',1544001885225),(36,25,'Bentein','EASY',1544002475844),(37,25,'Bentein','EASY',1544002775539),(38,25,'Bentein','EASY',1544002825232),(39,25,'Bentein','EASY',1544002849904),(40,25,'Bentein','EASY',1544003726973),(41,25,'Bentein','EASY',1544003948423),(42,25,'Bentein','EASY',1544008220702),(43,26,'','EASY',1544008873137),(44,26,'','EASY',1544008892495),(45,27,'Demo','EASY',1544010176772),(46,28,'Tester','MEDIUM',1544010817293),(47,29,'Tester','EASY',1544011050518),(48,30,'','EASY',1544011143767),(49,31,'Bentein','EASY',1544011192016),(50,32,'Bentein','EASY',1544011264568),(51,33,'','EASY',1544011736471),(52,33,'','EASY',1544011741467),(53,33,'Bentein','EASY',1544011842308),(54,34,'Bentein','EASY',1544013224019),(55,34,'Bentein','MEDIUM',1544013332529),(56,35,'Bentein','EASY',1544015121390),(57,35,'Bentein','EASY',1544015164950),(58,35,'Bentein','EASY',1544015182980),(59,35,'Bentein','MEDIUM',1544015185436),(60,35,'Bentein','EASY',1544170306177),(61,35,'Bentein','EASY',1544170409837),(62,35,'Bentein','EASY',1544170468777),(63,35,'Bentein','EASY',1544171244426),(64,35,'Bentein','EASY',1544171274246),(65,35,'Bentein','EASY',1544174723165),(66,35,'Bentein','MEDIUM',1544174832627),(67,35,'Bentein','HARD',1544174920960),(68,35,'Bentein','EASY',1544175011629),(69,36,'Bentein','EASY',1544182270695);
 /*!40000 ALTER TABLE `registration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +175,6 @@ CREATE TABLE `response` (
 
 LOCK TABLES `response` WRITE;
 /*!40000 ALTER TABLE `response` DISABLE KEYS */;
-INSERT INTO `response` VALUES (1,3,8,1543484034704),(1,1,28,1544001379446),(1,1,46,1544010818708),(1,1,55,1544013334044),(1,1,59,1544015186177),(1,3,66,1544174833267),(24,69,8,1543422272699),(24,72,22,1544000978897),(24,70,23,1544001125830),(24,69,26,1544001231699),(24,72,27,1544001239619),(24,72,29,1544001386380),(24,69,33,1544001797193),(24,70,67,1544174921976),(40,126,40,1544003746801),(40,126,41,1544003995253),(40,126,42,1544008240796),(40,126,43,1544008874261),(40,126,44,1544008894364),(40,126,45,1544010180179),(40,125,47,1544011055576),(40,126,48,1544011146212),(40,125,49,1544011194265),(40,127,50,1544011265512),(40,125,52,1544011746069),(40,126,53,1544011844340),(40,126,54,1544013233897),(40,126,56,1544015124653),(40,126,57,1544015165695),(40,125,60,1544170310311),(40,126,61,1544170411111),(40,126,62,1544170469536),(40,126,65,1544174723831),(40,126,68,1544175012254),(40,126,69,1544182272689),(41,130,40,1544003749729),(41,130,41,1544004005601),(41,130,42,1544008259577),(41,131,43,1544008875462),(41,132,44,1544008895083),(41,130,45,1544010186272),(41,130,47,1544011056489),(41,129,48,1544011147735),(41,129,49,1544011195014),(41,130,50,1544011266116),(41,130,52,1544011746728),(41,130,53,1544011846349),(41,130,54,1544013236380),(41,129,56,1544015125402),(41,129,57,1544015167195),(41,129,60,1544170311120),(41,130,61,1544170411860),(41,129,62,1544170470053),(41,130,65,1544174724438),(41,130,68,1544175012878),(41,129,69,1544182273810),(42,133,40,1544003756763),(42,133,41,1544004008115),(42,136,43,1544008877741),(42,134,44,1544008895677),(42,133,45,1544010196541),(42,133,47,1544011056914),(42,133,48,1544011148203),(42,133,49,1544011195716),(42,133,50,1544011266590),(42,133,52,1544011747243),(42,133,53,1544011847454),(42,133,54,1544013237409),(42,135,56,1544015126073),(42,133,57,1544015167709),(42,133,60,1544170311838),(42,134,61,1544170412321),(42,134,62,1544170470648),(42,134,65,1544174725072),(42,134,68,1544175013481),(42,135,69,1544182274667),(43,140,40,1544003759228),(43,140,41,1544004012580),(43,137,43,1544008878944),(43,139,44,1544008896239),(43,140,45,1544010198770),(43,137,47,1544011057488),(43,137,48,1544011148774),(43,137,49,1544011196552),(43,137,50,1544011267089),(43,139,52,1544011749793),(43,140,53,1544011852134),(43,140,54,1544013239414),(43,137,56,1544015126616),(43,137,57,1544015168325),(43,137,60,1544170315595),(43,138,61,1544170412835),(43,137,62,1544170471132),(43,138,65,1544174725622),(43,138,68,1544175013997),(43,138,69,1544182275592),(44,142,40,1544003762029),(44,142,41,1544004014658),(44,141,43,1544008879786),(44,141,44,1544008897524),(44,142,45,1544010200605),(44,141,47,1544011059586),(44,141,48,1544011149800),(44,141,49,1544011197622),(44,141,50,1544011268111),(44,142,52,1544011750288),(44,142,53,1544011853651),(44,142,54,1544013240672),(44,142,56,1544015127179),(44,141,57,1544015169271),(44,141,60,1544170316636),(44,141,61,1544170413321),(44,141,62,1544170471617),(44,141,65,1544174726231),(44,141,68,1544175014528),(44,142,69,1544182276328),(45,145,40,1544003764337),(45,145,41,1544004016284),(45,145,43,1544008880678),(45,146,44,1544008898112),(45,145,45,1544010201962),(45,144,47,1544011060102),(45,144,48,1544011150516),(45,143,49,1544011198954),(45,143,50,1544011268624),(45,145,52,1544011750742),(45,145,54,1544013241895),(45,144,56,1544015127786),(45,143,57,1544015170151),(45,143,60,1544170317336),(45,144,61,1544170413822),(45,143,62,1544170472216),(45,144,65,1544174726848),(45,144,68,1544175015154),(45,143,69,1544182277168),(46,148,40,1544003766732),(46,148,41,1544004019443),(46,149,43,1544008881680),(46,147,44,1544008898708),(46,148,45,1544010203901),(46,148,47,1544011060534),(46,148,48,1544011151268),(46,148,49,1544011199627),(46,147,50,1544011269125),(46,149,52,1544011751195),(46,148,54,1544013243160),(46,149,56,1544015128324),(46,147,57,1544015170883),(46,147,60,1544170318198),(46,148,61,1544170414305),(46,148,62,1544170472764),(46,148,65,1544174727456),(46,148,68,1544175015615),(46,149,69,1544182278376),(47,151,41,1544004021458),(47,152,43,1544008882509),(47,153,44,1544008899288),(47,151,45,1544010205649),(47,152,47,1544011061222),(47,152,48,1544011151972),(47,151,49,1544011200186),(47,151,50,1544011269639),(47,153,52,1544011751618),(47,151,54,1544013244378),(47,151,56,1544015132107),(47,151,57,1544015171709),(47,151,60,1544170318917),(47,152,61,1544170414868),(47,151,62,1544170473213),(47,152,65,1544174728050),(47,152,68,1544175016107),(47,151,69,1544182279330),(48,158,41,1544004024719),(48,157,43,1544008883418),(48,156,44,1544008899864),(48,158,45,1544010208317),(48,156,47,1544011061940),(48,156,48,1544011152689),(48,155,49,1544011201013),(48,155,50,1544011270284),(48,157,52,1544011752085),(48,158,54,1544013247075),(48,156,56,1544015132809),(48,155,57,1544015172416),(48,155,60,1544170319749),(48,156,61,1544170415414),(48,156,62,1544170473776),(48,156,65,1544174728803),(48,156,68,1544175016607),(48,156,69,1544182280161),(49,161,41,1544004041558),(49,160,43,1544008885059),(49,162,44,1544008900462),(49,159,45,1544010210818),(49,160,47,1544011062741),(49,159,48,1544011153501),(49,159,49,1544011201748),(49,159,50,1544011270938),(49,161,52,1544011752480),(49,161,54,1544013299300),(49,159,56,1544015133883),(49,159,57,1544015173100),(49,159,60,1544170320588),(49,160,61,1544170415961),(49,159,62,1544170474336),(49,160,65,1544174729779),(49,160,68,1544175017114),(49,159,69,1544182281123);
 /*!40000 ALTER TABLE `response` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -243,9 +239,16 @@ CREATE TABLE `score` (
 
 LOCK TABLES `score` WRITE;
 /*!40000 ALTER TABLE `score` DISABLE KEYS */;
-INSERT INTO `score` VALUES (7,12),(8,2),(9,25),(10,50),(11,-2),(24,3),(25,-1),(26,-3),(27,-2),(28,-1),(29,-3),(30,-1),(31,3),(32,3),(33,-3),(34,3),(35,3),(36,3),(37,0),(38,0),(39,-4),(40,21),(41,30),(43,-2),(44,-6),(45,26),(46,-1),(47,2),(48,2),(49,2),(50,2),(52,10),(53,15),(54,30),(55,-1),(56,2),(57,2),(59,-1),(60,-2),(61,2),(62,2),(65,2),(66,3),(67,-1),(68,2),(69,2);
 /*!40000 ALTER TABLE `score` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'quiz'
+--
+
+--
+-- Dumping routines for database 'quiz'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -256,4 +259,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-19  7:54:42
+-- Dump completed on 2019-01-14 14:10:42
