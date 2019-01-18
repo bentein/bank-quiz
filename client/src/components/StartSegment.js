@@ -77,7 +77,7 @@ class StartSegment extends React.Component {
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          let questions = JSON.parse(xhr.responseText)
+          let questions = this.shuffle(JSON.parse(xhr.responseText));
           console.log("Received questions: " + questions.length);
           this.setAppState({
             activity : Activity.QUESTION,
@@ -94,8 +94,17 @@ class StartSegment extends React.Component {
       console.error(xhr.statusText);
     };
     xhr.send();
+  }
 
-    
+  shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+    }
+    return a;
   }
 
   openProfile() {

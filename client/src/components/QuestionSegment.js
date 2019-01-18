@@ -34,6 +34,9 @@ class QuestionSegment extends React.Component {
     doResponse(event, finish) {
         let storage = window.localStorage;
 
+        let buttons = document.querySelectorAll("button");
+        buttons.forEach(button => button.disabled = true);
+    
         let answerId = JSON.parse(event.target.value);
         let questionId = this.state.questions[this.state.index].id;
         let registrationId = JSON.parse(storage.getItem("registrationId"));
@@ -59,6 +62,7 @@ class QuestionSegment extends React.Component {
                     console.error(xhr);
                 }
             }
+            buttons.forEach(button => button.disabled = false);
         };
         xhr.onerror = (e) => {
             console.error(xhr.statusText);

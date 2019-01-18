@@ -8,15 +8,22 @@ class ContactInfoSegment extends React.Component {
   constructor(props) {
     super(props);
 
+    this.MINIMUM_NAME_LENGTH = 5;
+    this.MINIMUM_MAIL_LENGTH = 5;
+    this.MINIMUM_PHONE_LENGTH = 8;  
+
     this.setAppState = props.stateSetter;
     this.state = {
       score: props.score,
+      consent: false,
       prevActivity: props.prevActivity
     }
   }
 
   doSubmit() {
     let storage = window.localStorage;
+
+    this.clearWrongInput();
 
     let identityId = JSON.parse(storage.getItem("identity"));
     let fullName = document.querySelector(".full-name-input").value;
@@ -43,6 +50,9 @@ class ContactInfoSegment extends React.Component {
   doSubmitRequest(contactInfoRequest) {
     let storage = window.localStorage;
 
+    let buttons = document.querySelectorAll("button");
+    buttons.forEach(button => button.disabled = true);
+
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "/contactinfo", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -60,6 +70,7 @@ class ContactInfoSegment extends React.Component {
           console.error(xhr);
         }
       }
+      buttons.forEach(button => button.disabled = false);
     };
     xhr.onerror = (e) => {
       console.error(xhr.statusText);
@@ -74,16 +85,42 @@ class ContactInfoSegment extends React.Component {
   }
 
   validContactInfo(request) {
-    return request.identityId && request.fullName && request.fullName.length > 3 && request.email && request.email.length > 6 && request.contact !== null;
+    return request.identityId && request.fullName && request.fullName.length >= this.MINIMUM_NAME_LENGTH
+      && request.email && request.email.length >= this.MINIMUM_MAIL_LENGTH && request.contact !== null;
   }
 
   markWrongInput(request) {
+    let nameInput = document.querySelector(".full-name-input");
+    let emailInput = document.querySelector(".email-input");
+    let phoneInput = document.querySelector(".phone-input");
 
+    if (request.fullName.length > 100 || request.fullName.length < this.MINIMUM_NAME_LENGTH) {
+      nameInput.style['box-shadow'] = "0px 0px 0px 5px red";
+    }
+
+    if (request.email.length < this.MINIMUM_MAIL_LENGTH) {
+      emailInput.style['box-shadow'] = "0px 0px 0px 5px red";
+    }
+
+    if (request.mobile && request.mobile.length < this.MINIMUM_PHONE_LENGTH) {
+      phoneInput.style['box-shadow'] = "0px 0px 0px 5px red";
+    }
+  }
+
+  clearWrongInput() {
+    let nameInput = document.querySelector(".full-name-input");
+    let emailInput = document.querySelector(".email-input");
+    let phoneInput = document.querySelector(".phone-input");
+
+    nameInput.style['box-shadow'] = "";
+    emailInput.style['box-shadow'] = "";
+    phoneInput.style['box-shadow'] = "";
   }
 
   toggleSubmit() {
-    let submit = document.querySelector(".contact-info-segment-submit");
-    submit.disabled = !submit.disabled;
+    this.setState({
+      consent: !this.state.consent
+    });
   }
 
   render() {
@@ -107,7 +144,7 @@ class ContactInfoSegment extends React.Component {
         </div>
         <div className="contact-info-segment-button-wrapper">
           <button className="contact-info-segment-button contact-info-segment-cancel" onClick={() => this.doCancel()}>Cancel</button>
-          <button className="contact-info-segment-button contact-info-segment-submit" onClick={() => this.doSubmit()} disabled>Submit</button>
+          <button className="contact-info-segment-button contact-info-segment-submit" onClick={() => this.doSubmit()} disabled={!this.state.consent}>Submit</button>
         </div>
       </div>
     );
