@@ -14,6 +14,7 @@ public class ResponseServiceDefault implements ResponseService {
     @Override
     public void saveResponse(QuizResponse response) {
         response.setTimestamp(System.currentTimeMillis());
+        System.out.println(response);
         responseRepository.save(response);
     }
 }

@@ -1,7 +1,5 @@
 package no.bank.quiz.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
@@ -14,7 +12,6 @@ import javax.persistence.Table;
 @Entity
 @AllArgsConstructor
 @Table(name = "response")
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"registrationId", "questionId", "answerId"})
 public class QuizResponse {
 
@@ -39,7 +36,6 @@ public class QuizResponse {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private long timestamp;
 
-    @JsonIgnore
     public Integer getRegistrationId() {
         return this.id.getRegistrationId();
     }

@@ -49,7 +49,7 @@ class ProfileSegment extends React.Component {
     
     if (confirmation) {
       let xhr = new XMLHttpRequest();
-        xhr.open("DELETE", `/contactinfo/${identity}`, true);
+        xhr.open("DELETE", `/api/contactinfo/${identity}`, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = (e) => {
             if (xhr.readyState === 4) {

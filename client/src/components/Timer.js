@@ -39,7 +39,7 @@ class Timer extends React.Component {
         let registrationId = storage.getItem("registrationId");
         
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", `http://localhost/score/${registrationId}`, true);
+        xhr.open("GET", `/api/score/${registrationId}`, true);
         xhr.onload = (e) => {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {

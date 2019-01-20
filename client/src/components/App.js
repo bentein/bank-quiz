@@ -34,7 +34,7 @@ class App extends React.Component {
     let storage = window.localStorage;
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/identity", true);
+    xhr.open("POST", "/api/identity", true);
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {
         if (xhr.status === 201) {

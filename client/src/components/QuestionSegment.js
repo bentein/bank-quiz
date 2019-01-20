@@ -48,7 +48,7 @@ class QuestionSegment extends React.Component {
         }
 
         let xhr = new XMLHttpRequest();
-        xhr.open("POST", "/response", true);
+        xhr.open("POST", "/api/response", true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = (e) => {
             if (xhr.readyState === 4) {
@@ -75,7 +75,7 @@ class QuestionSegment extends React.Component {
         let registrationId = storage.getItem("registrationId");
         
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", `http://localhost/score/${registrationId}`, true);
+        xhr.open("GET", `/api/score/${registrationId}`, true);
         xhr.onload = (e) => {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {

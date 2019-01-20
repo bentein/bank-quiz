@@ -82,7 +82,7 @@ DROP TABLE IF EXISTS `identity`;
 CREATE TABLE `identity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,6 +104,7 @@ DROP TABLE IF EXISTS `question`;
 CREATE TABLE `question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `quiz_id` varchar(20) NOT NULL,
+  `type` varchar(20) NOT NULL,
   `description` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `question_quiz_id_idx` (`quiz_id`),
@@ -117,7 +118,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
-INSERT INTO `question` VALUES (1,'hvlquizmedium','test question'),(24,'hvlquizhard','test'),(40,'hvlquizeasy','What is the purpose of the querySelector() method in javascript?'),(41,'hvlquizeasy','Which HTML tag is used to wrap an unsorted list?'),(42,'hvlquizeasy','In what order are objects removed from a queue?'),(43,'hvlquizeasy','What does a constructor do?'),(44,'hvlquizeasy','What is the value of !true?'),(45,'hvlquizeasy','What is the result of 3+2+\"7\" in javascript?'),(46,'hvlquizeasy','Which of the following is not a core technology of the web?'),(47,'hvlquizeasy','What is the file extension for javascript files?'),(48,'hvlquizeasy','Which of the following is javascript based on?'),(49,'hvlquizeasy','Which of the following best describes the function of git?');
+INSERT INTO `question` VALUES (1,'hvlquizmedium','MULTIPLE_CHOICE','test question'),(24,'hvlquizhard','MULTIPLE_CHOICE','test'),(40,'hvlquizeasy','MULTIPLE_CHOICE','What is the purpose of the querySelector() method in javascript?'),(41,'hvlquizeasy','MULTIPLE_CHOICE','Which HTML tag is used to wrap an unsorted list?'),(42,'hvlquizeasy','MULTIPLE_CHOICE','In what order are objects removed from a queue?'),(43,'hvlquizeasy','MULTIPLE_CHOICE','What does a constructor do?'),(44,'hvlquizeasy','MULTIPLE_CHOICE','What is the value of !true?'),(45,'hvlquizeasy','MULTIPLE_CHOICE','What is the result of 3+2+\"7\" in javascript?'),(46,'hvlquizeasy','MULTIPLE_CHOICE','Which of the following is not a core technology of the web?'),(47,'hvlquizeasy','MULTIPLE_CHOICE','What is the file extension for javascript files?'),(48,'hvlquizeasy','MULTIPLE_CHOICE','Which of the following is javascript based on?'),(49,'hvlquizeasy','MULTIPLE_CHOICE','Which of the following best describes the function of git?');
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,7 +165,7 @@ CREATE TABLE `registration` (
   KEY `registration_quiz_id_idx` (`quiz_id`),
   CONSTRAINT `registration_identity_id` FOREIGN KEY (`identity_id`) REFERENCES `identity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `registration_quiz_id` FOREIGN KEY (`quiz_id`) REFERENCES `quiz` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,8 +186,9 @@ DROP TABLE IF EXISTS `response`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `response` (
   `question_id` int(11) NOT NULL,
-  `answer_id` int(11) NOT NULL,
   `registration_id` int(11) NOT NULL,
+  `answer_id` int(11) DEFAULT NULL,
+  `free_text` varchar(200) DEFAULT NULL,
   `timestamp` bigint(20) NOT NULL,
   PRIMARY KEY (`question_id`,`registration_id`),
   KEY `question_id_idx` (`question_id`),
@@ -217,8 +219,10 @@ UNLOCK TABLES;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `quiz`.`response_BEFORE_INSERT` BEFORE INSERT ON `response` FOR EACH ROW
 BEGIN
-	IF ((SELECT question_id FROM quiz.answer WHERE id = NEW.answer_id) != NEW.question_id) THEN
-		SIGNAL SQLSTATE '45000' SET message_text = "Provided answer not associated with provided question";
+	IF (NEW.answer_id != null) THEN
+		IF ((SELECT question_id FROM quiz.answer WHERE id = NEW.answer_id) != NEW.question_id) THEN
+			SIGNAL SQLSTATE '45000' SET message_text = "Provided answer not associated with provided question";
+		END IF;
 	END IF;
 END */;;
 DELIMITER ;
@@ -237,8 +241,10 @@ DELIMITER ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `quiz`.`response_BEFORE_UPDATE` BEFORE UPDATE ON `response` FOR EACH ROW
 BEGIN
-	IF ((SELECT question_id FROM quiz.answer WHERE id = NEW.answer_id) != NEW.question_id) THEN
-		SIGNAL SQLSTATE '45000' SET message_text = "Provided answer not associated with provided question";
+	IF (NEW.answer_id != null) THEN
+		IF ((SELECT question_id FROM quiz.answer WHERE id = NEW.answer_id) != NEW.question_id) THEN
+			SIGNAL SQLSTATE '45000' SET message_text = "Provided answer not associated with provided question";
+		END IF;
 	END IF;
 END */;;
 DELIMITER ;
@@ -288,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-19 17:00:29
+-- Dump completed on 2019-01-20 20:37:02
