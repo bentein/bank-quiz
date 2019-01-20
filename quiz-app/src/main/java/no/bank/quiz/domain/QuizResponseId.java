@@ -18,7 +18,6 @@ public class QuizResponseId implements Serializable {
 
     private static final long serialVersionUID = -3627736820357036179L;
 
-    @Column(name = "registration_id")
     private Integer registrationId;
     private Integer questionId;
 }

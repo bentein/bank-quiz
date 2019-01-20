@@ -43,7 +43,7 @@ class ScoreSegment extends React.Component {
     let storage = window.localStorage;
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/contactinfo", true);
+    xhr.open("POST", "/api/contactinfo", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {

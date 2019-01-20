@@ -54,7 +54,7 @@ class ContactInfoSegment extends React.Component {
     buttons.forEach(button => button.disabled = true);
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/contactinfo", true);
+    xhr.open("POST", "/api/contactinfo", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {

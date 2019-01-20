@@ -36,9 +36,9 @@ public class Registration {
     private QuizScore score;
 
     @OneToMany(
+            mappedBy = "id.registrationId",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
-    @JoinColumn(name = "registration_id")
     private List<QuizResponse> responses;
 
     private long timestamp;

@@ -21,8 +21,8 @@ class StartSegment extends React.Component {
     } 
     else {
       storage.setItem("name", name);
-      let difficulty = event.target.value;
-      this.doRegistration(name, difficulty);
+      let quizId = event.target.value;
+      this.doRegistration(name, quizId);
     }
   }
 
@@ -31,25 +31,25 @@ class StartSegment extends React.Component {
     input.style['box-shadow'] = "0px 0px 0px 5px red";
   }
 
-  doRegistration(name, difficulty) {
+  doRegistration(name, quizId) {
     let storage = window.localStorage;
 
     let identity = storage.getItem("identity");
-    this.doRegistrationRequest(identity, name, difficulty);
+    this.doRegistrationRequest(identity, name, quizId);
     
   }
 
-  doRegistrationRequest(identity, name, difficulty) {
+  doRegistrationRequest(identity, name, quizId) {
     let storage = window.localStorage;
 
     let registrationRequest = {
       identityId: identity,
       name: name,
-      difficulty: difficulty
+      quizId: quizId
     }
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/registration", true);
+    xhr.open("POST", "/api/registration", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {
@@ -57,7 +57,7 @@ class StartSegment extends React.Component {
           let registrationId = xhr.responseText;
           console.log("Received registrationId: " + registrationId);
           storage.setItem("registrationId", registrationId);
-          this.getQuestions(difficulty, registrationId);
+          this.getQuestions(quizId, registrationId);
 
         } else {
           console.error(xhr);
@@ -70,18 +70,18 @@ class StartSegment extends React.Component {
     xhr.send(JSON.stringify(registrationRequest));
   }
 
-  getQuestions(difficulty, registrationId) {
+  getQuestions(quizId, registrationId) {
 
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", `/questions?difficulty=${difficulty}`, true);
+    xhr.open("GET", `/api/quiz/${quizId}`, true);
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          let questions = this.shuffle(JSON.parse(xhr.responseText));
-          console.log("Received questions: " + questions.length);
+          let quiz = this.shuffle(JSON.parse(xhr.responseText));
+          console.log("Received questions: " + quiz.questions.length);
           this.setAppState({
             activity : Activity.QUESTION,
-            questions: questions,
+            questions: quiz.questions,
             registration: registrationId
           });
 
@@ -123,10 +123,10 @@ class StartSegment extends React.Component {
         <h1 className="start-segment-header">Code Quiz</h1>
         <input className="name-input" type="text" defaultValue={name} placeholder="nickname"></input>
         <p className="difficulty-paragraph">Choose your difficulty:</p>
-        <button className="start-segment-button easy-button" value="EASY" onClick={(e) => this.startQuiz(e)}>EASY</button>
-        <button className="start-segment-button medium-button" value="MEDIUM" onClick={(e) => this.startQuiz(e)}>MEDIUM</button>
-        <button className="start-segment-button hard-button" value="HARD" onClick={(e) => this.startQuiz(e)}>HARD</button>
-        <button className="start-segment-button profile-button" value="HARD" onClick={(e) => this.openProfile(e)}>My profile</button>
+        <button className="start-segment-button easy-button" value="hvlquizeasy" onClick={(e) => this.startQuiz(e)}>EASY</button>
+        <button className="start-segment-button medium-button" value="hvlquizmedium" onClick={(e) => this.startQuiz(e)}>MEDIUM</button>
+        <button className="start-segment-button hard-button" value="hvlquizhard" onClick={(e) => this.startQuiz(e)}>HARD</button>
+        <button className="start-segment-button profile-button" onClick={(e) => this.openProfile(e)}>My profile</button>
       </div>
     );
   }
