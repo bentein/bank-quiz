@@ -8,18 +8,18 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping(value = "/questions")
 public class QuestionController {
 
     @Autowired
     private QuestionService questionService;
 
-    @GetMapping(value = "/questions/{questionId}")
+    @GetMapping
     public QuizQuestion getQuestion(@PathVariable int questionId) {
         return questionService.getQuestion(questionId);
     }
 
-    @PostMapping(value = "/questions")
+    @PostMapping
     @Secured("ROLE_USER")
     @ResponseStatus(HttpStatus.CREATED)
     public void saveQuestion(@RequestBody QuizQuestion question) {
