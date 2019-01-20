@@ -1,6 +1,6 @@
 package no.bank.quiz.resource;
 
-import no.bank.quiz.domain.Identity;
+import no.bank.quiz.domain.UserIdentity;
 import no.bank.quiz.service.IdentityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,7 @@ public class IdentityController {
 
     @Secured("ROLE_USER")
     @GetMapping("/{identityId}")
-    public Identity getIdentity(@PathVariable Integer identityId) {
+    public UserIdentity getIdentity(@PathVariable Integer identityId) {
         return identityService.getIdentity(identityId);
     }
 }

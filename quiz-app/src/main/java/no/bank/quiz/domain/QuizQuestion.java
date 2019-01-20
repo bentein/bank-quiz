@@ -8,23 +8,22 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "question")
+@NoArgsConstructor
 @AllArgsConstructor
 public class QuizQuestion {
 
     @Builder
-    public QuizQuestion(String description, QuestionDifficulty difficulty, List<QuizAnswer> answers) {
+    public QuizQuestion(String description, String quizId, List<QuizAnswer> answers) {
         this.description = description;
-        this.difficulty = difficulty;
+        this.quizId = quizId;
         this.answers = answers;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String quizId;
     private String description;
-
-    @Enumerated(EnumType.STRING)
-    private QuestionDifficulty difficulty;
 
     @OneToMany(
             mappedBy = "question",
