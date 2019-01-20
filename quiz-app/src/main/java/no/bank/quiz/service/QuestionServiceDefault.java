@@ -1,6 +1,5 @@
 package no.bank.quiz.service;
 
-import no.bank.quiz.domain.QuestionDifficulty;
 import no.bank.quiz.domain.QuizQuestion;
 import no.bank.quiz.exception.ErrorCode;
 import no.bank.quiz.repository.QuestionRepository;
@@ -17,8 +16,8 @@ public class QuestionServiceDefault implements QuestionService {
     private QuestionRepository questionRepository;
 
     @Override
-    public List<QuizQuestion> getAllQuestions(QuestionDifficulty difficulty) {
-        return questionRepository.findByDifficulty(difficulty);
+    public List<QuizQuestion> getAllQuestions(String quizId) {
+        return questionRepository.findByQuizId(quizId);
     }
 
     @Override

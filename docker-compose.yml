@@ -2,56 +2,26 @@ version: '3'
 services:
 
   nginx:
-    image: "bentein/quiz-nginx:0.1"
+    image: "bentein/quiz-nginx:0.2"
     depends_on:
-      - identity-service
-      - question-service
-      - response-service
-      - score-service
+      - quiz-app
       - quiz-auth
     ports:
       - "80:8080"
 
   database:
-    image: "bentein/quiz-mysql:0.1"
+    image: "bentein/quiz-mysql:0.2"
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=pass
 
-  identity-service:
-    image: "bentein/identity-service:0.1"
+  quiz-app:
+    image: "bentein/quiz-app:0.1"
     depends_on:
       - database
     ports:
       - "40001:8080"
-    env_file:
-      - common.env
-  
-  question-service:
-    image: "bentein/question-service:0.1"
-    depends_on:
-      - database
-    ports:
-      - "40002:8080"
-    env_file:
-      - common.env
-
-  response-service:
-    image: "bentein/response-service:0.1"
-    depends_on:
-      - database
-    ports:
-      - "40003:8080"
-    env_file:
-      - common.env
-  
-  score-service:
-    image: "bentein/score-service:0.1"
-    depends_on:
-      - database
-    ports:
-      - "40004:8080"
     env_file:
       - common.env
 
@@ -68,10 +38,7 @@ services:
   prometheus:
     image: "bentein/quiz-prometheus:0.1"
     depends_on:
-      - identity-service
-      - question-service
-      - response-service
-      - score-service
+      - quiz-app
       - quiz-auth
     ports:
       - "9090:9090"

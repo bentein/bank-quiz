@@ -1,6 +1,5 @@
 package no.bank.quiz.resource;
 
-import no.bank.quiz.domain.QuestionDifficulty;
 import no.bank.quiz.domain.QuizQuestion;
 import no.bank.quiz.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,31 +10,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/questions")
+@RequestMapping
 public class QuestionController {
 
     @Autowired
     private QuestionService questionService;
 
-    @GetMapping
-    public List<QuizQuestion> getAllQuestions(@RequestParam QuestionDifficulty difficulty) {
-        return questionService.getAllQuestions(difficulty);
+    @GetMapping(value = "quiz/{quizId}")
+    public List<QuizQuestion> getAllQuestions(@PathVariable String quizId) {
+        return questionService.getAllQuestions(quizId);
     }
 
-    @GetMapping(value = "/{questionId}")
+    @GetMapping(value = "/questions/{questionId}")
     public QuizQuestion getQuestion(@PathVariable int questionId) {
         return questionService.getQuestion(questionId);
     }
 
-    @PostMapping
+    @PostMapping(value = "/questions")
     @Secured("ROLE_USER")
     @ResponseStatus(HttpStatus.CREATED)
     public void saveQuestion(@RequestBody QuizQuestion question) {
         questionService.saveQuestion(question);
     }
 
-    @GetMapping("/difficulties")
-    public QuestionDifficulty[] getAllDifficulties() {
-        return QuestionDifficulty.values();
-    }
 }

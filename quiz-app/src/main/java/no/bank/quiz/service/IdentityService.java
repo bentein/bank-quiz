@@ -1,8 +1,8 @@
 package no.bank.quiz.service;
 
-import no.bank.quiz.domain.Identity;
+import no.bank.quiz.domain.UserIdentity;
 
 public interface IdentityService {
     Integer createIdentity();
-    Identity getIdentity(Integer identityId);
+    UserIdentity getIdentity(Integer identityId);
 }

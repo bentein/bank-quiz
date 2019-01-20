@@ -50,8 +50,8 @@ public class ScoreServiceDefault implements ScoreService {
     }
 
     @Override
-    public List<LeaderboardEntry> getTopTenLeaderboard(QuizDifficulty difficulty) {
-        return registrationRepository.findTop10ByDifficultyOrderByScoreScoreDesc(difficulty).stream()
+    public List<LeaderboardEntry> getTopTenLeaderboard(String quizId) {
+        return registrationRepository.findTop10ByQuizIdOrderByScoreScoreDesc(quizId).stream()
                 .filter(r -> Objects.nonNull(r.getScore()))
                 .map(r -> LeaderboardEntry.builder()
                         .name(r.getName())

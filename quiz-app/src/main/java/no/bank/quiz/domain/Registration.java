@@ -29,9 +29,7 @@ public class Registration {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Integer identityId;
     private String name;
-
-    @Enumerated(EnumType.STRING)
-    private QuizDifficulty difficulty;
+    private String quizId;
 
     @OneToOne
     @PrimaryKeyJoinColumn

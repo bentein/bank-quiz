@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "answer")
+@NoArgsConstructor
 @AllArgsConstructor
 public class QuizAnswer {
 
