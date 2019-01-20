@@ -23,6 +23,9 @@ public class QuizQuestion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String quizId;
+
+    @Enumerated(EnumType.STRING)
+    private QuestionType type;
     private String description;
 
     @OneToMany(
