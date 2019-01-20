@@ -7,10 +7,10 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 
 
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "answer")
-@NoArgsConstructor
 @AllArgsConstructor
 public class QuizAnswer {
 

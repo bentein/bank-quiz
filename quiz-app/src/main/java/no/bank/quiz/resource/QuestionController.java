@@ -7,19 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping
 public class QuestionController {
 
     @Autowired
     private QuestionService questionService;
-
-    @GetMapping(value = "quiz/{quizId}")
-    public List<QuizQuestion> getAllQuestions(@PathVariable String quizId) {
-        return questionService.getAllQuestions(quizId);
-    }
 
     @GetMapping(value = "/questions/{questionId}")
     public QuizQuestion getQuestion(@PathVariable int questionId) {
