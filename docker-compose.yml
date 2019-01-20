@@ -36,7 +36,7 @@ services:
       - authorization.env
   
   prometheus:
-    image: "bentein/quiz-prometheus:0.1"
+    image: "bentein/quiz-prometheus:0.2"
     depends_on:
       - quiz-app
       - quiz-auth
