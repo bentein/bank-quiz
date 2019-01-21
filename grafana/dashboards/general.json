@@ -399,7 +399,7 @@
       "tableColumn": "__name__",
       "targets": [
         {
-          "expr": "process_uptime_seconds{instance=\"identity-service:8080\"}",
+          "expr": "process_uptime_seconds",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -481,7 +481,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "1000 * \nprocess_start_time_seconds{instance=\"identity-service:8080\"}",
+          "expr": "1000 * \nprocess_start_time_seconds",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -512,7 +512,7 @@
       "fill": 1,
       "gridPos": {
         "h": 7,
-        "w": 12,
+        "w": 24,
         "x": 0,
         "y": 4
       },
@@ -542,32 +542,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(jvm_memory_used_bytes{instance=\"identity-service:8080\", area=\"heap\"})",
+          "expr": "sum(jvm_memory_used_bytes{area=\"heap\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "identity-service",
           "refId": "A"
-        },
-        {
-          "expr": "sum(jvm_memory_used_bytes{instance=\"question-service:8080\", area=\"heap\"})",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "question-service",
-          "refId": "B"
-        },
-        {
-          "expr": "sum(jvm_memory_used_bytes{instance=\"response-service:8080\", area=\"heap\"})",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "response-serivce",
-          "refId": "C"
-        },
-        {
-          "expr": "sum(jvm_memory_used_bytes{instance=\"score-service:8080\", area=\"heap\"})",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "score-service",
-          "refId": "D"
         }
       ],
       "thresholds": [],
@@ -610,66 +589,6 @@
         "align": false,
         "alignLevel": null
       }
-    },
-    {
-      "cards": {
-        "cardPadding": null,
-        "cardRound": null
-      },
-      "color": {
-        "cardColor": "#b4ff00",
-        "colorScale": "sqrt",
-        "colorScheme": "interpolateOranges",
-        "exponent": 0.5,
-        "mode": "spectrum"
-      },
-      "dataFormat": "timeseries",
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 4
-      },
-      "heatmap": {},
-      "highlightCards": true,
-      "id": 18,
-      "legend": {
-        "show": false
-      },
-      "links": [],
-      "targets": [
-        {
-          "expr": "sum(increase(http_server_requests_seconds_count{uri!=\"/actuator/prometheus\"}[10m])) by (le)",
-          "format": "heatmap",
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "title": "Panel Title",
-      "tooltip": {
-        "show": true,
-        "showHistogram": false
-      },
-      "type": "heatmap",
-      "xAxis": {
-        "show": true
-      },
-      "xBucketNumber": null,
-      "xBucketSize": null,
-      "yAxis": {
-        "decimals": null,
-        "format": "short",
-        "logBase": 1,
-        "max": null,
-        "min": null,
-        "show": true,
-        "splitFactor": null
-      },
-      "yBucketBound": "auto",
-      "yBucketNumber": null,
-      "yBucketSize": null
     }
   ],
   "refresh": "5s",
