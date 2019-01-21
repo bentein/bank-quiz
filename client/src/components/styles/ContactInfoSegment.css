@@ -1,30 +1,22 @@
 .contact-info-segment-wrapper {
-    padding: 75px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
 }
 
 .contact-info-segment-header {
-    font-size: 7em;
-    margin: 15px;
 }
 
 .contact-info-segment-paragraph {
-    font-size: 4em;
-    margin: 15px;
+    font-size: 1.3em;
 }
 
 .contact-info-segment-input-wrapper {
-    margin: 35px 0;
+    margin-bottom: 10px;
 }
 
 .contact-info-segment-input {
     width: 90%;
-    font-size: 4em;
-    padding: 15px;
-    margin: 15px;
+    margin: 4px;
+    font-size: 1.5em;
     align-self: center;
     text-align: center;
     border-radius: 25px;
@@ -34,17 +26,17 @@
 }
 
 .contact-info-segment-button-wrapper {
-    margin: 35px 0;
+    margin: 12px 0px;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
 .contact-info-segment-button {
-    font-size: 4em;
     width: 40%;
-    padding: 30px;
-    margin: 20px;
+    margin: 4px;
+    padding: 4px;
+    font-size: 1.5em;
     align-self: center;
     border-radius: 50px;
     border: 1px solid #007272;
@@ -57,17 +49,18 @@
 }
 
 .contact-info-segment-checkbox-wrapper {
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: auto;
 }
 
 .contact-info-segment-checkbox-paragraph {
-    font-size: 3em;
-    margin: 15px;
+    margin: 5px;
 }
 
 .contact-info-segment-checkbox-checkbox {
-    zoom: 5;
+    zoom: 2;
 }

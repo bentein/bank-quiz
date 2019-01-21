@@ -21,23 +21,23 @@ class ProfileSegment extends React.Component {
   getContactInfoParagraph() {
     if (this.state.contactInfo) {
       return (
-        <React.Fragment>
-          <p className="profile-segment-delete-contact-info-paragraph">You have already submitted your contact information. If you no longer want to participate in the contest, or have entered wrong information, you can delete your data by pressing the below button.</p>
-          <div className="profile-segment-button-wrapper">
-            <button className="profile-segment-button profile-segment-delete-contact-info-button" onClick={(e) => this.deleteContactInfo(e)}>DELETE</button>
+          <div className="col profile-segment-info-column">
+            <p className="profile-segment-delete-contact-info-paragraph">You have already submitted your contact information. If you no longer want to participate in the contest, or have entered wrong information, you can delete your data by pressing the below button.</p>
+            <div className="profile-segment-button-wrapper">
+              <button className="profile-segment-button profile-segment-delete-contact-info-button" onClick={(e) => this.deleteContactInfo(e)}>DELETE</button>
+            </div>
           </div>
-        </React.Fragment>
       );
 
     } else {
       return (
-        <React.Fragment>
+        <div className="col profile-segment-info-column">
           <p className="profile-segment-delete-contact-info-paragraph">You have not provided any contact information, and will not be participating in the contest. </p>
           <p className="profile-segment-delete-contact-info-paragraph">You can press the button below to enter your contact information if you change your mind. </p>
           <div className="profile-segment-button-wrapper">
             <button className="profile-segment-button profile-segment-contact-info-button" onClick={(e) => this.doContact(e)}>Provide contact info</button>
           </div>
-        </React.Fragment>
+        </div>
       )
     }
   }
@@ -49,28 +49,28 @@ class ProfileSegment extends React.Component {
     
     if (confirmation) {
       let xhr = new XMLHttpRequest();
-        xhr.open("DELETE", `/api/contactinfo/${identity}`, true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onload = (e) => {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 204) {
-                    console.log("Successfully deleted contact info");
-                    let storage = window.localStorage;
-                    storage.setItem("contactinfo", false);      
+      xhr.open("DELETE", `/api/contactinfo/${identity}`, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.onload = (e) => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 204) {
+            console.log("Successfully deleted contact info");
+            let storage = window.localStorage;
+            storage.setItem("contactinfo", false);      
 
-                    this.setState({
-                      contactInfo: false
-                    });
+            this.setState({
+              contactInfo: false
+            });
 
-                } else {
-                    console.error(xhr);
-                }
-            }
-        };
-        xhr.onerror = (e) => {
-            console.error(xhr.statusText);
-        };
-        xhr.send();
+          } else {
+            console.error(xhr);
+          }
+        }
+      };
+      xhr.onerror = (e) => {
+        console.error(xhr.statusText);
+      };
+      xhr.send();
     }
   }
 
@@ -90,7 +90,7 @@ class ProfileSegment extends React.Component {
   render() {
 
     return(
-      <div className="profile-segment-wrapper">
+      <div className="profile-segment-wrapper col">
         <h1 className="profile-segment-header">Profile</h1>
         {this.getContactInfoParagraph()}
         <div className="profile-segment-button-wrapper">

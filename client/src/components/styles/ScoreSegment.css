@@ -1,51 +1,23 @@
 .score-segment-wrapper {
-    padding: 75px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
 }
 
 .score-segment-header {
-    font-size: 7em;
-    margin: 15px;
 }
 
 .score-segment-paragraph {
-    font-size: 4em;
-    margin: 15px;
+    font-size: 1.3em;
 }
 
-.score-segment-input-wrapper {
-    margin: 35px 0;
-}
-
-.score-segment-input {
-    width: 90%;
-    font-size: 4em;
-    padding: 15px;
-    margin: 15px;
-    align-self: center;
-    text-align: center;
-    border-radius: 25px;
-    border: 1px solid #007272;
-    background: #ffffff;
-    font-family: 'Text Me One', sans-serif;
-}
 
 .score-segment-button-wrapper {
-    margin: 35px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    margin-bottom: 16px;
 }
 
 .score-segment-button {
-    font-size: 4em;
-    width: 40%;
-    padding: 30px;
-    margin: 20px;
-    align-self: center;
+    margin: 4px;
+    padding: 10px;
+    font-size: 1.5em;
     border-radius: 50px;
     border: 1px solid #007272;
     background: rgb(222,245,239);
@@ -57,8 +29,11 @@
 }
 
 .score-segment-contact-info-button {
-    width: 80%;
-    padding: 50px;
+    width: 75%;
+}
+
+.score-segment-return-button {
+    width: 40%;
 }
 
 .score-segment-checkbox-wrapper {
@@ -69,7 +44,7 @@
 }
 
 .score-segment-checkbox-paragraph {
-    font-size: 3em;
+    
     margin: 15px;
 }
 

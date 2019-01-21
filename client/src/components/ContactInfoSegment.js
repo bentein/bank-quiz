@@ -126,7 +126,7 @@ class ContactInfoSegment extends React.Component {
   render() {
 
     return(
-      <div className="contact-info-segment-wrapper">
+      <div className="col contact-info-segment-wrapper">
         <h1 className="contact-info-segment-header">Contact Info</h1>
         <p className="contact-info-segment-paragraph">Enter your contact information below to have a chance at winning special prizes.</p>
         <div className="contact-info-segment-input-wrapper">
