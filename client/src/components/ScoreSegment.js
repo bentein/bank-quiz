@@ -81,7 +81,7 @@ class ScoreSegment extends React.Component {
 
   getSubmitSegment() {
     return (
-      <div className="score-segment-wrapper">
+      <React.Fragment>
         <h1 className="score-segment-header">Score: {this.state.score}</h1>
         <p className="score-segment-paragraph">You finished the quiz!</p>
         <p className="score-segment-paragraph">If you want a chance to win special prizes, press the button below to input your contact information.</p>
@@ -89,23 +89,17 @@ class ScoreSegment extends React.Component {
           <button className="score-segment-contact-info-button score-segment-button" onClick={() => this.doContact()}>Provide contact info</button>
         </div>
         <p className="score-segment-paragraph">Or you could try again and improve your score without submitting your contact information by pressing the button below.</p>
-        <div className="score-segment-button-wrapper">
-          <button className="score-segment-button" onClick={() => this.doRetry()}>Return</button>
-        </div>
-      </div>
+      </React.Fragment>
     );
   }
 
   getAlreadySubmittedSegment() {
     return (
-      <div className="score-segment-wrapper">
+      <React.Fragment>
         <h1 className="score-segment-header">Score: {this.state.score}</h1>
         <p className="score-segment-paragraph">You finished the quiz! You have already submitted your contact info. You will be contacted if you win. </p>
         <p className="score-segment-paragraph">You can alternatively delete your contact info on the start screen if you no longer desire to be part of the contest. Feel free to try again to improve your score.</p>
-        <div className="score-segment-button-wrapper">
-          <button className="score-segment-button" onClick={() => this.doRetry()}>Return</button>
-        </div>
-      </div>
+      </React.Fragment>
     );
   }
 
@@ -122,9 +116,12 @@ class ScoreSegment extends React.Component {
     }
 
     return(
-      <React.Fragment>
+      <div className="score-segment-wrapper col">
         {segment}
-      </React.Fragment>
+        <div className="score-segment-button-wrapper">
+          <button className="score-segment-button score-segment-return-button" onClick={() => this.doRetry()}>Return</button>
+        </div>
+      </div>
     );
   }
 }

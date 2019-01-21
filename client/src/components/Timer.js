@@ -74,9 +74,9 @@ class Timer extends React.Component {
 
     render() {
         return(
-            <div className="timer-wrapper">
+            <React.Fragment>
                 <span className="timer-label">Remaining: </span><span className="timer">{Math.ceil((this.state.endTime - this.state.time) / 1000 - 1)}s</span>
-            </div>
+            </React.Fragment>
         );
     }
 

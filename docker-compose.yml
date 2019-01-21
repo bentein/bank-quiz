@@ -44,6 +44,6 @@ services:
       - "9090:9090"
   
   grafana:
-    image: "bentein/quiz-grafana:0.1"
+    image: "bentein/quiz-grafana:0.2"
     ports:
       - "3000:3000"

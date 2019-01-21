@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './styles/App.css';
 
-import Timer from "./Timer";
 import QuestionSegment from "./QuestionSegment";
 import StartSegment from "./StartSegment";
 import ScoreSegment from "./ScoreSegment";
@@ -54,7 +53,7 @@ class App extends React.Component {
 
   getActiveScreen() {
     switch (this.state.activity) {
-      case Activity.QUESTION: return [<Timer key="timer" maxTime={300} stateSetter={(args) => this.setState(args)}></Timer>, <QuestionSegment key="questions" questions={this.state.questions} stateSetter={(args) => this.setState(args)}></QuestionSegment>];
+      case Activity.QUESTION: return <QuestionSegment key="questions" questions={this.state.questions} stateSetter={(args) => this.setState(args)}></QuestionSegment>;
       case Activity.SCORE: return <ScoreSegment score={this.state.score} stateSetter={(args) => this.setState(args)}></ScoreSegment>;
       case Activity.PROFILE: return <ProfileSegment stateSetter={(args) => this.setState(args)}></ProfileSegment>;
       case Activity.CONTACT: return <ContactInfoSegment prevActivity={this.state.prevActivity} stateSetter={(args) => this.setState(args)}></ContactInfoSegment>
@@ -65,8 +64,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app-wrapper">
-        {this.getActiveScreen()}
+      <div className="app-wrapper container">
+        <div className="row align-items-center">
+          {this.getActiveScreen()}
+        </div>
       </div>
     );
   }

@@ -28,7 +28,7 @@ class StartSegment extends React.Component {
 
   markWrongInput() {
     let input = document.querySelector(".name-input");
-    input.style['box-shadow'] = "0px 0px 0px 5px red";
+    input.style['box-shadow'] = "0px 0px 0px 3px red";
   }
 
   doRegistration(name, quizId) {
@@ -119,15 +119,15 @@ class StartSegment extends React.Component {
     let name = storage.getItem("name") || "";
 
     return(
-      <div className="start-segment-wrapper">
-        <h1 className="start-segment-header">Code Quiz</h1>
-        <input className="name-input" type="text" defaultValue={name} placeholder="nickname"></input>
-        <p className="difficulty-paragraph">Choose your difficulty:</p>
-        <button className="start-segment-button easy-button" value="hvlquizeasy" onClick={(e) => this.startQuiz(e)}>EASY</button>
-        <button className="start-segment-button medium-button" value="hvlquizmedium" onClick={(e) => this.startQuiz(e)}>MEDIUM</button>
-        <button className="start-segment-button hard-button" value="hvlquizhard" onClick={(e) => this.startQuiz(e)}>HARD</button>
-        <button className="start-segment-button profile-button" onClick={(e) => this.openProfile(e)}>My profile</button>
-      </div>
+        <div className="start-segment-wrapper col">
+          <h1 className="start-segment-header">Code Quiz</h1>
+          <input className="name-input" type="text" defaultValue={name} placeholder="nickname"></input>
+          <p className="difficulty-paragraph">Choose your difficulty:</p>
+          <button className="start-segment-button easy-button" value="hvlquizeasy" onClick={(e) => this.startQuiz(e)}>EASY</button>
+          <button className="start-segment-button medium-button" value="hvlquizmedium" onClick={(e) => this.startQuiz(e)}>MEDIUM</button>
+          <button className="start-segment-button hard-button" value="hvlquizhard" onClick={(e) => this.startQuiz(e)}>HARD</button>
+          <button className="start-segment-button profile-button" onClick={(e) => this.openProfile(e)}>My profile</button>
+        </div>
     );
   }
 
