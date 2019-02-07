@@ -12,17 +12,15 @@ class StartSegment extends React.Component {
     this.state = {}
   }
 
-  startQuiz(event) {
+  registerAndGoToActivity(activity) {
     let storage = window.localStorage;
 
     let name = document.querySelector(".name-input").value;
     if (name.length < 3) {
       this.markWrongInput();
-    } 
-    else {
+    } else {
       storage.setItem("name", name);
-      let quizId = event.target.value;
-      this.doRegistration(name, quizId);
+      this.goToActivity(activity);
     }
   }
 
@@ -31,12 +29,29 @@ class StartSegment extends React.Component {
     input.style['box-shadow'] = "0px 0px 0px 3px red";
   }
 
-  doRegistration(name, quizId) {
+  doChocolateRegistration() {
     let storage = window.localStorage;
 
     let identity = storage.getItem("identity");
-    this.doRegistrationRequest(identity, name, quizId);
-    
+    let name = document.querySelector(".name-input").value
+    let quizId = "hvlquizchocolate";
+
+    if (name.length < 3) {
+      this.markWrongInput();
+    } else {
+      storage.setItem("name", name);
+      let registrated = storage.getItem("chocolateRegistrationId");
+
+      if (registrated) {
+        this.setAppState({
+          activity : Activity.CHOCOLATE
+        });
+
+      } else {
+        
+        this.doRegistrationRequest(identity, name, quizId);
+      }
+    }
   }
 
   doRegistrationRequest(identity, name, quizId) {
@@ -55,12 +70,14 @@ class StartSegment extends React.Component {
       if (xhr.readyState === 4) {
         if (xhr.status === 201) {
           let registrationId = xhr.responseText;
-          console.log("Received registrationId: " + registrationId);
-          storage.setItem("registrationId", registrationId);
-          this.getQuestions(quizId, registrationId);
+          storage.setItem("chocolateRegistrationId", registrationId);
+          this.getChocolateQuestion(quizId, registrationId);
 
         } else {
           console.error(xhr);
+          this.setAppState({
+            activity : Activity.CHOCOLATE
+          });
         }
       }
     };
@@ -70,19 +87,20 @@ class StartSegment extends React.Component {
     xhr.send(JSON.stringify(registrationRequest));
   }
 
-  getQuestions(quizId, registrationId) {
+  getChocolateQuestion(quizId) {
+
+    let storage = window.localStorage;
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", `/api/quiz/${quizId}`, true);
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          let quiz = this.shuffle(JSON.parse(xhr.responseText));
-          console.log("Received questions: " + quiz.questions.length);
+          let quiz = JSON.parse(xhr.responseText);
+          storage.setItem("chocolateQuiz", JSON.stringify(quiz));
+
           this.setAppState({
-            activity : Activity.QUESTION,
-            questions: quiz.questions,
-            registration: registrationId
+            activity : Activity.CHOCOLATE
           });
 
         } else {
@@ -96,20 +114,9 @@ class StartSegment extends React.Component {
     xhr.send();
   }
 
-  shuffle(a) {
-    var j, x, i;
-    for (i = a.length - 1; i > 0; i--) {
-      j = Math.floor(Math.random() * (i + 1));
-      x = a[i];
-      a[i] = a[j];
-      a[j] = x;
-    }
-    return a;
-  }
-
-  openProfile() {
+  goToActivity(activity) {
     this.setAppState({
-      activity : Activity.PROFILE
+      activity
     });
   }
 
@@ -121,12 +128,12 @@ class StartSegment extends React.Component {
     return(
         <div className="start-segment-wrapper col">
           <h1 className="start-segment-header">Code Quiz</h1>
+          <p className="difficulty-paragraph">Choose a nickname for the leaderboards:</p>
           <input className="name-input" type="text" defaultValue={name} placeholder="nickname"></input>
-          <p className="difficulty-paragraph">Choose your difficulty:</p>
-          <button className="start-segment-button easy-button" value="hvlquizeasy" onClick={(e) => this.startQuiz(e)}>EASY</button>
-          <button className="start-segment-button medium-button" value="hvlquizmedium" onClick={(e) => this.startQuiz(e)}>MEDIUM</button>
-          <button className="start-segment-button hard-button" value="hvlquizhard" onClick={(e) => this.startQuiz(e)}>HARD</button>
-          <button className="start-segment-button profile-button" onClick={(e) => this.openProfile(e)}>My profile</button>
+          <p className="difficulty-paragraph">Choose your activity:</p>
+          <button className="start-segment-button" onClick={(e) => this.registerAndGoToActivity(Activity.SELECT)}>Code Quiz</button>
+          <button className="start-segment-button" onClick={(e) => this.doChocolateRegistration()}>Chocolate Challenge</button>
+          <button className="start-segment-button profile-button" onClick={(e) => this.goToActivity(Activity.PROFILE)}>My profile</button>
         </div>
     );
   }

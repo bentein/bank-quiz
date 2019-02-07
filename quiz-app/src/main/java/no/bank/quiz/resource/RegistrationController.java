@@ -23,4 +23,9 @@ public class RegistrationController {
     public Registration getAttempt(@PathVariable Integer registrationId) {
         return registrationService.getUserRegistration(registrationId);
     }
+
+    @DeleteMapping("/{registrationId}")
+    public void deleteAttempt(@PathVariable Integer registrationId) {
+        registrationService.deleteRegistration(registrationId);
+    }
 }

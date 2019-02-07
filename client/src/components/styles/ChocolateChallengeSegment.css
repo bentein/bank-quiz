@@ -1,14 +1,14 @@
-.start-segment-wrapper {
+.chocolate-challenge-segment-wrapper {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.start-segment-header {
+.chocolate-challenge-segment-header {
     font-size: 2.5em;
 }
 
-.name-input {
+.guess-input {
     width: 90%;
     font-size: 2em;
     align-self: center;
@@ -17,14 +17,15 @@
     border: 1px solid #007272;
     background: #ffffff;
     font-family: 'Text Me One', sans-serif;
+    margin-bottom: 25px;
 }
 
-.difficulty-paragraph {
+.explanation-paragraph {
     margin: 25px;
     font-size: 1.5em;
 }
 
-.start-segment-button {
+.chocolate-challenge-segment-button {
     width: 75%;
     margin: 4px;
     padding: 10px;
@@ -36,14 +37,18 @@
     background: rgb(222,245,239);
 }
 
-.start-segment-button:active {
+.chocolate-challenge-segment-button:active {
     background: rgb(202,239,230);
 }
 
-.profile-button {
-    background: rgb(222,245,239);
-    width: 50%;
+.delete-button {
+    background: rgb(255,229,232);
 }
-.profile-button:active {
-    background: rgb(202,239,230);
+
+.delete-button:active {
+    background: rgb(255,204,209);
+}
+
+.return-button {
+    width: 50%;
 }

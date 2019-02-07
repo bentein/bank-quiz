@@ -7,4 +7,5 @@ public interface RegistrationService {
 
     Integer registerUser(Registration registration);
     Registration getUserRegistration(Integer id);
+    void deleteRegistration(Integer id);
 }

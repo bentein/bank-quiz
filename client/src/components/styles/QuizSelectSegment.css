@@ -33,15 +33,31 @@
     align-self: center;
     border: 1px solid #007272;
     font-family: 'Text Me One', sans-serif;
-    background: rgb(222,245,239);
 }
 
-.start-segment-button:active {
-    background: rgb(202,239,230);
+.easy-button {
+    background-color: rgb(232,255,229);
+}
+.easy-button:active {
+    background-color: rgb(209,255,204);
+}
+
+.medium-button {
+    background-color: rgb(255,252,229);
+}
+.medium-button:active {
+    background-color: rgb(255,249,204);
+}
+
+.hard-button {
+    background-color: rgb(255,229,232);
+}
+.hard-button:active {
+    background-color: rgb(255,204,209);
 }
 
 .profile-button {
-    background: rgb(222,245,239);
+    background-color: rgb(222,245,239);
     width: 50%;
 }
 .profile-button:active {

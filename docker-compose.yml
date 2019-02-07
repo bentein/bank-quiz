@@ -6,6 +6,8 @@ services:
     depends_on:
       - quiz-app
       - quiz-auth
+    volumes:
+      - /Users/bmpuls/Workspace/quiz-repo/client/dist:/usr/share/nginx/html
     ports:
       - "80:8080"
 
