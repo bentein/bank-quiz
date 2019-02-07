@@ -7,8 +7,10 @@ import StartSegment from "./StartSegment";
 import ScoreSegment from "./ScoreSegment";
 import ProfileSegment from "./ProfileSegment";
 import ContactInfoSegment from "./ContactInfoSegment";
+import QuizSelectSegment from "./QuizSelectSegment";
 
 import Activity from "../classes/Activity";
+import ChocolateChallengeSegment from "./ChocolateChallengeSegment";
 
 class App extends React.Component {
   constructor(props) {
@@ -37,7 +39,6 @@ class App extends React.Component {
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {
         if (xhr.status === 201) {
-          console.log("Received user identity: " + xhr.responseText);
           storage.setItem("identity", xhr.responseText);
         } else {
           console.error(xhr);
@@ -57,6 +58,8 @@ class App extends React.Component {
       case Activity.SCORE: return <ScoreSegment score={this.state.score} stateSetter={(args) => this.setState(args)}></ScoreSegment>;
       case Activity.PROFILE: return <ProfileSegment stateSetter={(args) => this.setState(args)}></ProfileSegment>;
       case Activity.CONTACT: return <ContactInfoSegment prevActivity={this.state.prevActivity} stateSetter={(args) => this.setState(args)}></ContactInfoSegment>
+      case Activity.SELECT: return <QuizSelectSegment prevActivity={this.state.prevActivity} stateSetter={(args) => this.setState(args)}></QuizSelectSegment>
+      case Activity.CHOCOLATE: return <ChocolateChallengeSegment prevActivity={this.state.prevActivity} stateSetter={(args) => this.setState(args)}></ChocolateChallengeSegment>
       case Activity.START: 
       default: return <StartSegment stateSetter={(args) => this.setState(args)}></StartSegment>;
     }

@@ -118,7 +118,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
-INSERT INTO `question` VALUES (1,'hvlquizmedium','MULTIPLE_CHOICE','test question'),(24,'hvlquizhard','MULTIPLE_CHOICE','test'),(40,'hvlquizeasy','MULTIPLE_CHOICE','What is the purpose of the querySelector() method in javascript?'),(41,'hvlquizeasy','MULTIPLE_CHOICE','Which HTML tag is used to wrap an unsorted list?'),(42,'hvlquizeasy','MULTIPLE_CHOICE','In what order are objects removed from a queue?'),(43,'hvlquizeasy','MULTIPLE_CHOICE','What does a constructor do?'),(44,'hvlquizeasy','MULTIPLE_CHOICE','What is the value of !true?'),(45,'hvlquizeasy','MULTIPLE_CHOICE','What is the result of 3+2+\"7\" in javascript?'),(46,'hvlquizeasy','MULTIPLE_CHOICE','Which of the following is not a core technology of the web?'),(47,'hvlquizeasy','MULTIPLE_CHOICE','What is the file extension for javascript files?'),(48,'hvlquizeasy','MULTIPLE_CHOICE','Which of the following is javascript based on?'),(49,'hvlquizeasy','MULTIPLE_CHOICE','Which of the following best describes the function of git?');
+INSERT INTO `question` VALUES (1,'hvlquizmedium','MULTIPLE_CHOICE','test question'),(24,'hvlquizhard','MULTIPLE_CHOICE','test'),(40,'hvlquizeasy','MULTIPLE_CHOICE','What is the purpose of the querySelector() method in javascript?'),(41,'hvlquizeasy','MULTIPLE_CHOICE','Which HTML tag is used to wrap an unsorted list?'),(42,'hvlquizeasy','MULTIPLE_CHOICE','In what order are objects removed from a queue?'),(43,'hvlquizeasy','MULTIPLE_CHOICE','What does a constructor do?'),(44,'hvlquizeasy','MULTIPLE_CHOICE','What is the value of !true?'),(45,'hvlquizeasy','MULTIPLE_CHOICE','What is the result of 3+2+\"7\" in javascript?'),(46,'hvlquizeasy','MULTIPLE_CHOICE','Which of the following is not a core technology of the web?'),(47,'hvlquizeasy','MULTIPLE_CHOICE','What is the file extension for javascript files?'),(48,'hvlquizeasy','MULTIPLE_CHOICE','Which of the following is javascript based on?'),(49,'hvlquizeasy','MULTIPLE_CHOICE','Which of the following best describes the function of git?'),(50,'hvlquizchocolate','FREE_TEXT','How many chocolates are in the jar on the DNB stand? Guess carefully, you have 1 attempt.');
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,6 +133,7 @@ CREATE TABLE `quiz` (
   `id` varchar(20) NOT NULL,
   `owner` varchar(45) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
+  `attempts` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -143,7 +144,7 @@ CREATE TABLE `quiz` (
 
 LOCK TABLES `quiz` WRITE;
 /*!40000 ALTER TABLE `quiz` DISABLE KEYS */;
-INSERT INTO `quiz` VALUES ('hvlquizeasy',NULL,NULL),('hvlquizhard',NULL,NULL),('hvlquizmedium',NULL,NULL);
+INSERT INTO `quiz` VALUES ('hvlquizeasy',NULL,NULL,0),('hvlquizhard',NULL,NULL,0),('hvlquizmedium',NULL,NULL,0),('hvlquizchocolate',NULL,NULL,0);
 /*!40000 ALTER TABLE `quiz` ENABLE KEYS */;
 UNLOCK TABLES;
 

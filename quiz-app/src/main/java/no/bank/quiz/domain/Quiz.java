@@ -20,6 +20,7 @@ public class Quiz {
     private String id;
     private String owner;
     private String description;
+    private int attempts;
 
     @OneToMany(
             mappedBy = "quizId",

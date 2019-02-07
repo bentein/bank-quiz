@@ -54,7 +54,6 @@ class QuestionSegment extends React.Component {
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {
         if (xhr.status === 201) {
-          console.log("Successfully sent response to server");
           if (finish) {
             this.getScoreAndFinish();
           }
@@ -81,7 +80,6 @@ class QuestionSegment extends React.Component {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
           let score = xhr.responseText;
-          console.log("Successfully received score: " + score);
           this.setAppState({
             activity: Activity.SCORE,
             score: score

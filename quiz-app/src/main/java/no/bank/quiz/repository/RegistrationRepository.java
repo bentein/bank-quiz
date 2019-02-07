@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface RegistrationRepository extends CrudRepository<Registration, Integer> {
     List<Registration> findAllByQuizId(String quizId);
+    List<Registration> findAllByIdentityIdAndQuizId(Integer identityId, String quizId);
     List<Registration> findTop10ByQuizIdOrderByScoreScoreDesc(String quizId);
 
 }
