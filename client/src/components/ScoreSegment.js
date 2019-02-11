@@ -88,7 +88,8 @@ class ScoreSegment extends React.Component {
         <div className="score-segment-button-wrapper">
           <button className="score-segment-contact-info-button score-segment-button" onClick={() => this.doContact()}>Provide contact info</button>
         </div>
-        <p className="score-segment-paragraph">Or you could try again and improve your score without submitting your contact information by pressing the button below.</p>
+        <p className="score-segment-paragraph">Click <a href="https://www.deltager.no/DNBDC19?WT.mc_id=pov4" target="_blank"><u>here</u></a> to read more about or sign up for Digital Challenge.</p>
+        <p className="score-segment-paragraph">Click <a href="https://www.dnb.no/om-oss/jobb-og-karriere.html" target="_blank"><u>here</u></a> to read about job openings and working in DNB.</p>
       </React.Fragment>
     );
   }
@@ -100,7 +101,7 @@ class ScoreSegment extends React.Component {
         <p className="score-segment-paragraph">You finished the quiz! You have already submitted your contact info. You will be contacted if you win. </p>
         <p className="score-segment-paragraph">You can alternatively delete your contact info on the start screen if you no longer desire to be part of the contest. Feel free to try again to improve your score.</p>
       </React.Fragment>
-    );
+    ); 
   }
 
   render() {
