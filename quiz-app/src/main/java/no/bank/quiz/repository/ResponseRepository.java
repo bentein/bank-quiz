@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface ResponseRepository extends CrudRepository<QuizResponse, QuizResponseId> {
     List<QuizResponse> findByIdRegistrationId(Integer registrationId);
+    List<QuizResponse> findAllByFreeTextBetween(String a, String b);
 
 }

@@ -5,6 +5,8 @@ import no.bank.quiz.repository.ResponseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ResponseServiceDefault implements ResponseService {
 
@@ -15,5 +17,10 @@ public class ResponseServiceDefault implements ResponseService {
     public void saveResponse(QuizResponse response) {
         response.setTimestamp(System.currentTimeMillis());
         responseRepository.save(response);
+    }
+
+    @Override
+    public List<QuizResponse> findResponseWithFreeTextBetween(String a, String b) {
+        return responseRepository.findAllByFreeTextBetween(a,b);
     }
 }

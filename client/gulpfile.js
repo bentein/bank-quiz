@@ -27,7 +27,7 @@ gulp.task('watch', ['webpack'], function (done) {
 
 gulp.task('default', ['webpack', 'server'], function () {
 	browserSync.init({
-		proxy: "http://localhost:3002",
+		proxy: "http://localhost:80",
 		notify: false,
 		logLevel: "silent"
 	});
