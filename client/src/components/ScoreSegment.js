@@ -48,7 +48,6 @@ class ScoreSegment extends React.Component {
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {
         if (xhr.status === 201) {
-          console.log("Successfully sent contact info to server");
           storage.setItem("contactinfo", true);
           
           this.setAppState({

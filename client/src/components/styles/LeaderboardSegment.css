@@ -1,0 +1,48 @@
+.leaderboard-segment-wrapper {
+    text-align: center;
+    margin: 25px 0px;
+}
+
+.leaderboard-header {
+    margin-bottom: 25px;
+}
+
+.leaderboard-content {
+    border: 1px solid #007272;
+    border-radius: 25px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.leaderboard-score-line {
+    margin: 0;
+    text-align: justify;
+    justify-content: space-between;
+}
+
+.leaderboard-ruler {
+    flex: 1;
+    margin: 0px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.leaderboard-ruler:after {
+    content: "...............................................................................................................................................................";
+}
+
+.leaderboard-segment-button {
+    width: 50%;
+    margin: 4px;
+    padding: 10px;
+    font-size: 1.5em;
+    border-radius: 50px;
+    align-self: center;
+    border: 1px solid #007272;
+    font-family: 'Text Me One', sans-serif;
+    background: rgb(222,245,239);
+}
+
+.leaderboard-segment-button:active {
+    background: rgb(202,239,230);
+}

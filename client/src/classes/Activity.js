@@ -6,7 +6,8 @@ var activity = Object.freeze({
     PROFILE : "profile",
     CONTACT : "contact",
     SELECT : "select",
-    CHOCOLATE : "chocolate"
+    CHOCOLATE : "chocolate",
+    LEADERBOARD: "leaderboard"
 });
 
 export default activity;
