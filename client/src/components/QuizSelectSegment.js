@@ -108,14 +108,14 @@ class QuizSelectSegment extends React.Component {
   render() {
 
     return(
-        <div className="start-segment-wrapper col">
-          <h1 className="start-segment-header">Code Quiz</h1>
-          <p className="difficulty-paragraph">Choose your difficulty:</p>
-          <button className="start-segment-button easy-button" value="hvlquizeasy" onClick={(e) => this.startQuiz(e)}>EASY</button>
-          <button className="start-segment-button hard-button" value="hvlquizhard" onClick={(e) => this.startQuiz(e)}>HARD</button>
-          <button className="start-segment-button leaderboard-button" onClick={(e) => this.goToActivity(Activity.LEADERBOARD)}>Leaderboard</button>
-          <button className="start-segment-button profile-button" onClick={(e) => this.goToActivity(Activity.START)}>Return</button>
-        </div>
+      <div className="start-segment-wrapper col">
+        <h1 className="start-segment-header">Code Quiz</h1>
+        <p className="difficulty-paragraph">Choose your difficulty:</p>
+        <button className="start-segment-button easy-button" value="hvlquizeasy" onClick={(e) => this.startQuiz(e)}>EASY</button>
+        <button className="start-segment-button hard-button" value="hvlquizhard" onClick={(e) => this.startQuiz(e)}>HARD</button>
+        <button className="start-segment-button leaderboard-button" onClick={(e) => this.goToActivity(Activity.LEADERBOARD)}>Leaderboard</button>
+        <button className="start-segment-button return-button" onClick={(e) => this.goToActivity(Activity.START)}>Return</button>
+      </div>
     );
   }
 

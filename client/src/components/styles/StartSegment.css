@@ -40,10 +40,10 @@
     background: rgb(202,239,230);
 }
 
-.profile-button {
+.return-button {
     background: rgb(222,245,239);
     width: 50%;
 }
-.profile-button:active {
+.return-button:active {
     background: rgb(202,239,230);
 }
