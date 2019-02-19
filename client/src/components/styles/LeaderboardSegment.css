@@ -7,6 +7,10 @@
     margin-bottom: 25px;
 }
 
+.leaderboard-content-wrapper {
+    margin: 0px;
+}
+
 .leaderboard-content {
     border: 1px solid #007272;
     border-radius: 25px;
@@ -28,7 +32,7 @@
 }
 
 .leaderboard-ruler:after {
-    content: "...............................................................................................................................................................";
+    content: ".........................................................................................................................";
 }
 
 .leaderboard-segment-button {
@@ -45,4 +49,8 @@
 
 .leaderboard-segment-button:active {
     background: rgb(202,239,230);
+}
+
+.leaderboard-easy {
+    margin-right: 25px;
 }

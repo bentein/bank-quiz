@@ -44,7 +44,6 @@ class Timer extends React.Component {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     let score = xhr.responseText;
-                    console.log("Successfully received score: " + score);
                     this.setAppState({
                         activity: Activity.SCORE,
                         score: score
@@ -59,13 +58,6 @@ class Timer extends React.Component {
             console.error(xhr.statusText);
         };
         xhr.send();
-    }
-
-    getScore() {
-        let storage = window.localStorage;
-        let registrationId = storage.getItem("registrationId");
-        
-        return Math.trunc(Math.random() * 100);
     }
 
     componentWillUnmount() {

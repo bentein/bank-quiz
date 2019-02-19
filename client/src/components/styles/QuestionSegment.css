@@ -6,7 +6,8 @@
     position: fixed;
     top: 5%;
     color: black;
-    background-color: rgba(222,245,239,75%);
+    background: rgb(207,239,232);
+    background: rgba(222,245,239,75%);
     padding: 5px;
     width: 40%;
     box-sizing: border-box;
@@ -53,9 +54,8 @@
     justify-content: space-around;
 }
 
-.question-answer {
+.question-button {
     font-size: 1em;
-    width: 85%;
     padding: 15px 4px;
     margin: 10px;
     align-self: center;
@@ -65,6 +65,18 @@
     font-family: 'Text Me One', sans-serif;
 }
 
-.question-answer:active {
+.question-button:active {
     background: rgb(202,239,230);
+}
+
+.question-answer-button {
+    width: 85%;
+}
+
+.question-navigation-button {
+    width: 30%;
+}
+
+.question-navigation-wrapper {
+    justify-content: center;
 }

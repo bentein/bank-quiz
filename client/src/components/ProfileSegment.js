@@ -32,8 +32,8 @@ class ProfileSegment extends React.Component {
     } else {
       return (
         <div className="col profile-segment-info-column">
-          <p className="profile-segment-delete-contact-info-paragraph">You have not provided any contact information, and will not be participating in the contest. </p>
-          <p className="profile-segment-delete-contact-info-paragraph">You can press the button below to enter your contact information if you change your mind. </p>
+          <p className="profile-segment-delete-contact-info-paragraph">You have not provided any contact information, and will not be egible to win prizes.</p>
+          <p className="profile-segment-delete-contact-info-paragraph">Press the button below to enter your information and sign up for the contest.</p>
           <div className="profile-segment-button-wrapper">
             <button className="profile-segment-button profile-segment-contact-info-button" onClick={(e) => this.doContact(e)}>Provide contact info</button>
           </div>
@@ -54,7 +54,6 @@ class ProfileSegment extends React.Component {
       xhr.onload = (e) => {
         if (xhr.readyState === 4) {
           if (xhr.status === 204) {
-            console.log("Successfully deleted contact info");
             let storage = window.localStorage;
             storage.setItem("contactinfo", false);      
 

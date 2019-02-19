@@ -104,14 +104,14 @@ class ChocolateChallengeSegment extends React.Component {
 
     if (this.state.guess) {
       return <React.Fragment>
-        <p className="explanation-paragraph">You have guessed that there are {this.state.guess} chocolates in the jar.</p>
+        <p className="explanation-paragraph">You have guessed that there are {this.state.guess} chocolates in the jar. Submit your contact information from the profile page if you want to win prizes.</p>
         <button className="chocolate-challenge-segment-button delete-button" onClick={(e) => this.deleteGuess()}>Delete</button>
       </React.Fragment>
 
     } else {
 
       return <React.Fragment>
-        <p className="explanation-paragraph">How many chocolates are in the jar on the DNB stand? Guess carefully, you have 1 attempt.</p>
+        <p className="explanation-paragraph">How many chocolates are in the jar on the DNB stand? Guess carefully, your final attempt is the only one that matters.</p>
         <input className="guess-input" type="text" placeholder="your guess"></input>
         <button className="chocolate-challenge-segment-button send-button" onClick={(e) => this.doAnswer()}>Send</button>
       </React.Fragment>

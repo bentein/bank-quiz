@@ -70,10 +70,10 @@ class QuizSelectSegment extends React.Component {
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          let quiz = this.shuffle(JSON.parse(xhr.responseText));
+          let quiz = JSON.parse(xhr.responseText);
           this.setAppState({
             activity : Activity.QUESTION,
-            questions: quiz.questions,
+            questions: this.shuffle(quiz.questions),
             registration: registrationId
           });
 
