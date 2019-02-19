@@ -29,7 +29,7 @@ class ContactInfoSegment extends React.Component {
     let fullName = document.querySelector(".full-name-input").value;
     let email = document.querySelector(".email-input").value;
     let mobile = document.querySelector(".phone-input").value || null;
-    let contact = document.querySelector(".contact-info-segment-checkbox-checkbox").checked;
+    let contact = false;
 
     let contactInfoRequest = {
       identityId: identityId,
@@ -59,7 +59,6 @@ class ContactInfoSegment extends React.Component {
     xhr.onload = (e) => {
       if (xhr.readyState === 4) {
         if (xhr.status === 201) {
-          console.log("Successfully sent contact info to server");
           storage.setItem("contactinfo", true);
           
           this.setAppState({
@@ -128,18 +127,14 @@ class ContactInfoSegment extends React.Component {
     return(
       <div className="col contact-info-segment-wrapper">
         <h1 className="contact-info-segment-header">Contact Info</h1>
-        <p className="contact-info-segment-paragraph">Enter your contact information below to have a chance at winning special prizes.</p>
+        <p className="contact-info-segment-paragraph">Enter your contact information below to have a chance at winning special prizes. Provide your phone number for faster contact.</p>
         <div className="contact-info-segment-input-wrapper">
           <input className="contact-info-segment-input full-name-input" placeholder="full name"></input>
           <input className="contact-info-segment-input email-input" placeholder="email"></input>
           <input className="contact-info-segment-input phone-input" placeholder="phone"></input>
         </div>
         <div className="contact-info-segment-checkbox-wrapper">
-          <label htmlFor="internship-checkbox" className="contact-info-segment-checkbox-paragraph">I want to be contacted about internship opportunities in DNB</label>
-          <input type="checkbox" id="internship-checkbox" className="contact-info-segment-checkbox-checkbox"></input>
-        </div>
-        <div className="contact-info-segment-checkbox-wrapper">
-          <label htmlFor="tos-checkbox" className="contact-info-segment-checkbox-paragraph">I agree to having my contact info stored until the competition's end</label>
+          <label htmlFor="tos-checkbox" className="contact-info-segment-checkbox-paragraph">I agree to having my contact info stored until the contest's end</label>
           <input type="checkbox" id="tos-checkbox" className="contact-info-segment-checkbox-checkbox" onClick={() => this.toggleSubmit()}></input>
         </div>
         <div className="contact-info-segment-button-wrapper">

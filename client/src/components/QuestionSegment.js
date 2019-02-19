@@ -96,6 +96,42 @@ class QuestionSegment extends React.Component {
     xhr.send();
   }
 
+  getNavigationButtons() {
+    if (this.state.index == 0) {
+      return(
+        <React.Fragment>
+          <button className="question-button question-navigation-button" onClick={() => this.doSkip()}>Skip</button>
+        </React.Fragment>
+      );
+    }
+    return(
+      <React.Fragment>
+        <button className="question-button question-navigation-button" onClick={() => this.doPrev()}>Previous</button>
+        <button className="question-button question-navigation-button" onClick={() => this.doSkip()}>Skip</button>
+      </React.Fragment>
+    );
+  }
+
+  doSkip() {
+
+    let newIndex = this.state.index + 1;
+    if (newIndex >= this.state.questions.length) {
+      this.getScoreAndFinish();
+    } else {
+      this.setState({
+        index: newIndex
+      });
+    }
+  }
+
+  doPrev() {
+
+    let newIndex = this.state.index - 1;
+    this.setState({
+      index: newIndex
+    });
+  }
+
   render() {
     let answers = [];
 
@@ -104,7 +140,7 @@ class QuestionSegment extends React.Component {
 
     for (let i in question.answers) {
       let alternative = question.answers[i];
-      answers.push(<button key={i} className="question-answer" value={alternative.id} onClick={(e) => this.doAnswer(e)}>{alternative.description}</button>)
+      answers.push(<button key={i} className="question-button question-answer-button" value={alternative.id} onClick={(e) => this.doAnswer(e)}>{alternative.description}</button>)
     }
 
     return(
@@ -118,6 +154,9 @@ class QuestionSegment extends React.Component {
         <div className="question-segment">
           <p className="question-explanation">{question.description}</p>
           <div className="question-answer-wrapper">{answers}</div>
+        </div>
+        <div className="question-navigation-wrapper row">
+          {this.getNavigationButtons()}
         </div>
       </div>
     );

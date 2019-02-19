@@ -55,7 +55,7 @@ public class Registration {
     }
 
     public Integer getScore() {
-        return Optional.ofNullable(score).orElse(QuizScore.builder().score(0).build()).getScore();
+        return Optional.ofNullable(score).orElse(QuizScore.builder().build()).getScore();
     }
 
     public List<QuizResponse> getResponses() {

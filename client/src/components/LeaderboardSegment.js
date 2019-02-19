@@ -66,8 +66,11 @@ class LeaderboardSegment extends React.Component {
     return leaderboard;
   }
 
-  goToActivity(activity) {
+  componentWillUnmount() {
     clearInterval(this.interval);
+  }
+
+  goToActivity(activity) {
     this.setAppState({
       activity
     });
@@ -81,13 +84,15 @@ class LeaderboardSegment extends React.Component {
     return(
       <div className="leaderboard-segment-wrapper col">
         <h3 className="leaderboard-header">LEADERBOARDS</h3>
-        <div className="leaderboard-content leaderboard-easy col">
-          <h5>EASY</h5>
-          {easyLeaderboard}
-        </div>
-        <div className="leaderboard-content leaderboard-hard col">
-          <h5>HARD</h5>
-          {hardLeaderboard}
+        <div className="leaderboard-content-wrapper row">
+          <div className="leaderboard-content leaderboard-easy col">
+            <h5>EASY</h5>
+            {easyLeaderboard}
+          </div>
+          <div className="leaderboard-content leaderboard-hard col">
+            <h5>HARD</h5>
+            {hardLeaderboard}
+          </div>
         </div>
         <button className="leaderboard-segment-button return-button" onClick={(e) => this.goToActivity(Activity.SELECT)}>Return</button>
       </div>
