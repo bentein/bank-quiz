@@ -1,12 +1,13 @@
 body {
-    background-color: #a4e1d2;
+    background-color: var(--color-ocean-green);
 }
 
-html, body, #root {
+html,
+body,
+#root {
     margin: 0px;
     height: 100%;
-    font-family: 'Text Me One', sans-serif;
-    color: #ffffff;
+    color: var(--color-mint-green);
 }
 
 button:focus {

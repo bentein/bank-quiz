@@ -22,7 +22,6 @@
     border-radius: 25px;
     border: 1px solid #007272;
     background: #ffffff;
-    font-family: 'Text Me One', sans-serif;
 }
 
 .contact-info-segment-button-wrapper {
@@ -41,7 +40,6 @@
     border-radius: 50px;
     border: 1px solid #007272;
     background: rgb(222,245,239);
-    font-family: 'Text Me One', sans-serif;
 }
 
 .contact-info-segment-button:active {
