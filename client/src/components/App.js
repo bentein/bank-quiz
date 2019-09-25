@@ -8,7 +8,7 @@ import ScoreSegment from "./ScoreSegment";
 import ProfileSegment from "./ProfileSegment";
 import ContactInfoSegment from "./ContactInfoSegment";
 import QuizSelectSegment from "./QuizSelectSegment";
-
+import Stars from "./Stars";
 import Activity from "../classes/Activity";
 import ChocolateChallengeSegment from "./ChocolateChallengeSegment";
 import LeaderboardSegment from "./LeaderboardSegment";
@@ -69,11 +69,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app-wrapper container">
-        <div className="row align-items-center">
-          {this.getActiveScreen()}
+      <Stars>
+        <div className="app-wrapper container">
+          <div className="row align-items-center">
+            {this.getActiveScreen()}
+          </div>
         </div>
-      </div>
+      </Stars>
     );
   }
 }
