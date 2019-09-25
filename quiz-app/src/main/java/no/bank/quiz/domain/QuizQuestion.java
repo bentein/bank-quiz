@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Optional;
 
 @NoArgsConstructor
 @Data
@@ -33,4 +34,10 @@ public class QuizQuestion {
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
     private List<QuizAnswer> answers;
+
+    public Optional<QuizAnswer> getCorrectAnswer() {
+        return answers.stream()
+                .filter(QuizAnswer::getIsCorrect)
+                .findAny();
+    }
 }

@@ -12,8 +12,11 @@ import java.util.List;
 @RequestMapping("/response")
 public class ResponseController {
 
-    @Autowired
-    private ResponseService responseService;
+    private final ResponseService responseService;
+
+    public ResponseController(ResponseService responseService) {
+        this.responseService = responseService;
+    }
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)

@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/questions")
 public class QuestionController {
 
-    @Autowired
-    private QuestionService questionService;
+    private final QuestionService questionService;
+
+    public QuestionController(QuestionService questionService) {
+        this.questionService = questionService;
+    }
 
     @GetMapping
     public QuizQuestion getQuestion(@PathVariable int questionId) {

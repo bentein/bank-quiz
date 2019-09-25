@@ -11,8 +11,11 @@ import java.util.List;
 @RequestMapping
 public class ScoreController {
 
-    @Autowired
-    private ScoreService scoreService;
+    private final ScoreService scoreService;
+
+    public ScoreController(ScoreService scoreService) {
+        this.scoreService = scoreService;
+    }
 
     @GetMapping("score/{registrationId}")
     public Integer calculateScore(@PathVariable Integer registrationId) {

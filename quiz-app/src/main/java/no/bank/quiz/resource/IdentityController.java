@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/identity")
 public class IdentityController {
 
-    @Autowired
-    private IdentityService identityService;
+    private final IdentityService identityService;
+
+    public IdentityController(IdentityService identityService) {
+        this.identityService = identityService;
+    }
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)

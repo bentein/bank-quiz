@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/contactinfo")
 public class ContactInfoController {
 
-    @Autowired
-    private ContactInfoService contactInfoService;
+    private final ContactInfoService contactInfoService;
+
+    public ContactInfoController(ContactInfoService contactInfoService) {
+        this.contactInfoService = contactInfoService;
+    }
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
