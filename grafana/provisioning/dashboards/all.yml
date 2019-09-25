@@ -7,3 +7,15 @@ providers:
     updateIntervalSeconds: 5
     options:
       path: /var/lib/grafana/dashboards
+  - name: 'easy_overview'
+    folder: ''
+    type: file
+    updateIntervalSeconds: 5
+    options:
+      path: /var/lib/grafana/dashboards
+  - name: 'hard_overview'
+    folder: ''
+    type: file
+    updateIntervalSeconds: 5
+    options:
+      path: /var/lib/grafana/dashboards

@@ -4,3 +4,9 @@ datasources:
     access: proxy
     is_default: true
     url: http://prometheus:9090
+  - name: MySQL
+    type: MySQL
+    access: proxy
+    url: database:3306
+    password: root
+    user: pass
