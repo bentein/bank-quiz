@@ -14,6 +14,14 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader"
+          }
+        ]
       }
     ]
   },
@@ -26,8 +34,8 @@ module.exports = {
   stats: 'errors-only',
   plugins: [
     new HtmlWebPackPlugin({
-    template: "./src/index.html",
-    filename: "./index.html"
+      template: "./src/index.html",
+      filename: "./index.html"
     })
   ]
 };
