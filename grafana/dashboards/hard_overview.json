@@ -1,0 +1,3494 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 3,
+  "iteration": 1569418532330,
+  "links": [],
+  "panels": [
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "id": 18,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": "question_ids_hard",
+      "repeatDirection": "h",
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following describes a String in Java?",
+          "value": "104"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      },
+      "id": 19,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is method overloading?",
+          "value": "105"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "id": 20,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is the purpose of the final keyword on a variable in Java?",
+          "value": "106"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 21,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is method overriding?",
+          "value": "107"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 8
+      },
+      "id": 22,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "How many public classes can a Java file contain at most?",
+          "value": "108"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 8
+      },
+      "id": 23,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following is true for a Java String?",
+          "value": "109"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 8
+      },
+      "id": 24,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is the difference between an int and an Integer in Java?",
+          "value": "110"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 8
+      },
+      "id": 25,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What does JDBC stand for?",
+          "value": "111"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 16
+      },
+      "id": 26,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following is NOT a built-in Java annotation?",
+          "value": "112"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 16
+      },
+      "id": 27,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which keyword is used to define a Java annotation?",
+          "value": "113"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 16
+      },
+      "id": 28,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following is not a Java keyword?",
+          "value": "114"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 16
+      },
+      "id": 29,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What does JVM stand for?",
+          "value": "115"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 24
+      },
+      "id": 30,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following is true for errors but not exceptions in Java?",
+          "value": "116"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 24
+      },
+      "id": 31,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What does the \"this\" keyword refer to in Java?",
+          "value": "117"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 24
+      },
+      "id": 32,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is JUnit used for?",
+          "value": "118"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 24
+      },
+      "id": 33,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is a POJO?",
+          "value": "119"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 32
+      },
+      "id": 34,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following shuffles a Java List?",
+          "value": "120"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 32
+      },
+      "id": 35,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following is NOT a valid CSS justify-content value?",
+          "value": "121"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 32
+      },
+      "id": 36,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of these operators does not exist in CSS?",
+          "value": "122"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 32
+      },
+      "id": 37,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of these color functions does not exist in CSS?",
+          "value": "123"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 40
+      },
+      "id": 38,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "In CSS, what does 'height: 50vh' do?",
+          "value": "124"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 40
+      },
+      "id": 39,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "When will function in javascript continue after an 'await' statement?",
+          "value": "125"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 40
+      },
+      "id": 40,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "In which of the following languages is division by zero legal?",
+          "value": "126"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 40
+      },
+      "id": 41,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What does the === operator do in javascript?",
+          "value": "127"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 48
+      },
+      "id": 42,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following best describes node.js?",
+          "value": "128"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 48
+      },
+      "id": 43,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following is the newest HTTP request API in javascript?",
+          "value": "129"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 48
+      },
+      "id": 44,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following methods can be used to run a function every other second?",
+          "value": "130"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 48
+      },
+      "id": 45,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following is a valid arrow function in javascript?",
+          "value": "131"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 56
+      },
+      "id": 46,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of these will cause an exception in JavaScript?",
+          "value": "132"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 56
+      },
+      "id": 47,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of these is not a stream() function in JavaScript?",
+          "value": "133"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 56
+      },
+      "id": 48,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is the instance-type of NaN in javascript?",
+          "value": "134"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 56
+      },
+      "id": 49,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which SQL command can change the settings for a column?",
+          "value": "135"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 64
+      },
+      "id": 50,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following is true for ALL primary keys?",
+          "value": "136"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 64
+      },
+      "id": 51,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following SQL statements deletes all data in a table?",
+          "value": "137"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 64
+      },
+      "id": 52,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which SQL statement adds a new row to a database?",
+          "value": "138"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 64
+      },
+      "id": 53,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What SQL keyword is used to extracts only unique rows?",
+          "value": "139"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 72
+      },
+      "id": 54,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is a DAO used for?",
+          "value": "140"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 72
+      },
+      "id": 55,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What does Big O notation describe?",
+          "value": "141"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 72
+      },
+      "id": 56,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following is not an HTTP method?",
+          "value": "142"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 72
+      },
+      "id": 57,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following is an XOR statement?",
+          "value": "143"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 80
+      },
+      "id": 58,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What's the upper bound of an unsigned 32 bit integer?",
+          "value": "144"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 80
+      },
+      "id": 59,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which Unix program allows you to run programs as the superuser?",
+          "value": "145"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 80
+      },
+      "id": 60,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What does FOSS stand for?",
+          "value": "146"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 80
+      },
+      "id": 61,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following sorting algorithms is slowest on average?",
+          "value": "147"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 88
+      },
+      "id": 62,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is the height of an empty tree?",
+          "value": "148"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 88
+      },
+      "id": 63,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is the depth of the root node of a tree?",
+          "value": "149"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 88
+      },
+      "id": 64,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "How many nodes are in a perfect binary tree of height 5?",
+          "value": "150"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 88
+      },
+      "id": 65,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "What is the highest decimal value representable by 4 unsigned bits?",
+          "value": "151"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 96
+      },
+      "id": 66,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following sorting methods has the best Big-O time complexity?",
+          "value": "152"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 96
+      },
+      "id": 67,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 4,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1569418532330,
+      "repeatPanelId": 18,
+      "scopedVars": {
+        "question_ids_hard": {
+          "selected": false,
+          "text": "Which of the following sorting methods has the best Big-O space complexity?",
+          "value": "153"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_correct_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "correct",
+          "refId": "A"
+        },
+        {
+          "expr": "quiz_response_question_id_[[question_ids_hard]]_incorrect_total",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "incorrect",
+          "refId": "B"
+        }
+      ],
+      "title": "$question_ids_hard",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 19,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "tags": [],
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "MySQL",
+        "definition": "SELECT id as __value, description as __text FROM quiz.question WHERE quiz_id = 'hvlquizhard' ORDER BY id ASC",
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": false,
+        "name": "question_ids_hard",
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following describes a String in Java?",
+            "value": "104"
+          },
+          {
+            "selected": false,
+            "text": "What is method overloading?",
+            "value": "105"
+          },
+          {
+            "selected": false,
+            "text": "What is the purpose of the final keyword on a variable in Java?",
+            "value": "106"
+          },
+          {
+            "selected": false,
+            "text": "What is method overriding?",
+            "value": "107"
+          },
+          {
+            "selected": false,
+            "text": "How many public classes can a Java file contain at most?",
+            "value": "108"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following is true for a Java String?",
+            "value": "109"
+          },
+          {
+            "selected": false,
+            "text": "What is the difference between an int and an Integer in Java?",
+            "value": "110"
+          },
+          {
+            "selected": false,
+            "text": "What does JDBC stand for?",
+            "value": "111"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following is NOT a built-in Java annotation?",
+            "value": "112"
+          },
+          {
+            "selected": false,
+            "text": "Which keyword is used to define a Java annotation?",
+            "value": "113"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following is not a Java keyword?",
+            "value": "114"
+          },
+          {
+            "selected": false,
+            "text": "What does JVM stand for?",
+            "value": "115"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following is true for errors but not exceptions in Java?",
+            "value": "116"
+          },
+          {
+            "selected": false,
+            "text": "What does the \"this\" keyword refer to in Java?",
+            "value": "117"
+          },
+          {
+            "selected": false,
+            "text": "What is JUnit used for?",
+            "value": "118"
+          },
+          {
+            "selected": false,
+            "text": "What is a POJO?",
+            "value": "119"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following shuffles a Java List?",
+            "value": "120"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following is NOT a valid CSS justify-content value?",
+            "value": "121"
+          },
+          {
+            "selected": false,
+            "text": "Which of these operators does not exist in CSS?",
+            "value": "122"
+          },
+          {
+            "selected": false,
+            "text": "Which of these color functions does not exist in CSS?",
+            "value": "123"
+          },
+          {
+            "selected": false,
+            "text": "In CSS, what does 'height: 50vh' do?",
+            "value": "124"
+          },
+          {
+            "selected": false,
+            "text": "When will function in javascript continue after an 'await' statement?",
+            "value": "125"
+          },
+          {
+            "selected": false,
+            "text": "In which of the following languages is division by zero legal?",
+            "value": "126"
+          },
+          {
+            "selected": false,
+            "text": "What does the === operator do in javascript?",
+            "value": "127"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following best describes node.js?",
+            "value": "128"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following is the newest HTTP request API in javascript?",
+            "value": "129"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following methods can be used to run a function every other second?",
+            "value": "130"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following is a valid arrow function in javascript?",
+            "value": "131"
+          },
+          {
+            "selected": false,
+            "text": "Which of these will cause an exception in JavaScript?",
+            "value": "132"
+          },
+          {
+            "selected": false,
+            "text": "Which of these is not a stream() function in JavaScript?",
+            "value": "133"
+          },
+          {
+            "selected": false,
+            "text": "What is the instance-type of NaN in javascript?",
+            "value": "134"
+          },
+          {
+            "selected": false,
+            "text": "Which SQL command can change the settings for a column?",
+            "value": "135"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following is true for ALL primary keys?",
+            "value": "136"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following SQL statements deletes all data in a table?",
+            "value": "137"
+          },
+          {
+            "selected": false,
+            "text": "Which SQL statement adds a new row to a database?",
+            "value": "138"
+          },
+          {
+            "selected": false,
+            "text": "What SQL keyword is used to extracts only unique rows?",
+            "value": "139"
+          },
+          {
+            "selected": false,
+            "text": "What is a DAO used for?",
+            "value": "140"
+          },
+          {
+            "selected": false,
+            "text": "What does Big O notation describe?",
+            "value": "141"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following is not an HTTP method?",
+            "value": "142"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following is an XOR statement?",
+            "value": "143"
+          },
+          {
+            "selected": false,
+            "text": "What's the upper bound of an unsigned 32 bit integer?",
+            "value": "144"
+          },
+          {
+            "selected": false,
+            "text": "Which Unix program allows you to run programs as the superuser?",
+            "value": "145"
+          },
+          {
+            "selected": false,
+            "text": "What does FOSS stand for?",
+            "value": "146"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following sorting algorithms is slowest on average?",
+            "value": "147"
+          },
+          {
+            "selected": false,
+            "text": "What is the height of an empty tree?",
+            "value": "148"
+          },
+          {
+            "selected": false,
+            "text": "What is the depth of the root node of a tree?",
+            "value": "149"
+          },
+          {
+            "selected": false,
+            "text": "How many nodes are in a perfect binary tree of height 5?",
+            "value": "150"
+          },
+          {
+            "selected": false,
+            "text": "What is the highest decimal value representable by 4 unsigned bits?",
+            "value": "151"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following sorting methods has the best Big-O time complexity?",
+            "value": "152"
+          },
+          {
+            "selected": false,
+            "text": "Which of the following sorting methods has the best Big-O space complexity?",
+            "value": "153"
+          }
+        ],
+        "query": "SELECT id as __value, description as __text FROM quiz.question WHERE quiz_id = 'hvlquizhard' ORDER BY id ASC",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-3h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "Hard Answer Overview",
+  "uid": "A5oMcf8m",
+  "version": 3
+}
