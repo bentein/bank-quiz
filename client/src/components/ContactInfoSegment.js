@@ -1,34 +1,32 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import './styles/ContactInfoSegment.css';
+import React, { useState } from "react";
+import { Button, Input, Checkbox, Space, FormSet } from "dnb-ui-lib";
+import "./styles/ContactInfoSegment.css";
 
 import Activity from "../classes/Activity";
+import FormRow from "dnb-ui-lib/components/form-row/FormRow";
 
-class ContactInfoSegment extends React.Component {
-  constructor(props) {
-    super(props);
+const ContactInfoSegment = ({ stateSetter, score, prevActivity }) => {
 
-    this.MINIMUM_NAME_LENGTH = 5;
-    this.MINIMUM_MAIL_LENGTH = 5;
-    this.MINIMUM_PHONE_LENGTH = 8;  
+  const [consent, setConsent] = useState(false);
 
-    this.setAppState = props.stateSetter;
-    this.state = {
-      score: props.score,
-      consent: false,
-      prevActivity: props.prevActivity
-    }
-  }
+  const [nameError, setNameError] = useState(null);
+  const [emailError, setEmailError] = useState(null);
+  const [phoneError, setPhoneError] = useState(null);
 
-  doSubmit() {
+
+  const MINIMUM_NAME_LENGTH = 5;
+  const MINIMUM_MAIL_LENGTH = 5;
+  const MINIMUM_PHONE_LENGTH = 8;
+
+  function doSubmit() {
     let storage = window.localStorage;
 
-    this.clearWrongInput();
+    clearWrongInput();
 
     let identityId = JSON.parse(storage.getItem("identity"));
-    let fullName = document.querySelector(".full-name-input").value;
-    let email = document.querySelector(".email-input").value;
-    let mobile = document.querySelector(".phone-input").value || null;
+    let fullName = document.querySelector("#full-name-input").value;
+    let email = document.querySelector("#email-input").value;
+    let mobile = document.querySelector("#phone-input").value || null;
     let contact = false;
 
     let contactInfoRequest = {
@@ -39,15 +37,15 @@ class ContactInfoSegment extends React.Component {
       contact: contact
     }
 
-    if (this.validContactInfo(contactInfoRequest)) {
-      this.doSubmitRequest(contactInfoRequest);
+    if (validContactInfo(contactInfoRequest)) {
+      doSubmitRequest(contactInfoRequest);
 
     } else {
-      this.markWrongInput(contactInfoRequest);
+      markWrongInput(contactInfoRequest);
     }
   }
 
-  doSubmitRequest(contactInfoRequest) {
+  function doSubmitRequest(contactInfoRequest) {
     let storage = window.localStorage;
 
     let buttons = document.querySelectorAll("button");
@@ -60,11 +58,11 @@ class ContactInfoSegment extends React.Component {
       if (xhr.readyState === 4) {
         if (xhr.status === 201) {
           storage.setItem("contactinfo", true);
-          
-          this.setAppState({
-            activity: this.state.prevActivity || Activity.START
+
+          stateSetter({
+            activity: prevActivity || Activity.START
           });
-      
+
         } else {
           console.error(xhr);
         }
@@ -77,73 +75,72 @@ class ContactInfoSegment extends React.Component {
     xhr.send(JSON.stringify(contactInfoRequest));
   }
 
-  doCancel() {
-    this.setAppState({
-      activity: this.state.prevActivity || Activity.START
+  function doCancel() {
+    stateSetter({
+      activity: prevActivity || Activity.START
     });
   }
 
-  validContactInfo(request) {
-    return request.identityId && request.fullName && request.fullName.length >= this.MINIMUM_NAME_LENGTH
-      && request.email && request.email.length >= this.MINIMUM_MAIL_LENGTH && request.contact !== null;
+  function validContactInfo(request) {
+    return request.identityId && request.fullName && request.fullName.length >= MINIMUM_NAME_LENGTH
+      && request.email && request.email.length >= MINIMUM_MAIL_LENGTH && request.contact !== null;
   }
 
-  markWrongInput(request) {
-    let nameInput = document.querySelector(".full-name-input");
-    let emailInput = document.querySelector(".email-input");
-    let phoneInput = document.querySelector(".phone-input");
+  function markWrongInput(request) {
+    let nameInput = document.querySelector("#full-name-input");
+    let emailInput = document.querySelector("#email-input");
+    let phoneInput = document.querySelector("#phone-input");
 
-    if (request.fullName.length > 100 || request.fullName.length < this.MINIMUM_NAME_LENGTH) {
-      nameInput.style['box-shadow'] = "0px 0px 0px 5px red";
+    if (request.fullName.length > 100 || request.fullName.length < MINIMUM_NAME_LENGTH) {
+      setNameError("Enter a valid name");
     }
 
-    if (request.email.length < this.MINIMUM_MAIL_LENGTH) {
-      emailInput.style['box-shadow'] = "0px 0px 0px 5px red";
+    if (request.email.length < MINIMUM_MAIL_LENGTH) {
+      setEmailError("Enter a valid email");
     }
 
-    if (request.mobile && request.mobile.length < this.MINIMUM_PHONE_LENGTH) {
-      phoneInput.style['box-shadow'] = "0px 0px 0px 5px red";
+    if (request.mobile && request.mobile.length < MINIMUM_PHONE_LENGTH) {
+      setPhoneError("Enter a valid phone number");
     }
   }
 
-  clearWrongInput() {
-    let nameInput = document.querySelector(".full-name-input");
-    let emailInput = document.querySelector(".email-input");
-    let phoneInput = document.querySelector(".phone-input");
+  function clearWrongInput() {
+    let nameInput = document.querySelector("#full-name-input");
+    let emailInput = document.querySelector("#email-input");
+    let phoneInput = document.querySelector("#phone-input");
 
     nameInput.style['box-shadow'] = "";
     emailInput.style['box-shadow'] = "";
     phoneInput.style['box-shadow'] = "";
   }
 
-  toggleSubmit() {
-    this.setState({
-      consent: !this.state.consent
-    });
+  function toggleSubmit() {
+    setConsent(!consent);
   }
 
-  render() {
-
-    return(
-      <div className="col contact-info-segment-wrapper">
-        <h1 className="contact-info-segment-header">Contact Info</h1>
-        <p className="contact-info-segment-paragraph">Enter your contact information below to have a chance at winning special prizes. Provide your phone number for faster contact.</p>
-        <div className="contact-info-segment-input-wrapper">
-          <input className="contact-info-segment-input full-name-input" placeholder="full name"></input>
-          <input className="contact-info-segment-input email-input" placeholder="email"></input>
-          <input className="contact-info-segment-input phone-input" placeholder="phone"></input>
-        </div>
-        <div className="contact-info-segment-checkbox-wrapper">
-          <label htmlFor="tos-checkbox" className="contact-info-segment-checkbox-paragraph">I agree to having my contact info stored until the contest's end</label>
-          <input type="checkbox" id="tos-checkbox" className="contact-info-segment-checkbox-checkbox" onClick={() => this.toggleSubmit()}></input>
-        </div>
-        <div className="contact-info-segment-button-wrapper">
-          <button className="contact-info-segment-button contact-info-segment-cancel" onClick={() => this.doCancel()}>Cancel</button>
-          <button className="contact-info-segment-button contact-info-segment-submit" onClick={() => this.doSubmit()} disabled={!this.state.consent}>Submit</button>
-        </div>
+  return (
+    <div className="contact-info-wrapper">
+      <h1>Contact Info</h1>
+      <p>Enter your contact information below to have a chance at winning special prizes. Provide your phone number for faster contact.</p>
+      <div>
+        <FormSet id="formSet" direction="vertical">
+          <Input id="full-name-input" placeholder="Full name" status={nameError} size="medium" stretch="true" />
+          <Space top="1rem" />
+          <Input id="email-input" placeholder="Email" status={emailError} size="medium" stretch="true" />
+          <Space top="1rem" />
+          <Input id="phone-input" placeholder="Phone" status={phoneError} size="medium" stretch="true" />
+          <Space top="1rem" />
+        </FormSet>
       </div>
-    );
-  }
+      <div className="checkbox-wrapper">
+        <Checkbox id="checkbox" label="I agree to having my contact info stored until the contest's end" on_change={toggleSubmit} />
+      </div>
+      <div className="button-row">
+        <Button id="contact-button" text="Cancel" on_click={doCancel} />
+        <Button id="contact-button" text="Submit" on_click={doSubmit} disabled={!consent} />
+      </div>
+    </div>
+  );
 }
 
 export default ContactInfoSegment;

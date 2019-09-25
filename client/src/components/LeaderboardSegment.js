@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { Button, ProgressIndicator } from "dnb-ui-lib";
 import './styles/LeaderboardSegment.css';
 
 import Activity from "../classes/Activity";
@@ -10,16 +10,16 @@ class LeaderboardSegment extends React.Component {
 
     this.setAppState = props.stateSetter;
     this.state = {
-      hvlquizeasy: [{name: "loading"}],
-      hvlquizhard: [{name: "loading"}]
+      hvlquizeasy: [],
+      hvlquizhard: []
     }
 
     this.doGetLeaderboards("hvlquizeasy");
-    this.doGetLeaderboards("hvlquizhard");  
+    this.doGetLeaderboards("hvlquizhard");
 
-    this.interval = setInterval(()=>{
+    this.interval = setInterval(() => {
       this.doGetLeaderboards("hvlquizeasy");
-      this.doGetLeaderboards("hvlquizhard");  
+      this.doGetLeaderboards("hvlquizhard");
     }, 15000);
   }
 
@@ -54,10 +54,15 @@ class LeaderboardSegment extends React.Component {
 
     let data = this.state[quizId];
 
+    if (data.length === 0) {
+      leaderboard.push(<ProgressIndicator key={quizId} />);
+      return leaderboard;
+    }
+
     for (let i = 0; i < data.length; i++) {
       leaderboard.push(
         <div className="leaderboard-score-line row" key={i}>
-          <span className="name-span">{i+1}. {data[i].name}</span> 
+          <span className="name-span">{i + 1}. {data[i].name}</span>
           <div className="leaderboard-ruler"></div>
           <span className="score-span">{data[i].score}</span>
         </div>)
@@ -81,7 +86,7 @@ class LeaderboardSegment extends React.Component {
     let easyLeaderboard = this.getLeaderboardSegment("hvlquizeasy");
     let hardLeaderboard = this.getLeaderboardSegment("hvlquizhard");
 
-    return(
+    return (
       <div className="leaderboard-segment-wrapper col">
         <h3 className="leaderboard-header">LEADERBOARDS</h3>
         <div className="leaderboard-content-wrapper row">
@@ -94,7 +99,14 @@ class LeaderboardSegment extends React.Component {
             {hardLeaderboard}
           </div>
         </div>
-        <button className="leaderboard-segment-button return-button" onClick={(e) => this.goToActivity(Activity.SELECT)}>Return</button>
+        <div>
+          <Button
+            text="Return"
+            variant="tertiary"
+            icon_position="left"
+            icon="chevron_left"
+            on_click={(e) => this.goToActivity(Activity.SELECT)} />
+        </div>
       </div>
     );
   }

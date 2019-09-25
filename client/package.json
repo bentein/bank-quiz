@@ -17,8 +17,11 @@
     "node-sass": "^4.12.0",
     "react": "*",
     "react-dom": "*",
+    "react-particles-js": "^2.7.0",
+    "react-text-mask": "^5.4.3",
     "request": "*",
-    "request-promise": "*"
+    "request-promise": "*",
+    "text-mask-addons": "^3.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

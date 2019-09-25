@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { Button } from "dnb-ui-lib";
 import './styles/ScoreSegment.css';
 
 import Activity from "../classes/Activity";
@@ -18,10 +18,10 @@ class ScoreSegment extends React.Component {
     let storage = window.localStorage;
 
     let identityId = JSON.parse(storage.getItem("identity"));
-    let fullName = document.querySelector(".full-name-input").value;
-    let email = document.querySelector(".email-input").value;
-    let mobile = document.querySelector(".phone-input").value || null;
-    let contact = document.querySelector(".score-segment-checkbox-checkbox").checked;
+    let fullName = document.querySelector("#full-name-input").value;
+    let email = document.querySelector("#email-input").value;
+    let mobile = document.querySelector("#phone-input").value || null;
+    let contact = document.querySelector("#checkbox").checked;
 
     let contactInfoRequest = {
       identityId: identityId,
@@ -49,11 +49,11 @@ class ScoreSegment extends React.Component {
       if (xhr.readyState === 4) {
         if (xhr.status === 201) {
           storage.setItem("contactinfo", true);
-          
+
           this.setAppState({
             activity: "start"
           });
-      
+
         } else {
           console.error(xhr);
         }
@@ -81,14 +81,14 @@ class ScoreSegment extends React.Component {
   getSubmitSegment() {
     return (
       <React.Fragment>
-        <h1 className="score-segment-header">Score: {this.state.score}</h1>
-        <p className="score-segment-paragraph">You finished the quiz!</p>
-        <p className="score-segment-paragraph">If you want a chance to win special prizes, press the button below to input your contact information.</p>
-        <div className="score-segment-button-wrapper">
-          <button className="score-segment-contact-info-button score-segment-button" onClick={() => this.doContact()}>Provide contact info</button>
+        <h1>Score: {this.state.score}</h1>
+        <p>You finished the quiz!</p>
+        <p>If you want a chance to win special prizes, press the button below to input your contact information.</p>
+        <div>
+          <Button id="score-segment-button" text="Provide contact info" on_click={() => this.doContact()} />
         </div>
-        <p className="score-segment-paragraph">Click <a href="https://www.deltager.no/DNBDC19?WT.mc_id=pov4" target="_blank"><u>here</u></a> to read more about or sign up for Digital Challenge.</p>
-        <p className="score-segment-paragraph">Click <a href="https://www.dnb.no/om-oss/jobb-og-karriere.html" target="_blank"><u>here</u></a> to read about job openings and working in DNB.</p>
+        <p >Click <a href="https://www.deltager.no/DNBDC19?WT.mc_id=pov4" target="_blank"><u>here</u></a> to read more about or sign up for Digital Challenge.</p>
+        <p >Click <a href="https://www.dnb.no/om-oss/jobb-og-karriere.html" target="_blank"><u>here</u></a> to read about job openings and working in DNB.</p>
       </React.Fragment>
     );
   }
@@ -96,11 +96,11 @@ class ScoreSegment extends React.Component {
   getAlreadySubmittedSegment() {
     return (
       <React.Fragment>
-        <h1 className="score-segment-header">Score: {this.state.score}</h1>
-        <p className="score-segment-paragraph">You finished the quiz! You have already submitted your contact info. You will be contacted if you win. </p>
-        <p className="score-segment-paragraph">You can alternatively delete your contact info on the start screen if you no longer desire to be part of the contest. Feel free to try again to improve your score.</p>
+        <h1>Score: {this.state.score}</h1>
+        <p>You finished the quiz! You have already submitted your contact info. You will be contacted if you win. </p>
+        <p>You can alternatively delete your contact info on the start screen if you no longer desire to be part of the contest. Feel free to try again to improve your score.</p>
       </React.Fragment>
-    ); 
+    );
   }
 
   render() {
@@ -108,18 +108,18 @@ class ScoreSegment extends React.Component {
 
     let contactInfoSubmitted = JSON.parse(storage.getItem("contactinfo"));
     let segment = [];
-    
+
     if (contactInfoSubmitted) {
       segment = this.getAlreadySubmittedSegment();
     } else {
       segment = this.getSubmitSegment();
     }
 
-    return(
+    return (
       <div className="score-segment-wrapper col">
         {segment}
-        <div className="score-segment-button-wrapper">
-          <button className="score-segment-button score-segment-return-button" onClick={() => this.doRetry()}>Return</button>
+        <div>
+          <Button text="Return" on_click={() => this.doRetry()} />
         </div>
       </div>
     );

@@ -1,7 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { Button } from "dnb-ui-lib";
 import './styles/QuestionSegment.css';
-
 import Activity from "../classes/Activity";
 import Timer from "./Timer";
 
@@ -98,16 +97,28 @@ class QuestionSegment extends React.Component {
 
   getNavigationButtons() {
     if (this.state.index == 0) {
-      return(
+      return (
         <React.Fragment>
-          <button className="question-button question-navigation-button" onClick={() => this.doSkip()}>Skip</button>
+          <Button
+            text="Skip"
+            icon="chevron_right"
+            on_click={() => this.doSkip()}
+          />
         </React.Fragment>
       );
     }
-    return(
+    return (
       <React.Fragment>
-        <button className="question-button question-navigation-button" onClick={() => this.doPrev()}>Previous</button>
-        <button className="question-button question-navigation-button" onClick={() => this.doSkip()}>Skip</button>
+        <Button
+          text="Previous"
+          icon="chevron_right"
+          on_click={() => this.doPrev()}
+        />
+        <Button
+          text="Skip"
+          icon="chevron_left"
+          on_click={() => this.doSkip()}
+        />
       </React.Fragment>
     );
   }
@@ -140,10 +151,10 @@ class QuestionSegment extends React.Component {
 
     for (let i in question.answers) {
       let alternative = question.answers[i];
-      answers.push(<button key={i} className="question-button question-answer-button" value={alternative.id} onClick={(e) => this.doAnswer(e)}>{alternative.description}</button>)
+      answers.push(<Button key={i} text={alternative.description} value={alternative.id} on_click={(e) => this.doAnswer(e)} />)
     }
 
-    return(
+    return (
       <div className="question-segment-wrapper col">
         <div className="floater-wrapper question-number-wrapper">
           <span className="question-number-label">Question #{this.state.index + 1}</span>

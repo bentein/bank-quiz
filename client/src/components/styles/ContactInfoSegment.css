@@ -1,64 +1,16 @@
-.contact-info-segment-wrapper {
-    text-align: center;
+.checkbox-wrapper {
+  margin-bottom: 0.5rem;
 }
 
-.contact-info-segment-header {
+.button-row > #contact-button {
+  margin: 0.5rem;
 }
 
-.contact-info-segment-paragraph {
-    font-size: 1.3em;
-}
-
-.contact-info-segment-input-wrapper {
-    margin-bottom: 10px;
-}
-
-.contact-info-segment-input {
-    width: 90%;
-    margin: 4px;
-    font-size: 1.5em;
-    align-self: center;
-    text-align: center;
-    border-radius: 25px;
-    border: 1px solid #007272;
-    background: #ffffff;
-}
-
-.contact-info-segment-button-wrapper {
-    margin: 12px 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.contact-info-segment-button {
-    width: 40%;
-    margin: 4px;
-    padding: 4px;
-    font-size: 1.5em;
-    align-self: center;
-    border-radius: 50px;
-    border: 1px solid #007272;
-    background: rgb(222,245,239);
-}
-
-.contact-info-segment-button:active {
-    background: rgb(202,239,230);
-}
-
-.contact-info-segment-checkbox-wrapper {
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-}
-
-.contact-info-segment-checkbox-paragraph {
-    margin: 5px;
-}
-
-.contact-info-segment-checkbox-checkbox {
-    zoom: 2;
+.contact-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }

@@ -13,7 +13,7 @@ class Timer extends React.Component {
 
         this.state = {
             time: startTime,
-            endTime: startTime + props.maxTime*1000,
+            endTime: startTime + props.maxTime * 1000,
         }
 
         this.startTimer();
@@ -29,7 +29,7 @@ class Timer extends React.Component {
         });
         if (Math.ceil((this.state.endTime - this.state.time) / 1000) <= 0) {
             clearInterval(interval);
-            
+
             this.getScoreAndFinish();
         }
     }
@@ -37,7 +37,7 @@ class Timer extends React.Component {
     getScoreAndFinish() {
         let storage = window.localStorage;
         let registrationId = storage.getItem("registrationId");
-        
+
         let xhr = new XMLHttpRequest();
         xhr.open("GET", `/api/score/${registrationId}`, true);
         xhr.onload = (e) => {
@@ -65,7 +65,7 @@ class Timer extends React.Component {
     }
 
     render() {
-        return(
+        return (
             <React.Fragment>
                 <span className="timer-label">Remaining: </span><span className="timer">{Math.ceil((this.state.endTime - this.state.time) / 1000 - 1)}s</span>
             </React.Fragment>

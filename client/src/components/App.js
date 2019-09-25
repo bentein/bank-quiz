@@ -1,6 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import './styles/App.css';
+import "dnb-ui-lib/style";
 
 import QuestionSegment from "./QuestionSegment";
 import StartSegment from "./StartSegment";
@@ -18,7 +18,7 @@ class App extends React.Component {
     super(props);
 
     this.getUserIdentity();
-    
+
     this.state = {
       activity: Activity.START
     }
@@ -62,8 +62,8 @@ class App extends React.Component {
       case Activity.SELECT: return <QuizSelectSegment stateSetter={(args) => this.setState(args)}></QuizSelectSegment>
       case Activity.CHOCOLATE: return <ChocolateChallengeSegment stateSetter={(args) => this.setState(args)}></ChocolateChallengeSegment>
       case Activity.LEADERBOARD: return <LeaderboardSegment stateSetter={(args) => this.setState(args)}></LeaderboardSegment>
-      case Activity.START: 
-      default: return <StartSegment stateSetter={(args) => this.setState(args)}></StartSegment>;
+      case Activity.START:
+      default: return <StartSegment setAppState={(args) => this.setState(args)}></StartSegment>;
     }
   }
 

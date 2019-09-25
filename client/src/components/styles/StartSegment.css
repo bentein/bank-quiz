@@ -1,47 +1,49 @@
 .start-segment-wrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
-.start-segment-header {
-    font-size: 2.5em;
+.dnb-form-set, form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
-.name-input {
-    width: 90%;
-    font-size: 2em;
-    align-self: center;
-    text-align: center;
-    border-radius: 25px;
-    border: 1px solid #007272;
-    background: #ffffff;
+#name-input {
+  width: 90%;
+  color: var(--color-ocean-green);
+}
+
+.dnb-form-label,
+label {
+  color: var(--color-mint-green);
 }
 
 .difficulty-paragraph {
-    margin: 25px;
-    font-size: 1.5em;
+  margin: 25px;
 }
 
-.start-segment-button {
-    width: 75%;
-    margin: 4px;
-    padding: 10px;
-    font-size: 1.5em;
-    border-radius: 50px;
-    align-self: center;
-    border: 1px solid #007272;
-    background: rgb(222,245,239);
+#start-segment-button {
+  width: 75%;
+  margin: 4px;
+  padding: 10px;
+  align-self: center;
 }
 
 .start-segment-button:active {
-    background: rgb(202,239,230);
+  background: rgb(202, 239, 230);
 }
 
 .return-button {
-    background: rgb(222,245,239);
-    width: 50%;
+  background: rgb(222, 245, 239);
+  width: 50%;
 }
 .return-button:active {
-    background: rgb(202,239,230);
+  background: rgb(202, 239, 230);
 }

@@ -1,5 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { Button, Input, InputMasked } from "dnb-ui-lib";
+import createNumberMask from "text-mask-addons/dist/createNumberMask";
 import './styles/ChocolateChallengeSegment.css';
 
 import Activity from "../classes/Activity";
@@ -17,10 +18,11 @@ class ChocolateChallengeSegment extends React.Component {
     }
   }
 
+
   doAnswer() {
     let storage = window.localStorage;
-    let guess = document.querySelector(".guess-input").value;
-    
+    let guess = document.querySelector("#guess-input").value;
+
     storage.setItem("guess", guess);
 
     this.doSendResponse(guess);
@@ -47,7 +49,7 @@ class ChocolateChallengeSegment extends React.Component {
           this.setState({
             guess
           });
-      
+
         } else {
           console.error(xhr);
         }
@@ -73,15 +75,15 @@ class ChocolateChallengeSegment extends React.Component {
 
           storage.removeItem("guess");
           storage.removeItem("chocolateRegistrationId");
-          
+
           this.setState({
-            guess : null
+            guess: null
           });
 
           this.setAppState({
-            activity : Activity.START
+            activity: Activity.START
           });
-      
+
         } else {
           console.error(xhr);
         }
@@ -99,33 +101,62 @@ class ChocolateChallengeSegment extends React.Component {
       activity
     });
   }
-  
+
   getActiveScreen() {
 
     if (this.state.guess) {
       return <React.Fragment>
-        <p className="explanation-paragraph">You have guessed that there are {this.state.guess} chocolates in the jar. Submit your contact information from the profile page if you want to win prizes.</p>
-        <button className="chocolate-challenge-segment-button delete-button" onClick={(e) => this.deleteGuess()}>Delete</button>
+        <p >You have guessed that there are {this.state.guess} chocolates in the jar. Submit your contact information from the profile page if you want to win prizes.</p>
+        <div>
+          <Button text="Delete" on_click={(e) => this.deleteGuess()} />
+        </div>
       </React.Fragment>
 
     } else {
 
+      const numberMask = createNumberMask({
+        allowDecimal: false,
+        thousandsSeparatorSymbol: ' ',
+        suffix: ' pieces',
+        prefix: ''
+      });
+
       return <React.Fragment>
-        <p className="explanation-paragraph">How many chocolates are in the jar on the DNB stand? Guess carefully, your final attempt is the only one that matters.</p>
-        <input className="guess-input" type="text" placeholder="your guess"></input>
-        <button className="chocolate-challenge-segment-button send-button" onClick={(e) => this.doAnswer()}>Send</button>
+        <p>How many chocolates are in the jar on the DNB stand? Guess carefully, your final attempt is the only one that matters.</p>
+        <InputMasked
+          id="guess-input"
+          type="text"
+          placeholder="Your guess"
+          stretch="true"
+          size="medium"
+          label="Chocolates: "
+          autocomplete="off"
+          mask={numberMask}
+          align="right"
+          stretch="true"
+          bottom="1rem"
+        />
+        <div>
+          <Button text="Send" on_click={(e) => this.doAnswer()} />
+        </div>
       </React.Fragment>
     }
   }
 
   render() {
-
-    return(
-        <div className="chocolate-challenge-segment-wrapper col">
-          <h1 className="chocolate-challenge-segment-header">Chocolate Challenge</h1>
-          {this.getActiveScreen()}
-          <button className="chocolate-challenge-segment-button return-button" onClick={(e) => this.goToActivity(Activity.START)}>Return</button>
+    return (
+      <div className="chocolate-challenge-segment-wrapper col">
+        <h1>Chocolate Challenge</h1>
+        {this.getActiveScreen()}
+        <div>
+          <Button
+            variant="tertiary"
+            icon_position="left"
+            icon="chevron_left"
+            text="Return"
+            onClick={(e) => this.goToActivity(Activity.START)} />
         </div>
+      </div>
     );
   }
 }

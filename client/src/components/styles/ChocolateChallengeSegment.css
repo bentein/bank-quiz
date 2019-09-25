@@ -1,52 +1,52 @@
 .chocolate-challenge-segment-wrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .chocolate-challenge-segment-header {
-    font-size: 2.5em;
+  font-size: 2.5em;
 }
 
 .guess-input {
-    width: 90%;
-    font-size: 2em;
-    align-self: center;
-    text-align: center;
-    border-radius: 25px;
-    border: 1px solid #007272;
-    background: #ffffff;
-    margin-bottom: 25px;
+  width: 90%;
+  font-size: 2em;
+  align-self: center;
+  text-align: center;
+  border-radius: 25px;
+  border: 1px solid #007272;
+  background: #ffffff;
+  margin-bottom: 25px;
 }
 
 .explanation-paragraph {
-    margin: 25px;
-    font-size: 1.5em;
+  margin: 25px;
+  font-size: 1.5em;
 }
 
 .chocolate-challenge-segment-button {
-    width: 75%;
-    margin: 4px;
-    padding: 10px;
-    font-size: 1.5em;
-    border-radius: 50px;
-    align-self: center;
-    border: 1px solid #007272;
-    background: rgb(222,245,239);
+  width: 75%;
+  margin: 4px;
+  padding: 10px;
+  font-size: 1.5em;
+  border-radius: 50px;
+  align-self: center;
+  border: 1px solid #007272;
+  background: rgb(222, 245, 239);
 }
 
 .chocolate-challenge-segment-button:active {
-    background: rgb(202,239,230);
+  background: rgb(202, 239, 230);
 }
 
 .delete-button {
-    background: rgb(255,229,232);
+  background: rgb(255, 229, 232);
 }
 
 .delete-button:active {
-    background: rgb(255,204,209);
+  background: rgb(255, 204, 209);
 }
 
 .return-button {
-    width: 50%;
+  width: 50%;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import './styles/ProfileSegment.css';
+import "./styles/ProfileSegment.css";
+import { Button } from "dnb-ui-lib"
 
 import Activity from "../classes/Activity";
 
@@ -21,21 +22,21 @@ class ProfileSegment extends React.Component {
   getContactInfoParagraph() {
     if (this.state.contactInfo) {
       return (
-          <div className="col profile-segment-info-column">
-            <p className="profile-segment-delete-contact-info-paragraph">You have already submitted your contact information. If you no longer want to participate in the contest, or have entered wrong information, you can delete your data by pressing the below button.</p>
-            <div className="profile-segment-button-wrapper">
-              <button className="profile-segment-button profile-segment-delete-contact-info-button" onClick={(e) => this.deleteContactInfo(e)}>DELETE</button>
-            </div>
+        <div className="col profile-segment-info-column">
+          <p>You have already submitted your contact information. If you no longer want to participate in the contest, or have entered wrong information, you can delete your data by pressing the below button.</p>
+          <div>
+            <Button text="Delete" on_click={(e) => this.deleteContactInfo(e)} />
           </div>
+        </div>
       );
 
     } else {
       return (
-        <div className="col profile-segment-info-column">
-          <p className="profile-segment-delete-contact-info-paragraph">You have not provided any contact information, and will not be egible to win prizes.</p>
-          <p className="profile-segment-delete-contact-info-paragraph">Press the button below to enter your information and sign up for the contest.</p>
-          <div className="profile-segment-button-wrapper">
-            <button className="profile-segment-button profile-segment-contact-info-button" onClick={(e) => this.doContact(e)}>Provide contact info</button>
+        <div>
+          <p>You have not provided any contact information, and will not be egible to win prizes.</p>
+          <p>Press the button below to enter your information and sign up for the contest.</p>
+          <div>
+            <Button text="Provide contact info" on_click={(e) => this.doContact(e)} />
           </div>
         </div>
       )
@@ -46,7 +47,7 @@ class ProfileSegment extends React.Component {
     let storage = window.localStorage;
     let identity = storage.getItem("identity");
     let confirmation = window.confirm("Are you sure you want to delete your contact information?");
-    
+
     if (confirmation) {
       let xhr = new XMLHttpRequest();
       xhr.open("DELETE", `/api/contactinfo/${identity}`, true);
@@ -55,7 +56,7 @@ class ProfileSegment extends React.Component {
         if (xhr.readyState === 4) {
           if (xhr.status === 204) {
             let storage = window.localStorage;
-            storage.setItem("contactinfo", false);      
+            storage.setItem("contactinfo", false);
 
             this.setState({
               contactInfo: false
@@ -75,25 +76,30 @@ class ProfileSegment extends React.Component {
 
   doContact() {
     this.setAppState({
-      activity : Activity.CONTACT,
+      activity: Activity.CONTACT,
       prevActivity: Activity.PROFILE
     });
   }
 
   returnToStart() {
     this.setAppState({
-      activity : Activity.START
+      activity: Activity.START
     });
   }
 
   render() {
 
-    return(
+    return (
       <div className="profile-segment-wrapper col">
         <h1 className="profile-segment-header">Profile</h1>
         {this.getContactInfoParagraph()}
-        <div className="profile-segment-button-wrapper">
-          <button className="profile-segment-button profile-segment-return-button" onClick={() => this.returnToStart()}>Return</button>
+        <div>
+          <Button
+            text="Return"
+            variant="tertiary"
+            icon_position="left"
+            icon="chevron_left"
+            on_click={() => this.returnToStart()} />
         </div>
       </div>
     );

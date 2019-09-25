@@ -1,60 +1,53 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import './styles/StartSegment.css';
+import React, { useState } from "react";
+import "./styles/StartSegment.css";
+import { Input, Button, FormSet, FormLabel, Space } from "dnb-ui-lib";
 
 import Activity from "../classes/Activity";
 
-class StartSegment extends React.Component {
-  constructor(props) {
-    super(props);
+const StartSegment = ({ setAppState }) => {
 
-    this.setAppState = props.stateSetter;
-    this.state = {}
-  }
+  const [inputError, setInputError] = useState(null);
 
-  registerAndGoToActivity(activity) {
+  function registerAndGoToActivity(activity) {
     let storage = window.localStorage;
 
-    let name = document.querySelector(".name-input").value;
+    let name = document.querySelector("#name-input").value;
     if (name.length < 3) {
-      this.markWrongInput();
+      markWrongInput();
     } else {
       storage.setItem("name", name);
-      this.goToActivity(activity);
+      goToActivity(activity);
     }
   }
 
-  markWrongInput() {
-    let input = document.querySelector(".name-input");
-    input.style['box-shadow'] = "0px 0px 0px 3px red";
+  function markWrongInput() {
+    setInputError("Please enter a valid nickname");
   }
 
-  doChocolateRegistration() {
+  function doChocolateRegistration() {
     let storage = window.localStorage;
 
     let identity = storage.getItem("identity");
-    let name = document.querySelector(".name-input").value
+    let name = document.querySelector("#name-input").value
     let quizId = "hvlquizchocolate";
 
     if (name.length < 3) {
-      this.markWrongInput();
+      markWrongInput();
     } else {
       storage.setItem("name", name);
       let registrated = storage.getItem("chocolateRegistrationId");
 
       if (registrated) {
-        this.setAppState({
-          activity : Activity.CHOCOLATE
+        setAppState({
+          activity: Activity.CHOCOLATE
         });
-
       } else {
-        
-        this.doRegistrationRequest(identity, name, quizId);
+        doRegistrationRequest(identity, name, quizId);
       }
     }
   }
 
-  doRegistrationRequest(identity, name, quizId) {
+  function doRegistrationRequest(identity, name, quizId) {
     let storage = window.localStorage;
 
     let registrationRequest = {
@@ -71,12 +64,12 @@ class StartSegment extends React.Component {
         if (xhr.status === 201) {
           let registrationId = xhr.responseText;
           storage.setItem("chocolateRegistrationId", registrationId);
-          this.getChocolateQuestion(quizId, registrationId);
+          getChocolateQuestion(quizId, registrationId);
 
         } else {
           console.error(xhr);
-          this.setAppState({
-            activity : Activity.CHOCOLATE
+          setAppState({
+            activity: Activity.CHOCOLATE
           });
         }
       }
@@ -87,7 +80,7 @@ class StartSegment extends React.Component {
     xhr.send(JSON.stringify(registrationRequest));
   }
 
-  getChocolateQuestion(quizId) {
+  function getChocolateQuestion(quizId) {
 
     let storage = window.localStorage;
 
@@ -99,8 +92,8 @@ class StartSegment extends React.Component {
           let quiz = JSON.parse(xhr.responseText);
           storage.setItem("chocolateQuiz", JSON.stringify(quiz));
 
-          this.setAppState({
-            activity : Activity.CHOCOLATE
+          setAppState({
+            activity: Activity.CHOCOLATE
           });
 
         } else {
@@ -114,31 +107,33 @@ class StartSegment extends React.Component {
     xhr.send();
   }
 
-  goToActivity(activity) {
-    this.setAppState({
+  function goToActivity(activity) {
+    setAppState({
       activity
     });
   }
 
-  render() {
-    let storage = window.localStorage;
 
-    let name = storage.getItem("name") || "";
+  let storage = window.localStorage;
 
-    return(
-        <div className="start-segment-wrapper col">
-          <h1 className="start-segment-header">Code Quiz</h1>
-          <p className="difficulty-paragraph">Choose a nickname for the leaderboards:</p>
-          <input className="name-input" type="text" defaultValue={name} placeholder="nickname"></input>
-          <p className="difficulty-paragraph">Choose your activity:</p>
-          <button className="start-segment-button" onClick={(e) => this.registerAndGoToActivity(Activity.SELECT)}>Code Quiz</button>
-          <button className="start-segment-button" onClick={(e) => this.doChocolateRegistration()}>Chocolate Challenge</button>
-          <button className="start-segment-button profile-button" onClick={(e) => this.goToActivity(Activity.PROFILE)}>My profile</button>
-        </div>
-    );
-  }
+  let name = storage.getItem("name") || "";
 
-  
+  return (
+    <div className="start-segment-wrapper col">
+      <h1 className="start-segment-header">Code Quiz</h1>
+      <FormSet>
+        <FormLabel for_id="name-input" direction="vertical">Choose a nickname for the leaderboards:</FormLabel>
+        <Input id="name-input" value={name} placeholder="Nickname" stretch="true" size="medium" on_change={({ value }) => storage.setItem('name', value)} status={inputError} />
+      </FormSet>
+      <Space top="1rem" bottom="1rem" />
+      <FormSet direction="vertical">
+        <FormLabel direction="vertical">Choose your activity:</FormLabel>
+        <Button text="Code Quiz" on_click={(e) => registerAndGoToActivity(Activity.SELECT)} />
+        <Button text="Chocolate Challenge" on_click={(e) => doChocolateRegistration()} />
+        <Button text="My profile" on_click={(e) => goToActivity(Activity.PROFILE)} />
+      </FormSet>
+    </div>
+  );
 }
 
 export default StartSegment;

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { Button } from "dnb-ui-lib";
 import './styles/QuizSelectSegment.css';
 
 import Activity from "../classes/Activity";
@@ -30,7 +30,7 @@ class QuizSelectSegment extends React.Component {
 
     let identity = storage.getItem("identity");
     this.doRegistrationRequest(identity, name, quizId);
-    
+
   }
 
   doRegistrationRequest(identity, name, quizId) {
@@ -72,7 +72,7 @@ class QuizSelectSegment extends React.Component {
         if (xhr.status === 200) {
           let quiz = JSON.parse(xhr.responseText);
           this.setAppState({
-            activity : Activity.QUESTION,
+            activity: Activity.QUESTION,
             questions: this.shuffle(quiz.questions),
             registration: registrationId
           });
@@ -107,19 +107,31 @@ class QuizSelectSegment extends React.Component {
 
   render() {
 
-    return(
+    return (
       <div className="start-segment-wrapper col">
         <h1 className="start-segment-header">Code Quiz</h1>
         <p className="difficulty-paragraph">Choose your difficulty:</p>
-        <button className="start-segment-button easy-button" value="hvlquizeasy" onClick={(e) => this.startQuiz(e)}>EASY</button>
-        <button className="start-segment-button hard-button" value="hvlquizhard" onClick={(e) => this.startQuiz(e)}>HARD</button>
-        <button className="start-segment-button leaderboard-button" onClick={(e) => this.goToActivity(Activity.LEADERBOARD)}>Leaderboard</button>
-        <button className="start-segment-button return-button" onClick={(e) => this.goToActivity(Activity.START)}>Return</button>
+        <div>
+          <Button id="easy-button" variant="signal" text="EASY" value="hvlquizeasy" on_click={({ event }) => this.startQuiz(event)} />
+        </div>
+        <div>
+          <Button id="hard-button" variant="signal" text="HARD" value="hvlquizhard" on_click={({ event }) => this.startQuiz(event)} />
+        </div>
+        <div>
+          <Button text="Leaderboard" on_click={(e) => this.goToActivity(Activity.LEADERBOARD)} />
+        </div>
+        <div>
+          <Button
+            text="Return"
+            variant="tertiary"
+            icon_position="left"
+            icon="chevron_left"
+            on_click={(e) => this.goToActivity(Activity.START)}
+            disabled={false} />
+        </div>
       </div>
     );
   }
-
-  
 }
 
 export default QuizSelectSegment;

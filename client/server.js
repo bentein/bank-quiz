@@ -9,5 +9,5 @@ app.use(express.static('dist'))
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
 
 function log(message) {
-  if(doLog) console.log(message);
+  if (doLog) console.log(message);
 }
